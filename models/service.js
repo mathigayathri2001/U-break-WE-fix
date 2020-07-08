@@ -3,16 +3,12 @@ const Schema = mongoose.Schema;
 
 const serviceSchema = new Schema({
     id: {
-        type:Number 
-        
+        type:Number        
       },
       name: {
-        type: String
-        
-      },
-  
+        type: String       
+      }, 
 });
-
 const Service= mongoose.model("Service", serviceSchema);
 
 module.exports = Service;
