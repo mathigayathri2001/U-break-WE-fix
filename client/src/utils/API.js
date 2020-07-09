@@ -26,5 +26,25 @@ export default {
   //logout user
   logout: function() {
     return axios.post("/api/user/logout");
-  }
+  },
+  // Gets all handymen
+  getHandyman: function() {
+    return axios.get("/api/handyman/");
+  },
+  // Gets the user with the given id
+  getHandyman: function(id) {
+  return axios.get("/api/handyman/" + id);
+  },
+  // Deletes the user with the given id
+  deleteHandyman: function(id) {
+  return axios.delete("/api/handyman/" + id);
+  },
+  // Saves a user to the database
+  saveHandyman: function(handymanData) {
+  return axios.post("/api/handyman/", handymanData);
+  },
+  // login handyman
+  // login: function(handymanData) {
+  //   return axios.post("/api/handyman/login", handymanData);
+  // },
 };
