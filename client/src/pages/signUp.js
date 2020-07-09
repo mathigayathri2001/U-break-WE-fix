@@ -89,7 +89,7 @@ export default function SignUp() {
       }
     ).then((res) => {
       console.log("user created");
-    setRedirect("/")
+    setRedirect("/login")
     })
     .catch(error => {
       console.log(error)
