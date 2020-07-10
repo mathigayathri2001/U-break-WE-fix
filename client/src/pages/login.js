@@ -1,5 +1,5 @@
 //Imports
-import React, { useState } from 'react';
+import React, { useState, useContext} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -14,7 +14,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { Redirect } from 'react-router-dom';
-import API from '../utils/API'
+import API from '../utils/API';
+import { AuthContext } from '../utils/auth-context';
 
 
 //Styling
@@ -85,6 +86,8 @@ export default function SignInSide(props) {
 
   };
 
+  const auth = useContext(AuthContext);
+
   //Password Hook
   const [passwordText, setPasswordText] = useState("");
 
@@ -106,7 +109,7 @@ export default function SignInSide(props) {
     console.log('handleSubmit')
 
     API.login({
-      userName: usernameText,
+      email: usernameText,
       password: passwordText
     })
       .then(response => {
@@ -114,7 +117,7 @@ export default function SignInSide(props) {
         console.log(response)
         if (response.status === 200) {
           // update App.js state
-          props.updateUser(
+         // props.updateUser(
           //   {
           //   // loggedIn: true,
           //   // userName: response.data.userName,
@@ -123,8 +126,9 @@ export default function SignInSide(props) {
           
           // }
           
-          response.data
-          )
+          // response.data
+          // )
+          auth.login(response.data.userId,response.data.token);
           // update the state to redirect to home
           setRedirect(
             '/home'
