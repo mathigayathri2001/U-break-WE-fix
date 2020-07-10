@@ -15,6 +15,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Api from "../utils/API";
 import {Redirect} from "react-router-dom";
+import GoogleMaps from "../components/Location/index"
 
 //Styling
 const useStyles = makeStyles((theme) => ({
@@ -197,7 +198,7 @@ export default function SignUp() {
                 autoComplete="current-phoneNumber"
               />
             </Grid>
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
@@ -209,7 +210,8 @@ export default function SignUp() {
                 onChange={handleInputChangeLocation}
                 autoComplete="current-location"
               />
-            </Grid>
+            </Grid> */}
+            <Grid item xs={12}><GoogleMaps/></Grid>
            
           </Grid>
           <Button
