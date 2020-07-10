@@ -1,5 +1,5 @@
 //Imports
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext} from "react";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -15,6 +15,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Api from "../utils/API";
 import {Redirect} from "react-router-dom";
+import { AuthContext } from '../utils/auth-context';
 
 //Styling
 const useStyles = makeStyles((theme) => ({
@@ -47,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
 //SignUp component
 export default function SignUp() {
   const classes = useStyles();
+  const auth = useContext(AuthContext);
 
   //Redirect hook
   const [redirect, setRedirect] = useState("");
@@ -55,7 +57,7 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   
 
-  //handle input change for username 
+  //handle input change for user email
   const handleInputChangeE = (event) => {
     setEmail(event.target.value);
     console.log(email);
@@ -89,6 +91,8 @@ export default function SignUp() {
       }
     ).then((res) => {
       console.log("user created");
+      console.log(res.data.token);
+      auth.login(res.data.userId,res.data.token);
     setRedirect("/login")
     })
     .catch(error => {
