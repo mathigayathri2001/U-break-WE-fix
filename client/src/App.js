@@ -11,15 +11,18 @@ import { AuthContext } from './utils/auth-context';
 function App() {
   const [token, setToken] = useState(false);
   const [userId, setUserId] = useState(false);
+  const [handymanId, setHandymanId] = useState(false);
 
   const login = useCallback((uid, token) => {
     setToken(token);
     setUserId(uid);
+    setHandymanId(uid);
   }, []);
 
   const logout = useCallback(() => {
     setToken(null);
     setUserId(null);
+    setHandymanId(null);
   }, []);
 
   return (
@@ -29,6 +32,7 @@ function App() {
         isLoggedIn: !!token,
         token: token,
         userId: userId,
+        handymanId: handymanId,
         login: login,
         logout: logout
       }}
