@@ -41,9 +41,9 @@ export default {
   },
   // Saves a user to the database
   saveHandyman: function(handymanData) {
-  return axios.post("/api/handyman/", handymanData);
+  return axios.post("/api/handyman/signup", handymanData);
   },
-  // login handyman
+  //login handyman
   // login: function(handymanData) {
   //   return axios.post("/api/handyman/login", handymanData);
   // },

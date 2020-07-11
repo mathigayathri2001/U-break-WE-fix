@@ -1,5 +1,5 @@
 //Imports
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext} from "react";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -16,7 +16,7 @@ import Container from '@material-ui/core/Container';
 import Api from "../utils/API";
 import {Redirect} from "react-router-dom";
 import GoogleMaps from "../components/Location/index"
-
+import { AuthContext } from '../utils/auth-context';
 //Styling
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -48,6 +48,8 @@ const useStyles = makeStyles((theme) => ({
 //SignUp component
 export default function SignUp() {
   const classes = useStyles();
+  const auth = useContext(AuthContext);
+
 
   //Redirect hook
   const [redirect, setRedirect] = useState("");
@@ -92,7 +94,7 @@ export default function SignUp() {
 
 
         //location hook
-        const [location, setLocation] = useState("");
+       const [location, setLocation] = useState("");
 
         //Handle input change for location
         const handleInputChangeLocation = (event) => {
@@ -105,12 +107,15 @@ export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("clicked")
+    console.log(name + " " + email + " " + phoneNumber);
     Api.saveHandyman(
       {
       name,email, password, phoneNumber, location
       }
     ).then((res) => {
       console.log("handyman created");
+      console.log(res.data.token);
+      auth.login(res.data.handymanId,res.data.token);
     setRedirect("/login")
     })
     .catch(error => {
@@ -148,18 +153,6 @@ export default function SignUp() {
                 autoFocus
               />
             </Grid>
-            {/* <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                onChange={handleInputChangeLast}
-                autoComplete="lname"
-              />
-            </Grid> */}
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -198,7 +191,7 @@ export default function SignUp() {
                 autoComplete="current-phoneNumber"
               />
             </Grid>
-            {/* <Grid item xs={12}>
+            <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
@@ -210,8 +203,8 @@ export default function SignUp() {
                 onChange={handleInputChangeLocation}
                 autoComplete="current-location"
               />
-            </Grid> */}
-            <Grid item xs={12}><GoogleMaps/></Grid>
+            </Grid>
+            {/* <Grid item xs={12}><GoogleMaps/></Grid> */}
            
           </Grid>
           <Button
