@@ -1,120 +1,120 @@
 //Imports
-import React, { useEffect, useState, useContext } from "react";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import Link from "@material-ui/core/Link";
-import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import Api from "../utils/API";
-import { Redirect } from "react-router-dom";
-import GoogleMaps from "../components/Location/index";
-import { AuthContext } from "../utils/auth-context";
-import SearchBar from "../components/Searchbar";
+import React, { useEffect, useState, useContext } from 'react'
+import Avatar from '@material-ui/core/Avatar'
+import Button from '@material-ui/core/Button'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import TextField from '@material-ui/core/TextField'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Checkbox from '@material-ui/core/Checkbox'
+import Link from '@material-ui/core/Link'
+import Grid from '@material-ui/core/Grid'
+import Box from '@material-ui/core/Box'
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
+import Typography from '@material-ui/core/Typography'
+import { makeStyles } from '@material-ui/core/styles'
+import Container from '@material-ui/core/Container'
+import Api from '../utils/API'
+import { Redirect } from 'react-router-dom'
+import GoogleMaps from '../components/Location/index'
+import { AuthContext } from '../utils/auth-context'
+import SearchBar from '../components/Searchbar'
 //Styling
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.secondary.main
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(3)
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(3, 0, 2)
   },
   links: {
-    "&:hover": {
-      color: "black",
+    '&:hover': {
+      color: 'black'
     },
-    color: "black",
-    textDecoration: "none",
-  },
-}));
+    color: 'black',
+    textDecoration: 'none'
+  }
+}))
 
 //SignUp component
-export default function SignUp() {
-  const classes = useStyles();
-  const auth = useContext(AuthContext);
+export default function SignUp () {
+  const classes = useStyles()
+  const auth = useContext(AuthContext)
 
   //Redirect hook
-  const [redirect, setRedirect] = useState("");
+  const [redirect, setRedirect] = useState('')
 
   //Hook for username
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('')
 
   //handle input change for username
-  const handleInputChangeE = (event) => {
-    setEmail(event.target.value);
-    console.log(email);
-  };
+  const handleInputChangeE = event => {
+    setEmail(event.target.value)
+    console.log(email)
+  }
 
   //Password hook
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState('')
 
   //Handle input change for password
-  const handleInputChangeP = (event) => {
-    setPassword(event.target.value);
-    console.log(password);
-  };
+  const handleInputChangeP = event => {
+    setPassword(event.target.value)
+    console.log(password)
+  }
 
   //firstName hook
-  const [name, setName] = useState("");
+  const [name, setName] = useState('')
 
   //Handle input change for first name
-  const handleInputChangename = (event) => {
-    setName(event.target.value);
-    console.log(name);
-  };
+  const handleInputChangename = event => {
+    setName(event.target.value)
+    console.log(name)
+  }
 
   //phoneNumber hook
-  const [phoneNumber, setPhone] = useState("");
+  const [phoneNumber, setPhone] = useState('')
 
   //Handle input change for phoneNumber
-  const handleInputChangePhone = (event) => {
-    setPhone(event.target.value);
-    console.log(phoneNumber);
-  };
+  const handleInputChangePhone = event => {
+    setPhone(event.target.value)
+    console.log(phoneNumber)
+  }
 
   //location hook
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState('')
 
   //Handle input change for location
-  const handleInputChangeLocation = (event) => {
-    setLocation(event.target.innerText);
-    console.log(location);
-  };
+  const handleInputChangeLocation = event => {
+    setLocation(event.target.innerText)
+    console.log(location)
+  }
 
-  const [servicelist, setService] = useState([]);
+  const [servicelist, setService] = useState([])
 
   useEffect(() => {
     // For demonstration purposes, we mock an API call.
-    Api.getService().then((res) => {
-      setService(res.data);
-      console.log(res.data);
-      console.log("service list:");
-    });
-  }, []);
-  const service = [];
-  const onServiceChange = (ev) => {
+    Api.getService().then(res => {
+      setService(res.data)
+      console.log(res.data)
+      console.log('service list:')
+    })
+  }, [])
+  const service = []
+  const onServiceChange = ev => {
     if (ev.target.checked) {
-      service.push(Number(ev.target.value));
+      service.push(Number(ev.target.value))
     }
-  };
+  }
 
   // const servicesOptions = servicelist.map((service) => {
   //   return (
@@ -132,11 +132,11 @@ export default function SignUp() {
   // });
 
   //Saving person in database
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("clicked");
-    console.log(name + " " + email + " " + phoneNumber);
-    console.log(service);
+  const handleSubmit = event => {
+    event.preventDefault()
+    console.log('clicked')
+    console.log(name + ' ' + email + ' ' + phoneNumber)
+    console.log(service)
     Api.saveHandyman({
       name,
       email,
@@ -145,82 +145,82 @@ export default function SignUp() {
       location,
       service
     })
-      .then((res) => {
-        console.log("handyman created");
-        console.log(res.data.token);
-        auth.login(res.data.handymanId, res.data.token);
-        setRedirect("/login");
+      .then(res => {
+        console.log('handyman created')
+        console.log(res.data.token)
+        auth.login(res.data.handymanId, res.data.token)
+        setRedirect('/login')
       })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+      .catch(error => {
+        console.log(error)
+      })
+  }
 
   //If redirect is true redirect, or else show signup page
   if (redirect) {
-    return <Redirect to={{ pathname: redirect }} />;
+    return <Redirect to={{ pathname: redirect }} />
   } else {
     return (
-      <Container component="main" maxWidth="xs">
+      <Container component='main' maxWidth='xs'>
         <CssBaseline />
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component='h1' variant='h5'>
             Are you a Handyman? Join our family!
           </Typography>
           <form className={classes.form} noValidate>
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
-                  autoComplete="name"
-                  name="name"
-                  variant="outlined"
+                  autoComplete='name'
+                  name='name'
+                  variant='outlined'
                   required
                   fullWidth
-                  id="name"
-                  label=" Name"
+                  id='name'
+                  label=' Name'
                   onChange={handleInputChangename}
                   autoFocus
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  variant="outlined"
+                  variant='outlined'
                   required
                   fullWidth
-                  id="email"
-                  label="email"
-                  name="email"
+                  id='email'
+                  label='email'
+                  name='email'
                   onChange={handleInputChangeE}
-                  autoComplete="email"
+                  autoComplete='email'
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  variant="outlined"
+                  variant='outlined'
                   required
                   fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
+                  name='password'
+                  label='Password'
+                  type='password'
+                  id='password'
                   onChange={handleInputChangeP}
-                  autoComplete="current-password"
+                  autoComplete='current-password'
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  variant="outlined"
+                  variant='outlined'
                   required
                   fullWidth
-                  name="phoneNumber"
-                  label="phoneNumber"
-                  type="phoneNumber"
-                  id="phoneNumber"
+                  name='phoneNumber'
+                  label='phoneNumber'
+                  type='phoneNumber'
+                  id='phoneNumber'
                   onChange={handleInputChangePhone}
-                  autoComplete="current-phoneNumber"
+                  autoComplete='current-phoneNumber'
                 />
               </Grid>
               {/* <Grid item xs={12}>
@@ -236,7 +236,12 @@ export default function SignUp() {
                   autoComplete="current-location"
                 />
               </Grid> */}
-              <Grid item xs={12}><GoogleMaps items={location} onChange={handleInputChangeLocation}/></Grid>
+              <Grid item xs={12}>
+                <GoogleMaps
+                  items={location}
+                  onChange={handleInputChangeLocation}
+                />
+              </Grid>
               <Grid item xs={12}>
                 <p>Choose the servics you can provide:</p>
                 <SearchBar items={servicelist} onChange={onServiceChange} />
@@ -247,18 +252,22 @@ export default function SignUp() {
                </Grid>    */}
             </Grid>
             <Button
-              type="submit"
+              type='submit'
               fullWidth
-              variant="contained"
-              color="primary"
+              variant='contained'
+              color='primary'
               className={classes.submit}
               onClick={handleSubmit}
             >
               Sign Up
             </Button>
-            <Grid container justify="space-around">
+            <Grid container justify='space-around'>
               <Grid item>
-                <Link href="/login" variant="body2" className={classes.links}>
+                <Link
+                  href='/handylogin'
+                  variant='body2'
+                  className={classes.links}
+                >
                   Already have an account? Login here
                 </Link>
               </Grid>
@@ -267,6 +276,6 @@ export default function SignUp() {
         </div>
         <Box mt={8}>{/* <Copyright /> */}</Box>
       </Container>
-    );
+    )
   }
 }
