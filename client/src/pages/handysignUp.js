@@ -95,7 +95,7 @@ export default function SignUp() {
 
   //Handle input change for location
   const handleInputChangeLocation = (event) => {
-    setLocation(event.target.value);
+    setLocation(event.target.innerText);
     console.log(location);
   };
 
@@ -223,7 +223,7 @@ export default function SignUp() {
                   autoComplete="current-phoneNumber"
                 />
               </Grid>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <TextField
                   variant="outlined"
                   required
@@ -235,8 +235,8 @@ export default function SignUp() {
                   onChange={handleInputChangeLocation}
                   autoComplete="current-location"
                 />
-              </Grid>
-              {/* <Grid item xs={12}><GoogleMaps/></Grid> */}
+              </Grid> */}
+              <Grid item xs={12}><GoogleMaps items={location} onChange={handleInputChangeLocation}/></Grid>
               <Grid item xs={12}>
                 <p>Choose the servics you can provide:</p>
                 <SearchBar items={servicelist} onChange={onServiceChange} />
