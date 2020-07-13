@@ -32,7 +32,7 @@ export default {
     return axios.get("/api/handyman/");
   },
   // Gets the user with the given id
-  getHandyman: function(id) {
+  getHandymans: function(id) {
   return axios.get("/api/handyman/" + id);
   },
   // Deletes the user with the given id
@@ -47,4 +47,8 @@ export default {
   // login: function(handymanData) {
   //   return axios.post("/api/handyman/login", handymanData);
   // },
+
+  getService: function() {
+    return axios.get("/api/service/");
+  },
 };

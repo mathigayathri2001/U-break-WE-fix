@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const serviceSchema = new Schema({
-  id:{type:Number,required:true,unique:true},
+  rsn:{type:Number,required:true,unique:true},
   name: { type: String, required: true }
  
 });
@@ -10,3 +10,4 @@ const serviceSchema = new Schema({
 const Service= mongoose.model("Service", serviceSchema);
 
 module.exports = Service;
+
