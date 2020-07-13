@@ -52,7 +52,7 @@ const signup = async (req, res, next)  => {
   }
 
 
-const {name, email, password, phoneNumber, location} = req.body;
+const {name, email, password, phoneNumber, location,service} = req.body;
 
 let existingHandyman;
 try {
@@ -81,7 +81,8 @@ const createdHandyman = new Handyman({
   email, 
   password:hashedPassword,
   phoneNumber,
-  location
+  location,
+  service
 })
 
 try{

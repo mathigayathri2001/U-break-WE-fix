@@ -2,10 +2,13 @@ const path = require("path");
 const router = require("express").Router();
 const userRoutes = require("./user");
 const handymanRoutes = require("./handyman");
+const serviceRoutes = require("./service");
+
 
 // Book routes
 router.use("/user", userRoutes);
 router.use("/handyman", handymanRoutes);
+router.use("/service", serviceRoutes);
 
 // Google Routes
 // router.use("/google", googleRoutes);
