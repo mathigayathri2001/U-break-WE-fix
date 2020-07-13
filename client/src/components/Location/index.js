@@ -29,7 +29,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function GoogleMaps() {
+export default function GoogleMaps({onChange}) {
+// export default function GoogleMaps(onChange) {
   const classes = useStyles();
   const [value, setValue] = React.useState(null);
   const [inputValue, setInputValue] = React.useState('');
@@ -103,21 +104,30 @@ export default function GoogleMaps() {
       includeInputInList
       filterSelectedOptions
       value={value}
+    //  onChange={onChange}
       onChange={(event, newValue) => {
         setOptions(newValue ? [newValue, ...options] : options);
+        // onChange(event)
         setValue(newValue);
       }}
       onInputChange={(event, newInputValue) => {
+        console.log('google')       
+      onChange(event)
         setInputValue(newInputValue);
-      }}
+      }} 
+      
       renderInput={(params) => (
         <TextField {...params} label="Add a location" variant="outlined" fullWidth />
       )}
       renderOption={(option) => {
         const matches = option.structured_formatting.main_text_matched_substrings;
+        // console.log(matches)
+        // console.log (option.structured_formatting.main_text)
         const parts = parse(
           option.structured_formatting.main_text,
-          matches.map((match) => [match.offset, match.offset + match.length]),
+          // matches.map((match) => [match.offset, match.offset + match.length]),
+          matches.map((match) => [match.offset, match.offset]),
+          
         );
 
         return (
@@ -133,7 +143,7 @@ export default function GoogleMaps() {
               ))}
 
               <Typography variant="body2" color="textSecondary">
-                {option.structured_formatting.secondary_text}
+                {option.structured_formatting.secondary_text}                           
               </Typography>
             </Grid>
           </Grid>
