@@ -1,51 +1,69 @@
-/* eslint-disable no-use-before-define */
+// /* eslint-disable no-use-before-define */
 
-import React from 'react';
-import Checkbox from '@material-ui/core/Checkbox';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
-// import service from './service.json';
-// import Button from '@material-ui/core/Button';
+import React, { useEffect} from 'react'
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Input from "@material-ui/core/Input";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import ListItemText from "@material-ui/core/ListItemText";
+import Select from "@material-ui/core/Select";
+import Checkbox from "@material-ui/core/Checkbox";
 
-const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
-const checkedIcon = <CheckBoxIcon fontSize="small" />;
+const useStyles = makeStyles(theme => ({
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 350,
+    maxWidth: 500
+  },
+}));
 
+function getStyles(name, personName, theme) {
+  return {
+    fontWeight:
+      personName.indexOf(name) === -1
+        ? theme.typography.fontWeightRegular
+        : theme.typography.fontWeightMedium
+  };
+}
 
+export default function MultipleSelect({items,onChange}) {
+  const classes = useStyles();
+  const theme = useTheme();
+  const [serviceName, setServiceName] = React.useState([]);
 
+  const handleChange = event => {
+    //console.log(event.target.value);
+    setServiceName(event.target.value);
+  };
 
+  useEffect(() => {
+    console.log(serviceName);
+    onChange(serviceName);
+  });
 
-export default function CheckboxesTags({items, onChange}) {
   return (
-    <Autocomplete
-      multiple
-      id="checkboxes-tags-demo"
-      options={items}
-      disableCloseOnSelect
-      getOptionLabel={(option) => option.name}
-      renderOption={(option, { selected }) => (
-        <React.Fragment>
-          <Checkbox
-            icon={icon}
-            checkedIcon={checkedIcon}
-            style={{ marginRight: 8 }}
-            checked={selected}
-            // value={option["_id"]}
-            value={option["rsn"]}
-            onChange={onChange}
-          />
-          {option.name}
-       
-        </React.Fragment>
-        
-      )}
-     
-     
-      style={{ width: 500 }}
-      renderInput={(params) => (
-        <TextField {...params} variant="outlined" label="Checkboxes" placeholder="Favorites" />
-      )}
-    />
+    <div>
+      <FormControl className={classes.formControl}>
+        <InputLabel id="demo-mutiple-checkbox-label">ServiceList</InputLabel>
+        <Select
+          labelId="demo-mutiple-checkbox-label"
+          id="demo-mutiple-checkbox"
+          multiple
+          value={serviceName}
+          onChange={handleChange}
+          input={<Input />}
+          renderValue={selected => selected.join(", ")}
+          //MenuProps={MenuProps}
+        >
+          {items.map(item => (
+            <MenuItem key={item._id} value={item.name}>
+              <Checkbox checked={serviceName.indexOf(item.name) > -1} />
+              <ListItemText primary={item.name} />
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+    </div>
   );
 }
