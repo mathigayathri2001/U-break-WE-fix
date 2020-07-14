@@ -17,7 +17,7 @@ const handymanSchema = new Schema({
     max: 10
   },
   location: { type: String, required: true, trim: true },
-  service:[]
+  service:[{type:String}]
 })
 
 const Handyman = mongoose.model('Handyman', handymanSchema)
