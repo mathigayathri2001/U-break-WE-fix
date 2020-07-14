@@ -4,8 +4,6 @@ import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import TextField from '@material-ui/core/TextField'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import Checkbox from '@material-ui/core/Checkbox'
 import Link from '@material-ui/core/Link'
 import Grid from '@material-ui/core/Grid'
 import Box from '@material-ui/core/Box'
@@ -109,27 +107,12 @@ export default function SignUp () {
       console.log('service list:')
     })
   }, [])
-  const service = []
-  const onServiceChange = ev => {
-    if (ev.target.checked) {
-      service.push(Number(ev.target.value))
-    }
-  }
+//const service = [];
+  const [service, setServiceN] = React.useState([]);
 
-  // const servicesOptions = servicelist.map((service) => {
-  //   return (
-  //     <label htmlFor={service.rsn}>
-  //       <input
-  //         onChange={onServiceChange}
-  //         id={service.rsn}
-  //         type="checkbox"
-  //         name="services[]"
-  //         value={service.rsn}
-  //       />
-  //       {service.name}
-  //     </label>
-  //   );
-  // });
+  const onServiceChange = event => {
+      setServiceN(event);
+  }
 
   //Saving person in database
   const handleSubmit = event => {
@@ -243,13 +226,9 @@ export default function SignUp () {
                 />
               </Grid>
               <Grid item xs={12}>
-                <p>Choose the servics you can provide:</p>
+                <p>Choose the services you can provide:</p>
                 <SearchBar items={servicelist} onChange={onServiceChange} />
               </Grid>
-              {/* <Grid item xs={12}>
-               <p>Choose the services you can provide:</p> 
-                     {servicesOptions} 
-               </Grid>    */}
             </Grid>
             <Button
               type='submit'
