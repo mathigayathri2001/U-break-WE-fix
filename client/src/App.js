@@ -7,6 +7,7 @@ import Nav from './components/Navbar'
 import { AuthContext } from './utils/auth-context'
 import Handylogin from './components/Handylogin'
 import Userlogin from './components/Userlogin'
+import HandySearch from './pages/handysearch'
 
 // import Searchbar from './components/Searchbar';
 // import Books from "./pages/Books";
@@ -50,6 +51,7 @@ function App () {
           <Route exact path='/handysignUp' component={HandySignup} />
           <Route exact path='/handylogin' component={Handylogin} />
           <Route exact path='/userlogin' component={Userlogin} />
+          <Route exact path='/handysearch' component={HandySearch} />
         </Router>
       </AuthContext.Provider>
     </div>
