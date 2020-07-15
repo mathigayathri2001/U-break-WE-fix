@@ -1,6 +1,10 @@
 //Imports
 import axios from 'axios'
 
+const urlParameters = data => {
+  return "?" + Object.keys(data).map(key => key + '=' + data[key]).join('&');
+}
+
 //front end routes for user
 export default {
   // Gets all user
@@ -32,8 +36,10 @@ export default {
     return axios.get('/api/handyman/')
   },
   // Gets the user with the given id
-  getHandymans: function (id) {
-    return axios.get('/api/handyman/' + id)
+  getHandymans: function(query) {
+    console.log('client api query')
+    console.log(query)
+  return axios.get("/api/handyman" + urlParameters(query));
   },
   // Deletes the user with the given id
   deleteHandyman: function (id) {
