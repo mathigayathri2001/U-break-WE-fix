@@ -17,4 +17,6 @@ router.post('/signup', handymanController.signup);
 
 router.post('/login', handymanController.login);
 
+router.get('/:id',handymanController.findHandyManById);
+
 module.exports = router;

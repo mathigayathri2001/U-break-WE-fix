@@ -5,39 +5,16 @@ const jwt = require('jsonwebtoken');
 
 const HttpError = require('../models/http-error');
 const Handyman = require('../models/handyman');
-// // Defining methods for the bookController
-// module.exports = {
-//   findAll: function(req, res) {
-//     db.Handyman.find(req.query)
-//       // .populate("service")
-//       .then(dbHandyman => res.json(dbHandyman))
-//       .catch(err => res.status(422).json(err));
-//   },
-//   // findById: function(req, res) {
-//   //   db.Book.findById(req.params.id)
-//   //     .then(dbBook => res.json(dbBook))
-//   //     .catch(err => res.status(422).json(err));
-//   // },
-//   create: function(req, res) {
-//     db.Handyman.create(req.body)
-//       .then(dbHandyman => res.json(dbHandyman))
-//       .catch(err => res.status(422).json(err));
-//   },
-//   // update: function(req, res) {
-//   //   db.Book.findOneAndUpdate({ id: req.params.id }, req.body)
-//   //     .then(dbBook => res.json(dbBook))
-//   //     .catch(err => res.status(422).json(err));
-//   // },
-//   // remove: function(req, res) {
-//   //   db.Book.findById(req.params.id)
-//   //     .then(dbBook => dbBook.remove())
-//   //     .then(dbBook => res.json(dbBook))
-//   //     .catch(err => res.status(422).json(err));
-//   // }
-// };
+
 
 const findAll = async (req, res, next) => {
   db.Handyman.find(req.query)
+    // .populate("service")
+    .then(dbHandyman => res.json(dbHandyman))
+    .catch(err => res.status(422).json(err))
+}
+const findHandyManById = async (req, res, next) => {
+  db.Handyman.findById(req.params.id)
     // .populate("service")
     .then(dbHandyman => res.json(dbHandyman))
     .catch(err => res.status(422).json(err))
@@ -179,3 +156,4 @@ const login = async (req, res, next) => {
 exports.signup = signup;
 exports.login = login;
 exports.findAll = findAll;
+exports.findHandyManById = findHandyManById;
