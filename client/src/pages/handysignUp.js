@@ -93,7 +93,8 @@ export default function SignUp () {
 
   //Handle input change for location
   const handleInputChangeLocation = event => {
-    setLocation(event.target.innerText)
+    //console.log(event);
+    setLocation(event);
     console.log(location)
   }
 
