@@ -36,10 +36,11 @@ export default {
     return axios.get('/api/handyman/')
   },
   // Gets the user with the given id
-  getHandymans: function(query) {
+  getHandymans: function(query,userData) {
     console.log('client api query')
     console.log(query)
-  return axios.get("/api/handyman" + urlParameters(query));
+    //console.log(userData)
+  return axios.get("/api/handyman" + urlParameters(query),{params: {service: userData}});
   },
   // Deletes the user with the given id
   deleteHandyman: function (id) {

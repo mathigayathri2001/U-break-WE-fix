@@ -83,13 +83,15 @@ export default function SignUp () {
   }
 
 
-  const [location, setLocation] = useState('')
+  //const [location, setLocation] = useState('')
+  var location = '';
 
   //Handle input change for location
   const handleInputChangeLocation = event => {
-    // console.log(event.target);
-    // console.log(event.target.innerText)
-    setLocation(event.target.innerText)
+    console.log(event);
+    //console.log(event.target.value)
+    //setLocation(event)
+    location = event;
    
     console.log(location)
   
@@ -104,10 +106,14 @@ export default function SignUp () {
     // const locationa = 'Nepean'
     
 
-    Api.getHandymans({location: location}).then(res => {
-        console.log('handyman found')
+    Api.getHandymans({location: location},service).then(res => {
         console.log(res.data)
-        auth.login(res.data.handymanId, res.data.token);
+        if(res.data.length !== 0) {
+          console.log('handyman found');
+           auth.login(res.data.handymanId, res.data.token);
+        } else {
+          console.log('no handyman found');
+        }
         //setRedirect("/home");
       })
       .catch(error => {
