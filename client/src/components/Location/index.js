@@ -40,7 +40,9 @@ export default function GoogleMaps({onChange}) {
   if (typeof window !== 'undefined' && !loaded.current) {
     if (!document.querySelector('#google-maps')) {
       loadScript(
-        'https://maps.googleapis.com/maps/api/js?key=AIzaSyAqYqXhGCOhBR81giDtW815Xj4fRF5Ps40&libraries=places',
+        // 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAqYqXhGCOhBR81giDtW815Xj4fRF5Ps40&libraries=places',
+         'https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ3Po_WqtwTu9Q0ITpztj8stUZZBgQd7Y&libraries=places',
+        // 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=Vict&types=(cities)&language=pt_BR&key=AIzaSyAJ3Po_WqtwTu9Q0ITpztj8stUZZBgQd7Y',
         document.querySelector('head'),
         'google-maps',
       );
@@ -92,7 +94,8 @@ export default function GoogleMaps({onChange}) {
       active = false;
     };
   }, [value, inputValue, fetch]);
-
+  console.log(value)
+  console.log(inputValue)
   return (
     <Autocomplete
       id="google-map-demo"
@@ -112,7 +115,8 @@ export default function GoogleMaps({onChange}) {
       }}
       onInputChange={(event, newInputValue) => {
         console.log('google')       
-      onChange(event)
+        //console.log(newInputValue)
+        onChange(newInputValue)
         setInputValue(newInputValue);
       }} 
       
