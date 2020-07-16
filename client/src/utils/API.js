@@ -24,7 +24,7 @@ export default {
     return axios.post('/api/user/signup', userData)
   },
   // login user
-  login: function (userData) {
+  userLogin: function (userData) {
     return axios.post('/api/user/login', userData)
   },
   //logout user
@@ -51,7 +51,7 @@ export default {
     return axios.post('/api/handyman/signup', handymanData)
   },
   //login handyman
-  userLogin: function (handymanData) {
+  handymanLogin: function (handymanData) {
     return axios.post('/api/handyman/login', handymanData)
   },
 

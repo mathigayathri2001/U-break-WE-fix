@@ -134,7 +134,7 @@ export default function SignUp () {
         console.log('handyman created')
         console.log(res.data.token)
         auth.login(res.data.handymanId, res.data.token)
-        setRedirect('/login')
+        setRedirect('/handylogin')
       })
       .catch(error => {
         console.log(error)
