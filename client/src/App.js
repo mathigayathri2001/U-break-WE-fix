@@ -8,10 +8,7 @@ import { AuthContext } from './utils/auth-context'
 import Handylogin from './components/Handylogin'
 import Userlogin from './components/Userlogin'
 import HandySearch from './pages/handysearch'
-
-// import Searchbar from './components/Searchbar';
-// import Books from "./pages/Books";
-// import Nav from "./components/Nav";
+import Home from './pages/homepage'
 
 function App () {
   const [token, setToken] = useState(false)
@@ -43,9 +40,7 @@ function App () {
         }}
       >
         <Router>
-          {/* < SignUp /> */}
-          <Nav />
-          {/* <Searchbar/> */}
+          <Route exact path='/' component={Home}/>
           <Route exact path='/signup' component={SignUp} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/handysignUp' component={HandySignup} />

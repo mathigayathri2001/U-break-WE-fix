@@ -19,6 +19,7 @@ import SearchBar from '../components/Searchbar'
 import HandyResult from '../components/HandyResult'
 import { List } from '../components/List'
 import Card from '../components/Card'
+import Logout from '../components/Logout'
 //Styling
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -93,7 +94,7 @@ export default function SignUp () {
       .then(res => {
         console.log(res.data)
         if (res.data.length !== 0) {
-          console.log('handyman found')
+          console.log(res.data.length + ' handyman found')
           auth.login(res.data.handymanId, res.data.token)
           setHandymanLists(res.data)
         } else {
@@ -111,65 +112,70 @@ export default function SignUp () {
     return <Redirect to={{ pathname: redirect }} />
   } else {
     return (
-      <Container component='main' maxWidth='xs'>
-        <CssBaseline />
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component='h1' variant='h5'>
-            Find a Handyman
-          </Typography>
-          <form className={classes.form} noValidate>
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <p>Choose the servics you can provide:</p>
-                <SearchBar items={servicelist} onChange={onServiceChange} />
+      <div>
+        <Logout />
+        <Container component='main' maxWidth='xs'>
+          <CssBaseline />
+          <div className={classes.paper}>
+            <Avatar className={classes.avatar}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component='h1' variant='h5'>
+              Find a Handyman
+            </Typography>
+            <form className={classes.form} noValidate>
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <h3>
+                    <p>Choose the services you are looking for:</p>
+                  </h3>
+                  <SearchBar items={servicelist} onChange={onServiceChange} />
+                </Grid>
+                <Grid item xs={12}>
+                  <GoogleMaps
+                    items={location}
+                    onChange={handleInputChangeLocation}
+                  />
+                </Grid>
               </Grid>
-              <Grid item xs={12}>
-                <GoogleMaps
-                  items={location}
-                  onChange={handleInputChangeLocation}
-                />
+              <Button
+                type='submit'
+                fullWidth
+                variant='contained'
+                color='primary'
+                className={classes.submit}
+                onClick={handleSubmit}
+              >
+                Search
+              </Button>
+            </form>
+            <Grid>
+              <Grid item xs={12} style={{ width: 1000 }}>
+                <Card>
+                  {handymanlists.length ? (
+                    <List>
+                      {handymanlists.map(handymanlist => (
+                        <HandyResult
+                          key={handymanlist.id}
+                          email={handymanlist.email}
+                          location={handymanlist.location}
+                          name={handymanlist.name}
+                          phoneNumber={handymanlist.phoneNumber}
+                          service={handymanlist.service.join(' ,')}
+                          Button={() => <button>Submit Request</button>}
+                        />
+                      ))}
+                    </List>
+                  ) : (
+                    <h2 className='text-center'>{message}</h2>
+                  )}
+                </Card>
               </Grid>
             </Grid>
-            <Button
-              type='submit'
-              fullWidth
-              variant='contained'
-              color='primary'
-              className={classes.submit}
-              onClick={handleSubmit}
-            >
-              Search
-            </Button>
-          </form>
-          <Grid>
-            <Grid item xs={12} style={{ width: 1000 }}>
-              <Card>
-                {handymanlists.length ? (
-                  <List>
-                    {handymanlists.map(handymanlist => (
-                      <HandyResult
-                        key={handymanlist.id}
-                        email={handymanlist.email}
-                        location={handymanlist.location}
-                        name={handymanlist.name}
-                        phoneNumber={handymanlist.phoneNumber}
-                        service={handymanlist.service.join(' ,')}
-                        Button={() => <button>Submit Request</button>}
-                      />
-                    ))}
-                  </List>
-                ) : (
-                  <h2 className='text-center'>{message}</h2>
-                )}
-              </Card>
-            </Grid>
-          </Grid>
-        </div>
-        <Box mt={8}>{/* <Copyright /> */}</Box>
-      </Container>
+          </div>
+          <Box mt={8}>{/* <Copyright /> */}</Box>
+        </Container>
+      </div>
     )
   }
 }

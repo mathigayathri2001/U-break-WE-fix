@@ -14,6 +14,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import { Link, Redirect } from 'react-router-dom'
+import Nav from '../components/Navbar'
 // import API from '../utils/API';
 // import { AuthContext } from '../utils/auth-context';
 
@@ -66,6 +67,7 @@ export default function Login (props) {
   //Copyright
   function Copyright () {
     return (
+      
       <Typography
         className={classes.links}
         variant='body2'
@@ -79,6 +81,7 @@ export default function Login (props) {
         {new Date().getFullYear()}
         {'.'}
       </Typography>
+     
     )
   }
 
@@ -87,6 +90,8 @@ export default function Login (props) {
   //   return <Redirect to={{ pathname: redirect }} />
   // } else if(wrongInfo){
   return (
+    <div>
+      <Nav/>
     <Grid container component='main' className={classes.root}>
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
@@ -131,5 +136,6 @@ export default function Login (props) {
         </div>
       </Grid>
     </Grid>
+    </div>
   )
 }
