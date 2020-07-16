@@ -13,8 +13,8 @@ import Checkbox from "@material-ui/core/Checkbox";
 const useStyles = makeStyles(theme => ({
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 350,
-    maxWidth: 500
+    minWidth: 395,
+    maxWidth: 500 
   },
 }));
 
@@ -44,7 +44,7 @@ export default function MultipleSelect({items,onChange}) {
 
   return (
     <div>
-      <FormControl className={classes.formControl}>
+      <FormControl className={classes.formControl}>     
         <InputLabel id="demo-mutiple-checkbox-label">ServiceList</InputLabel>
         <Select
           labelId="demo-mutiple-checkbox-label"

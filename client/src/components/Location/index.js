@@ -99,7 +99,7 @@ export default function GoogleMaps({onChange}) {
   return (
     <Autocomplete
       id="google-map-demo"
-      style={{ width: 300 }}
+      style={{ width: 395 }}
       getOptionLabel={(option) => (typeof option === 'string' ? option : option.description)}
       filterOptions={(x) => x}
       options={options}
@@ -136,10 +136,10 @@ export default function GoogleMaps({onChange}) {
 
         return (
           <Grid container alignItems="center">
-            <Grid item>
+            <Grid item xs={12}>
               <LocationOnIcon className={classes.icon} />
             </Grid>
-            <Grid item xs>
+            <Grid item xs={12}>
               {parts.map((part, index) => (
                 <span key={index} style={{ fontWeight: part.highlight ? 700 : 400 }}>
                   {part.text}
