@@ -94,7 +94,7 @@ export default function SignUp () {
         console.log('user created')
         console.log(res.data.token)
         auth.login(res.data.userId, res.data.token)
-        setRedirect('/handysearch')
+        setRedirect('/userlogin')
       })
       .catch(error => {
         console.log(error)

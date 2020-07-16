@@ -112,7 +112,7 @@ export default function SignInSide (props) {
     event.preventDefault()
     console.log('handleSubmit')
 
-    API.login({
+    API.handymanLogin({
       email: usernameText,
       password: passwordText
     })
@@ -134,7 +134,7 @@ export default function SignInSide (props) {
           // )
           auth.login(response.data.userId, response.data.token)
           // update the state to redirect to home
-          setRedirect('/home')
+          setRedirect('/')
         }
       })
       .catch(error => {
