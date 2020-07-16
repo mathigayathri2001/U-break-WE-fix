@@ -16,6 +16,7 @@ import Container from '@material-ui/core/Container'
 import Api from '../utils/API'
 import { Redirect } from 'react-router-dom'
 import { AuthContext } from '../utils/auth-context'
+import Nav from '../components/Navbar'
 
 //Styling
 const useStyles = makeStyles(theme => ({
@@ -105,6 +106,8 @@ export default function SignUp () {
     return <Redirect to={{ pathname: redirect }} />
   } else {
     return (
+      <div>
+        <Nav />
       <Container component='main' maxWidth='xs'>
         <CssBaseline />
         <div className={classes.paper}>
@@ -192,6 +195,7 @@ export default function SignUp () {
         </div>
         <Box mt={8}>{/* <Copyright /> */}</Box>
       </Container>
+      </div>
     )
   }
 }

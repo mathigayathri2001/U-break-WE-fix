@@ -16,6 +16,7 @@ import { Redirect } from 'react-router-dom'
 import GoogleMaps from '../components/Location/index'
 import { AuthContext } from '../utils/auth-context'
 import SearchBar from '../components/Searchbar'
+import Nav from '../components/Navbar'
 //Styling
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -145,6 +146,8 @@ export default function SignUp () {
     return <Redirect to={{ pathname: redirect }} />
   } else {
     return (
+      <div>
+         <Nav />
       <Container component='main' maxWidth='xs'>
         <CssBaseline />
         <div className={classes.paper}>
@@ -256,6 +259,7 @@ export default function SignUp () {
         </div>
         <Box mt={8}>{/* <Copyright /> */}</Box>
       </Container>
+      </div>
     )
   }
 }
