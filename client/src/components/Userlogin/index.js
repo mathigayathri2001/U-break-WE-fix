@@ -60,7 +60,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 //Signin component
-export default function SignInSide (props) {
+export default function Userlogin (props) {
   const classes = useStyles()
 
   //Copyright
@@ -112,7 +112,7 @@ export default function SignInSide (props) {
     event.preventDefault()
     console.log('handleSubmit')
 
-    API.login({
+    API.userLogin({
       email: usernameText,
       password: passwordText
     })
@@ -120,21 +120,9 @@ export default function SignInSide (props) {
         console.log('login response: ')
         console.log(response)
         if (response.status === 200) {
-          // update App.js state
-          // props.updateUser(
-          //   {
-          //   // loggedIn: true,
-          //   // userName: response.data.userName,
-          //   // firstName: response.data.firstName,
-          //   // lastName: response.data.lastName
-
-          // }
-
-          // response.data
-          // )
           auth.login(response.data.userId, response.data.token)
           // update the state to redirect to home
-          setRedirect('/home')
+          setRedirect('/handysearch')
         }
       })
       .catch(error => {
