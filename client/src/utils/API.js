@@ -51,7 +51,7 @@ export default {
     return axios.post('/api/handyman/signup', handymanData)
   },
   //login handyman
-  login: function (handymanData) {
+  userLogin: function (handymanData) {
     return axios.post('/api/handyman/login', handymanData)
   },
 
