@@ -3,12 +3,14 @@ const router = require("express").Router();
 const userRoutes = require("./user");
 const handymanRoutes = require("./handyman");
 const serviceRoutes = require("./service");
+const serviceorderRoutes = require("./serviceorder");
 
 
 // Book routes
 router.use("/user", userRoutes);
 router.use("/handyman", handymanRoutes);
 router.use("/service", serviceRoutes);
+router.use("/serviceorder", serviceorderRoutes);
 
 // Google Routes
 // router.use("/google", googleRoutes);
