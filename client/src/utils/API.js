@@ -42,10 +42,10 @@ export default {
     //console.log(userData)
   return axios.get("/api/handyman" + urlParameters(query),{params: {service: userData}});
   },
-  // Deletes the user with the given id
-  deleteHandyman: function (id) {
-    return axios.delete('/api/handyman/' + id)
-  },
+  // // Deletes the user with the given id
+  // deleteHandyman: function (id) {
+  //   return axios.delete('/api/handyman/' + id)
+  // },
   // Saves a user to the database
   saveHandyman: function (handymanData) {
     return axios.post('/api/handyman/signup', handymanData)

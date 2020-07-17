@@ -9,6 +9,7 @@ import Handylogin from './components/Handylogin'
 import Userlogin from './components/Userlogin'
 import HandySearch from './pages/handysearch'
 import Home from './pages/homepage'
+import Order from './pages/serviceorder'
 
 function App () {
   const [token, setToken] = useState(false)
@@ -47,6 +48,7 @@ function App () {
           <Route exact path='/handylogin' component={Handylogin} />
           <Route exact path='/userlogin' component={Userlogin} />
           <Route exact path='/handysearch' component={HandySearch} />
+          <Route exact path='/serviceorder' component={Order} />
         </Router>
       </AuthContext.Provider>
     </div>
