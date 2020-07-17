@@ -2,7 +2,8 @@
 module.exports = {
   User: require("./user"),
   Handyman: require("./handyman"),
-  Service: require("./service")
+  Service: require("./service"),
+  Serviceorder:require("./serviceorder")
   
 };
 

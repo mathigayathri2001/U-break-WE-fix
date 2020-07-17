@@ -57,5 +57,13 @@ export default {
 
   getService: function () {
     return axios.get('/api/service/')
-  }
+  },
+  // // Saves an requested handmany into the database
+saveserviceOrder: function(serviceorderData) {
+  console.log('clientside api')
+  console.log(serviceorderData)
+  return axios.post("/api/serviceorder/", serviceorderData);
+},
+
+
 }
