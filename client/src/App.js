@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import SignUp from './pages/signUp'
 import Login from './pages/login'
@@ -18,27 +18,69 @@ function App () {
   const [slist, setSlist] = useState([])
 
   const ulogin = useCallback((uid, token) => {
-    setToken(token)
-    setUserId(uid)
+    setToken(token);
+    setUserId(uid);
+    localStorage.setItem(
+      'userData',
+      JSON.stringify({ userId: uid, token: token })
+    );
   }, [])
+
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem('userData'));
+    if (storedData && storedData.token) {
+      ulogin(storedData.userId, storedData.token);
+    }
+  }, [ulogin]);
 
   const hlogin = useCallback((uid, token) => {
-    setToken(token)
-    setHandymanId(uid)
+    setToken(token);
+    setHandymanId(uid);
+    localStorage.setItem(
+      'handymanData',
+      JSON.stringify({ handymanId: uid, token: token })
+    );
   }, [])
 
-  const logout = useCallback(() => {
-    setToken(null)
-    setUserId(null)
-    setHandymanId(null)
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem('handymanData'));
+    if (storedData && storedData.token) {
+      hlogin(storedData.userId, storedData.token);
+    }
+  }, [hlogin]);
+
+  const ulogout = useCallback(() => {
+    setToken(null);
+    setUserId(null);
+    setLocation(null);
+    setSlist(null);
+    localStorage.removeItem('userData');
+    localStorage.removeItem('userlocation');
+  }, [])
+
+  const hlogout = useCallback(() => {
+    setToken(null);
+    setHandymanId(null);
+    localStorage.removeItem('handymanData');   
   }, [])
 
   const setloc = useCallback((location) => {
-    setLocation(location)
+    setLocation(location);
+    localStorage.setItem(
+      'userlocation',
+      JSON.stringify({ location: location })
+    );
   }, [])
 
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem('userlocation'));
+    if (storedData && storedData.location) {
+      setloc(storedData.location);
+    }
+  }, [setloc]);
+
   const setslist = useCallback((slist) => {
-    setSlist(slist)
+    setSlist(slist);
   }, [])
 
   return (
@@ -53,7 +95,8 @@ function App () {
           slist : slist,
           ulogin: ulogin,
           hlogin: hlogin,
-          logout: logout,
+          ulogout: ulogout,
+          hlogout: hlogout,
           setloc: setloc,
           setslist : setslist,
         }}

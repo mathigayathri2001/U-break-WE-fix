@@ -7,8 +7,6 @@ const serviceRequestSchema = new Schema({
   phoneNumber: {
     type: String,
     required: true,
-    trim: true,
-    unique: true,
     max: 10
   },
   location: { type: String },

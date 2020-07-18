@@ -1,5 +1,5 @@
 //Imports
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -10,6 +10,7 @@ import HomeIcon from '@material-ui/icons/Home';
 // import Api from "../../utils/API"
 // import FavoriteIcon from '@material-ui/icons/Favorite';
 import Tooltip from '@material-ui/core/Tooltip';
+import { AuthContext } from '../../utils/auth-context'
 
 //styling 
 const useStyles = makeStyles((theme) => ({
@@ -43,8 +44,16 @@ const useStyles = makeStyles((theme) => ({
 //Nav bar component
 export default function SearchAppBar() {
   const classes = useStyles();
+  const auth = useContext(AuthContext);
 
   const [redirect, setRedirect] = useState("")
+  
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log("Logout functionality");
+    auth.ulogout();
+    setRedirect('/login')
+  }
 
   //If yu click logout, redirect the page, if not show the current page
   if (redirect) {
@@ -64,7 +73,7 @@ export default function SearchAppBar() {
               <Tooltip title="View Request"><Link className={classes.links} to="/viewRequest" > viewRequest </Link></Tooltip>
             </IconButton>
             <IconButton>
-            <Tooltip title="Log Out"><Link className={classes.links} to="/">Logout</Link></Tooltip>
+            <Tooltip title="Log Out" onClick={handleSubmit}><Link className={classes.links} to="/">Logout</Link></Tooltip>
             </IconButton>
           </Toolbar>
         </AppBar>
