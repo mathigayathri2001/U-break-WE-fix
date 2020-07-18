@@ -79,16 +79,17 @@ export default function ServiceRequestForm () {
     console.log(description)
   }
  
-  let uid,location;
+  let uid,hid,location;
 
   //Saving person in database
   const handleSubmit = event => {
     event.preventDefault()
     //console.log('clicked')
 
-    let uname,uemail;
-
     uid = auth.userId;
+    console.log(auth.servicehid);
+    hid = auth.servicehid;
+    //hid = auth.handymanId;
     // console.log(uid);
     // console.log(location)
     // location = auth.location;
@@ -96,33 +97,22 @@ export default function ServiceRequestForm () {
     // console.log(phoneNumber);
     // console.log(description)
     // console.log(auth.location);
-    // console.log(auth.slist);
 
-    Api.getUserById(uid)
-    .then( res => {
-        uname = res.data.name;
-        uemail = res.data.email;
-        console.log(uname + ' ' + uemail); 
-
-        Api.saveserviceRequest({
-          uname,
-          uemail,
-          phoneNumber,
-          location,
-          service,
-          description
-        })
-          .then(resp => {
-            console.log('service request created');
-            setRedirect('/handysearch')
-          })
-          .catch(error => {
-            console.log(error)
-          })
+    Api.saveserviceRequest({
+      uid,
+      hid,
+      phoneNumber,
+      location,
+      service,
+      description
     })
-    .catch(error => {
-        console.log(error);
-    })
+      .then(resp => {
+        console.log('service request created');
+        setRedirect('/handysearch')
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   //If redirect is true redirect, or else show signup page
