@@ -46,14 +46,14 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function ServiceRequestForm () {
-  const classes = useStyles()
-  const auth = useContext(AuthContext)
+  const classes = useStyles();
+  const auth = useContext(AuthContext);
 
   //Redirect hook
   const [redirect, setRedirect] = useState('')
 
   //firstName hook
-  const [service, setSname] = useState('')
+  const [service, setSname] = useState('');
 
   //Handle input change for first name
   const handleInputChangesname = event => {
@@ -129,6 +129,9 @@ export default function ServiceRequestForm () {
   if (redirect) {
     return <Redirect to={{ pathname: redirect }} />
   } else {
+    if(!auth.isLoggedIn) {
+      setRedirect('/login');
+    }
   return (
     <div>
       <Logout />
