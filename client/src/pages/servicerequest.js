@@ -78,30 +78,28 @@ export default function ServiceRequestForm () {
     setSD(event.target.value)
     console.log(description)
   }
-
-  // const [uname, setUname] = useState();
-  // const [uemail, setUemail] = useState();
-
+ 
+  let uid,location;
 
   //Saving person in database
   const handleSubmit = event => {
     event.preventDefault()
-    console.log('clicked')
+    //console.log('clicked')
 
-    let location,uname,uemail;
+    let uname,uemail;
 
-    location = auth.location;
-    console.log(service)
-    console.log(phoneNumber)
-    console.log(description)
-    console.log(auth.location)
-    console.log(auth.slist)
-    console.log(auth.userId);
+    uid = auth.userId;
+    // console.log(uid);
+    // console.log(location)
+    // location = auth.location;
+    // console.log(service);
+    // console.log(phoneNumber);
+    // console.log(description)
+    // console.log(auth.location);
+    // console.log(auth.slist);
 
-    Api.getUserById(auth.userId)
+    Api.getUserById(uid)
     .then( res => {
-        // setUname(res.data.name);
-        // setUemail(res.data.email);
         uname = res.data.name;
         uemail = res.data.email;
         console.log(uname + ' ' + uemail); 
@@ -115,10 +113,8 @@ export default function ServiceRequestForm () {
           description
         })
           .then(resp => {
-            console.log('service request created')
-            //console.log(res.data)
-            //auth.ulogin(res.data.userId, res.data.token)
-            //setRedirect('/handysearch')
+            console.log('service request created');
+            setRedirect('/handysearch')
           })
           .catch(error => {
             console.log(error)
@@ -127,27 +123,12 @@ export default function ServiceRequestForm () {
     .catch(error => {
         console.log(error);
     })
-
-    //setRedirect('/handysearch')
-    // Api.saveHandyman({
-    //   name,
-    //   email,
-    //   password,
-    //   phoneNumber,
-    //   location,
-    //   service
-    // })
-    //   .then(res => {
-    //     console.log('handyman created')
-    //     console.log(res.data.token)
-    //     auth.login(res.data.handymanId, res.data.token)
-    //     setRedirect('/handylogin')
-    //   })
-    //   .catch(error => {
-    //     console.log(error)
-    //   })
   }
 
+  //If redirect is true redirect, or else show signup page
+  if (redirect) {
+    return <Redirect to={{ pathname: redirect }} />
+  } else {
   return (
     <div>
       <Logout />
@@ -222,4 +203,5 @@ export default function ServiceRequestForm () {
       </Container>
     </div>
   )
+  }
 }

@@ -61,8 +61,8 @@ export default function SignUp () {
   useEffect(() => {
     Api.getService().then(res => {
       setService(res.data)
-      console.log(res.data)
-      console.log('service list:')
+      // console.log(res.data)
+      // console.log('service list:')
     })
   }, [])
   //const service = [];
@@ -94,13 +94,15 @@ export default function SignUp () {
       .then(res => {
         console.log(res.data)
         if (res.data.length !== 0) {
-          console.log(res.data.length + ' handyman found')
+          console.log(res.data.length + ' handyman found');
+          setMessage(res.data.length + ' handyman found');
           //auth.login(res.data.handymanId, res.data.token)
-          setHandymanLists(res.data)
+          setHandymanLists(res.data);
           auth.setloc(location);
           auth.setslist(res.data[0].service);
         } else {
-          console.log('no handyman found')
+          console.log('no handyman found');
+          setMessage('No Handyman found')
         }
         //setRedirect("/home");
       })
