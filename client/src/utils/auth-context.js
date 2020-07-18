@@ -4,6 +4,7 @@ export const AuthContext = createContext({
   isLoggedIn: false,
   userId: null,
   handymanId: null,
+  servicehid: null,
   token: null,
   location: null,
   slist: [],
@@ -13,4 +14,5 @@ export const AuthContext = createContext({
   hlogout: () => {},
   setloc: () => {},
   setslist: () => {},
+  setshid: () => {},
 });

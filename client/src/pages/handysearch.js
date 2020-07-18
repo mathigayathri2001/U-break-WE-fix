@@ -103,6 +103,7 @@ export default function SignUp () {
           setHandymanLists(res.data);
           auth.setloc(location);
           auth.setslist(res.data[0].service);
+          auth.setshid(res.data[0]._id);
         } else {
           console.log('no handyman found');
           setMessage('No Handyman found')

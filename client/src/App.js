@@ -14,6 +14,7 @@ function App () {
   const [token, setToken] = useState(false)
   const [userId, setUserId] = useState()
   const [handymanId, setHandymanId] = useState(false)
+  const [servicehid, setShId] = useState(false)
   const [location, setLocation] = useState();
   const [slist, setSlist] = useState([])
 
@@ -83,6 +84,10 @@ function App () {
     setSlist(slist);
   }, [])
 
+  const setshid = useCallback((servicehid) => {
+    setShId(servicehid);
+  }, [])
+
   return (
     <div>
       <AuthContext.Provider
@@ -91,6 +96,7 @@ function App () {
           token: token,
           userId: userId,
           handymanId: handymanId,
+          servicehid: servicehid,
           location: location,
           slist : slist,
           ulogin: ulogin,
@@ -99,6 +105,7 @@ function App () {
           hlogout: hlogout,
           setloc: setloc,
           setslist : setslist,
+          setshid: setshid,
         }}
       >
         <Router>

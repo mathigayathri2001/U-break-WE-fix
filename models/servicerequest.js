@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const serviceRequestSchema = new Schema({
-  uname: { type: String},
-  uemail: { type: String},
+  uid: { type: String},
+  hid: { type: String},
   phoneNumber: {
     type: String,
     required: true,
