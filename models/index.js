@@ -3,7 +3,6 @@ module.exports = {
   User: require("./user"),
   Handyman: require("./handyman"),
   Service: require("./service"),
-  Serviceorder:require("./serviceorder")
-  
+  ServiceRequest:require("./servicerequest")
 };
 

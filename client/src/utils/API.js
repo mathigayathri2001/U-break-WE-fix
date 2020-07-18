@@ -12,7 +12,7 @@ export default {
     return axios.get('/api/user/')
   },
   // Gets the user with the given id
-  getusers: function (id) {
+  getUserById: function (id) {
     return axios.get('/api/user/' + id)
   },
   // Deletes the user with the given id
@@ -59,10 +59,10 @@ export default {
     return axios.get('/api/service/')
   },
   // // Saves an requested handmany into the database
-saveserviceOrder: function(serviceorderData) {
+saveserviceRequest: function(servicerequestData) {
   console.log('clientside api')
-  console.log(serviceorderData)
-  return axios.post("/api/serviceorder/", serviceorderData);
+  console.log(servicerequestData)
+  return axios.post("/api/servicerequest/add", servicerequestData);
 },
 
 

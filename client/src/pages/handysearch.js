@@ -77,9 +77,9 @@ export default function SignUp () {
 
   //Handle input change for location
   const handleInputChangeLocation = event => {
-    console.log(event)
-    location = event
-    console.log(location)
+    console.log(event);
+    location = event;
+    console.log(location);
   }
 
   const [handymanlists, setHandymanLists] = useState([])
@@ -95,8 +95,10 @@ export default function SignUp () {
         console.log(res.data)
         if (res.data.length !== 0) {
           console.log(res.data.length + ' handyman found')
-          auth.login(res.data.handymanId, res.data.token)
+          //auth.login(res.data.handymanId, res.data.token)
           setHandymanLists(res.data)
+          auth.setloc(location);
+          auth.setslist(res.data[0].service);
         } else {
           console.log('no handyman found')
         }
@@ -162,7 +164,7 @@ export default function SignUp () {
                           name={handymanlist.name}
                           phoneNumber={handymanlist.phoneNumber}
                           service={handymanlist.service.join(' ,')}
-                          Button={() =><Link to='/serviceorder'> <button>Submit Request</button></Link>} 
+                          Button={() =><Link to='/servicerequest'> <button>Submit Request</button></Link>} 
                           // Button={() => <button>Submit Request</button>} 
                         />
                       ))}
