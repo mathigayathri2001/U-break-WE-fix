@@ -69,6 +69,9 @@ export default function SignUp () {
   const [service, setServiceN] = React.useState([])
 
   const onServiceChange = event => {
+    if(!auth.isLoggedIn) {
+      setRedirect('/login');
+    }
     setServiceN(event)
   }
 

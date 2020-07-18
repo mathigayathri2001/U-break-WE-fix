@@ -49,13 +49,19 @@ function App () {
     }
   }, [hlogin]);
 
-  const logout = useCallback(() => {
+  const ulogout = useCallback(() => {
     setToken(null);
     setUserId(null);
+    setLocation(null);
+    setSlist(null);
     localStorage.removeItem('userData');
-    localStorage.removeItem('handymanData');
     localStorage.removeItem('userlocation');
+  }, [])
+
+  const hlogout = useCallback(() => {
+    setToken(null);
     setHandymanId(null);
+    localStorage.removeItem('handymanData');   
   }, [])
 
   const setloc = useCallback((location) => {
@@ -89,7 +95,8 @@ function App () {
           slist : slist,
           ulogin: ulogin,
           hlogin: hlogin,
-          logout: logout,
+          ulogout: ulogout,
+          hlogout: hlogout,
           setloc: setloc,
           setslist : setslist,
         }}

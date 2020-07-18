@@ -49,7 +49,7 @@ const useStyles = makeStyles(theme => ({
 //SignUp component
 export default function SignUp () {
   const classes = useStyles()
-  const auth = useContext(AuthContext)
+  const auth = useContext(AuthContext);
 
   //Redirect hook
   const [redirect, setRedirect] = useState('')

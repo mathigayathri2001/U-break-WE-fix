@@ -9,7 +9,8 @@ export const AuthContext = createContext({
   slist: [],
   ulogin: () => {},
   hlogin: () => {},
-  logout: () => {},
+  ulogout: () => {},
+  hlogout: () => {},
   setloc: () => {},
   setslist: () => {},
 });
