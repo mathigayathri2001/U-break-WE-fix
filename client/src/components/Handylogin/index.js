@@ -132,7 +132,7 @@ export default function SignInSide (props) {
 
           // response.data
           // )
-          auth.login(response.data.userId, response.data.token)
+          auth.hlogin(response.data.handymanId, response.data.token)
           // update the state to redirect to home
           setRedirect('/')
         }

@@ -93,7 +93,7 @@ export default function SignUp () {
       .then(res => {
         console.log('user created')
         console.log(res.data.token)
-        auth.login(res.data.userId, res.data.token)
+        auth.ulogin(res.data.userId, res.data.token)
         setRedirect('/userlogin')
       })
       .catch(error => {

@@ -120,7 +120,8 @@ export default function Userlogin (props) {
         console.log('login response: ')
         console.log(response)
         if (response.status === 200) {
-          auth.login(response.data.userId, response.data.token)
+          console.log(response.data.userId);
+          auth.ulogin(response.data.userId, response.data.token)
           // update the state to redirect to home
           setRedirect('/handysearch')
         }
