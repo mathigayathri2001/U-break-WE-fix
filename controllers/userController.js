@@ -25,6 +25,20 @@ const User = require('../models/user');
 //   // }
 // };
 
+const findUserById = async (req, res, next) => {
+  let found;
+  try {
+  found = await User.findById(req.params.id)
+  } catch(err) {
+    const error = new HttpError(
+      'Could not find UserById, please try again later.',
+      422
+    )
+    return next(error)
+  }
+  res.json(found)
+}
+
 const findAll = async (req, res, next) => {
   db.User.find(req.query)
     .then(dbUser => res.json(dbUser))
@@ -174,3 +188,4 @@ const login = async (req, res, next) => {
 exports.signup = signup;
 exports.login = login;
 exports.findAll = findAll;
+exports.findUserById = findUserById;
