@@ -11,7 +11,9 @@ const userController = require("../../controllers/userController");
 // //   .put(bookController.update)
 // //   .delete(bookController.remove);
 
-router.get('/',userController.findAll)
+router.get('/',userController.findAll);
+
+router.get('/:id', userController.findUserById);
 
 router.post('/signup', userController.signup);
 
