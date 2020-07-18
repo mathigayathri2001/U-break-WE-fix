@@ -3,22 +3,27 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import SignUp from './pages/signUp'
 import Login from './pages/login'
 import HandySignup from './pages/handysignUp'
-import Nav from './components/Navbar'
 import { AuthContext } from './utils/auth-context'
 import Handylogin from './components/Handylogin'
 import Userlogin from './components/Userlogin'
 import HandySearch from './pages/handysearch'
 import Home from './pages/homepage'
-import Order from './pages/serviceorder'
+import ServiceRequest from './pages/servicerequest'
 
 function App () {
   const [token, setToken] = useState(false)
-  const [userId, setUserId] = useState(false)
+  const [userId, setUserId] = useState()
   const [handymanId, setHandymanId] = useState(false)
+  const [location, setLocation] = useState();
+  const [slist, setSlist] = useState([])
 
-  const login = useCallback((uid, token) => {
+  const ulogin = useCallback((uid, token) => {
     setToken(token)
     setUserId(uid)
+  }, [])
+
+  const hlogin = useCallback((uid, token) => {
+    setToken(token)
     setHandymanId(uid)
   }, [])
 
@@ -26,6 +31,14 @@ function App () {
     setToken(null)
     setUserId(null)
     setHandymanId(null)
+  }, [])
+
+  const setloc = useCallback((location) => {
+    setLocation(location)
+  }, [])
+
+  const setslist = useCallback((slist) => {
+    setSlist(slist)
   }, [])
 
   return (
@@ -36,8 +49,13 @@ function App () {
           token: token,
           userId: userId,
           handymanId: handymanId,
-          login: login,
-          logout: logout
+          location: location,
+          slist : slist,
+          ulogin: ulogin,
+          hlogin: hlogin,
+          logout: logout,
+          setloc: setloc,
+          setslist : setslist,
         }}
       >
         <Router>
@@ -48,7 +66,7 @@ function App () {
           <Route exact path='/handylogin' component={Handylogin} />
           <Route exact path='/userlogin' component={Userlogin} />
           <Route exact path='/handysearch' component={HandySearch} />
-          <Route exact path='/serviceorder' component={Order} />
+          <Route exact path='/servicerequest' component={ServiceRequest} />
         </Router>
       </AuthContext.Provider>
     </div>
