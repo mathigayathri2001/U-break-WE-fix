@@ -103,7 +103,7 @@ export default function SignUp () {
           setHandymanLists(res.data);
           auth.setloc(location);
           auth.setslist(res.data[0].service);
-          auth.setshid(res.data[0]._id);
+          //auth.setshid(res.data[0]._id);
         } else {
           console.log('no handyman found');
           setMessage('No Handyman found')
@@ -114,6 +114,15 @@ export default function SignUp () {
         console.log(error)
       })
   }
+
+  const setHandyID = (hid) => {
+    //event.preventDefault()
+    console.log(hid)
+   auth.setshid(hid)
+     
+
+  }
+
 
   //If redirect is true redirect, or else show signup page
   if (redirect) {
@@ -170,8 +179,22 @@ export default function SignUp () {
                           name={handymanlist.name}
                           phoneNumber={handymanlist.phoneNumber}
                           service={handymanlist.service.join(' ,')}
-                          Button={() =><Link to='/servicerequest'> <button>Submit Request</button></Link>} 
-                          // Button={() => <button>Submit Request</button>} 
+                          //Button={() =><Link to='/servicerequest'> <button>Submit Request</button></Link>} 
+                          // Button={() => <button>Submit Request</button>}
+                          Button={() => (
+                            <Link to='/servicerequest'>
+                            <button
+                              onClick={() => setHandyID(handymanlist._id)
+                                // handycontext.email= handymanlist.email,
+                                //handycontext.name = handymanlist.name
+                             }
+                              
+                            >
+                              Service Request
+                            </button>
+                            </Link>
+
+                          )}
                         />
                       ))}
                     </List>
