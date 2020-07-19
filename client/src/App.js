@@ -10,6 +10,7 @@ import HandySearch from './pages/handysearch'
 import Home from './pages/homepage'
 import ServiceRequest from './pages/servicerequest'
 import ViewUserRequest from './pages/viewUserRequest'
+import ViewHandyRequest from './pages/viewHandyRequest'
 
 function App () {
   const [token, setToken] = useState(false)
@@ -119,6 +120,7 @@ function App () {
           <Route exact path='/handysearch' component={HandySearch} />
           <Route exact path='/servicerequest' component={ServiceRequest} />
           <Route exact path='/viewrequest' component={ViewUserRequest} />
+          <Route exact path='/viewhandyrequest' component={ViewHandyRequest} />
         </Router>
       </AuthContext.Provider>
     </div>

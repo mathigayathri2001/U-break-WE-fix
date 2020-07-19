@@ -134,7 +134,7 @@ export default function SignInSide (props) {
           // )
           auth.hlogin(response.data.handymanId, response.data.token)
           // update the state to redirect to home
-          setRedirect('/')
+          setRedirect('/viewHandyRequest')
         }
       })
       .catch(error => {
