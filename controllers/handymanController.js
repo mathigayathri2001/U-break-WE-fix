@@ -22,7 +22,6 @@ const Handyman = require('../models/handyman');
 // }
 
 const findAll = async (req, res, next) => {
-  console.log('finda all')
   var params = Object.assign({}, req.query);
   delete req.query.service;
 
@@ -81,24 +80,13 @@ const findAll = async (req, res, next) => {
 }
 
 const findHandyManById = async (req, res, next) => {
-  console.log('finda HandyMan by ID')
-  console.log(req.params.id);
+  let found;
+  //console.log(req.params.id);
   try {
-  let found = await Handyman.findById(req.params.id)
+  found = await Handyman.findById(req.params.id)
   } catch(err) {
     const error = new HttpError(
       'Could not findById, please try again later.',
-      422
-    )
-    return next(error)
-  }
-  let query = {$or:[{"service": "Electrical"}, {"service":"duct cleaning"}]};
-  console.log(query);
-  try {
-  found  = await Handyman.find(query)
-  } catch(err) {
-    const error = new HttpError(
-      'Could not find, please try again later.',
       422
     )
     return next(error)
@@ -113,7 +101,6 @@ const signup = async (req, res, next)  => {
       new HttpError('Invalid inputs passed, please check your data.', 422)
     )
   }
-
 
 const {name, email, password, phoneNumber, location,service} = req.body;
 
@@ -238,22 +225,8 @@ const login = async (req, res, next) => {
     token:token
   })
 }
-// const findHandyManUsingById = async (req, res, next) => {
-//   let found;
-//   try {
-//   found = await Handyman.findById(req.params.id)
-//   } catch(err) {
-//     const error = new HttpError(
-//       'Could not find UserById, please try again later.',
-//       422
-//     )
-//     return next(error)
-//   }
-//   res.json(found)
-// }
 
 exports.signup = signup;
 exports.login = login;
 exports.findAll = findAll;
 exports.findHandyManById = findHandyManById;
-// exports.findHandyManUsingById = findHandyManUsingById;

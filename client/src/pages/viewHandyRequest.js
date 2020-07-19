@@ -16,7 +16,7 @@ import { Link, Redirect } from 'react-router-dom'
 import GoogleMaps from '../components/Location/index'
 import { AuthContext } from '../utils/auth-context'
 import SearchBar from '../components/Searchbar'
-import ViewRequest from '../components/ViewRequest'
+import ViewHandyRequest from '../components/ViewHandyRequest'
 import { List } from '../components/List'
 import Card from '../components/Card'
 import Logout from '../components/Logout'
@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 //SignUp component
-export default function ViewUserRequest () {
+export default function ViewHRequest () {
   const classes = useStyles()
   const auth = useContext(AuthContext)
 
@@ -61,32 +61,32 @@ export default function ViewUserRequest () {
   const [message, setMessage] = useState('No request made')
 
   // let uname,uemail;
-  let uid = auth.userId
-  console.log(uid)
-  let hid
-  let hname, hemail
+  let hid = auth.handymanId
+  console.log(hid)
+  let uid
+  let uname, uemail
   let result
   let service
   let phoneNumber
 
   useEffect(() => {
-    Api.getuserview({uid : uid})
+    Api.gethandyview({hid : hid})
       .then(res => {
-        //console.log(res.data)
+        console.log(res.data)
         result = res.data
-        //console.log(result[0].hid)
-        hid = result[0].hid
+        console.log(result[0].uid)
+        uid = result[0].uid
         //console.log(result)
         if (res.data.length !== 0) {
-          setUserReqLists(res.data)
+            setHandyReqLists(res.data)
         } else {
-          console.log('no user request found')
+          console.log('no Handyman request found')
         }
         //console.log(hid)
-        Api.getHandymanById(hid)
+        Api.getUserById(uid)
           .then(res => {
             console.log(res.data)
-            setHandyReqLists(res.data)
+            setUserReqLists(res.data)
           })
           .catch(error => {
             console.log(error)
@@ -98,7 +98,7 @@ export default function ViewUserRequest () {
       })
   }, [])
 
-  console.log(userHandyLists)
+  console.log(userReqLists)
   //If redirect is true redirect, or else show signup page
   if (redirect) {
     return <Redirect to={{ pathname: redirect }} />
@@ -113,17 +113,17 @@ export default function ViewUserRequest () {
             <Grid>
               <Grid item xs={12} style={{ width: 1000 }}>
                 <Card>
-                  {userReqLists.length ? (
+                  {userHandyLists.length ? (
                     <List>
-                      {userReqLists.map(userReqList => (
-                        <ViewRequest
+                      {userHandyLists.map(userHandyList => (
+                        <ViewHandyRequest
                           // key={handymanlist.id}
-                          service={userReqList.service}
-                          description={userReqList.description}
-                          status={userReqList.status}
-                          hname={userHandyLists.name}
-                          hemail={userHandyLists.email}
-                          phoneNumber={userHandyLists.phoneNumber}
+                          service={userHandyList.service}
+                          description={userHandyList.description}
+                          status={userHandyList.status}
+                          uname={userReqLists.name}
+                          uemail={userReqLists.email}
+                          phoneNumber={userHandyList.phoneNumber}
                         />
                       ))}
                     </List>
