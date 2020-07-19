@@ -10,6 +10,7 @@ const handymanController = require("../../controllers/handymanController");
 // //   .get(bookController.findById)
 // //   .put(bookController.update)
 // //   .delete(bookController.remove);
+console.log('handyman server side api')
 
 router.get('/',handymanController.findAll)
 
@@ -18,5 +19,7 @@ router.post('/signup', handymanController.signup);
 router.post('/login', handymanController.login);
 
 router.get('/:id',handymanController.findHandyManById);
+
+// router.get('/:id', handymanController.findHandyManUsingById);
 
 module.exports = router;

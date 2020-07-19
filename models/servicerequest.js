@@ -11,7 +11,7 @@ const serviceRequestSchema = new Schema({
   },
   location: { type: String },
   service:{ type:String },
-  description: { type: String},
+  description: { type: String,unique:String},
   status : {type : String, default: 'Awaiting Approval'},
 });
 
