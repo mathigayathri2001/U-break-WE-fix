@@ -22,6 +22,7 @@ const Handyman = require('../models/handyman');
 // }
 
 const findAll = async (req, res, next) => {
+  console.log('finda all')
   var params = Object.assign({}, req.query);
   delete req.query.service;
 
@@ -80,6 +81,7 @@ const findAll = async (req, res, next) => {
 }
 
 const findHandyManById = async (req, res, next) => {
+  console.log('finda HandyMan by ID')
   console.log(req.params.id);
   try {
   let found = await Handyman.findById(req.params.id)
@@ -236,8 +238,22 @@ const login = async (req, res, next) => {
     token:token
   })
 }
+// const findHandyManUsingById = async (req, res, next) => {
+//   let found;
+//   try {
+//   found = await Handyman.findById(req.params.id)
+//   } catch(err) {
+//     const error = new HttpError(
+//       'Could not find UserById, please try again later.',
+//       422
+//     )
+//     return next(error)
+//   }
+//   res.json(found)
+// }
 
 exports.signup = signup;
 exports.login = login;
 exports.findAll = findAll;
 exports.findHandyManById = findHandyManById;
+// exports.findHandyManUsingById = findHandyManUsingById;

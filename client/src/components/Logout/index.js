@@ -70,7 +70,7 @@ export default function SearchAppBar() {
               <Tooltip title="Home"><Link to="/home" > <HomeIcon className={classes.home} />  </Link></Tooltip>
             </IconButton>
             <IconButton>
-              <Tooltip title="View Request"><Link className={classes.links} to="/viewRequest" > viewRequest </Link></Tooltip>
+              <Tooltip title="View Request"><Link className={classes.links} to="/viewRequest" > My Requests </Link></Tooltip>
             </IconButton>
             <IconButton>
             <Tooltip title="Log Out" onClick={handleSubmit}><Link className={classes.links} to="/">Logout</Link></Tooltip>

@@ -5,6 +5,10 @@ const urlParameters = data => {
   return "?" + Object.keys(data).map(key => key + '=' + data[key]).join('&');
 }
 
+const urlParameters1 = data => {
+  return "?" + Object.keys(data).map(key => key + '=' + data[key]);
+}
+
 //front end routes for user
 export default {
   // Gets all user
@@ -37,7 +41,7 @@ export default {
   },
   // Gets the user with the given id
   getHandymans: function(query,userData) {
-    console.log('client api query')
+    console.log('client api handyman')
     console.log(query)
     //console.log(userData)
   return axios.get("/api/handyman" + urlParameters(query),{params: {service: userData}});
@@ -49,6 +53,12 @@ export default {
   // Saves a user to the database
   saveHandyman: function (handymanData) {
     return axios.post('/api/handyman/signup', handymanData)
+  },
+
+  getHandymanById: function (id) {
+    console.log('gethandybanmyid')
+    console.log(id)
+    return axios.get('/api/handyman/' + id)
   },
   //login handyman
   handymanLogin: function (handymanData) {
@@ -64,6 +74,14 @@ saveserviceRequest: function(servicerequestData) {
   console.log(servicerequestData)
   return axios.post("/api/servicerequest/add", servicerequestData);
 },
+
+getuserview:function(query) {
+  console.log('client api query')
+  console.log(query)
+  console.log(urlParameters1(query))
+  //console.log(userData)
+return axios.get("/api/servicerequest" + urlParameters1(query));
+}
 
 
 }

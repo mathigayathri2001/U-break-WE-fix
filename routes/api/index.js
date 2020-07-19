@@ -6,11 +6,13 @@ const serviceRoutes = require("./service");
 const servicerequestRoutes = require("./servicerequest");
 
 
+
 // Book routes
 router.use("/user", userRoutes);
 router.use("/handyman", handymanRoutes);
 router.use("/service", serviceRoutes);
 router.use("/servicerequest", servicerequestRoutes);
+
 
 // For anything else, render the html page
 router.use(function(req, res) {
