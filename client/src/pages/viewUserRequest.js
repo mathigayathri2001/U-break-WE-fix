@@ -58,7 +58,7 @@ export default function ViewUserRequest () {
   const [redirect, setRedirect] = useState('')
   const [userReqLists, setUserReqLists] = useState([])
   const [userHandyLists, setHandyReqLists] = useState([])
-  const [message, setMessage] = useState('No reqest made')
+  const [message, setMessage] = useState('No request made')
 
   // let uname,uemail;
   let uid = auth.userId
@@ -67,29 +67,26 @@ export default function ViewUserRequest () {
   let hname, hemail
   let result
   let service
+  let phoneNumber
 
   useEffect(() => {
-    Api.getuserview({ uid: uid })
+    Api.getuserview({uid : uid})
       .then(res => {
-        console.log(res.data)
+        //console.log(res.data)
         result = res.data
-        console.log(result[0].hid)
+        //console.log(result[0].hid)
         hid = result[0].hid
-        console.log(result)
+        //console.log(result)
         if (res.data.length !== 0) {
           setUserReqLists(res.data)
         } else {
           console.log('no user request found')
         }
-        console.log(hid)
-        //  Api.getHandymans({_id:hid}, service)
+        //console.log(hid)
         Api.getHandymanById(hid)
           .then(res => {
             console.log(res.data)
             setHandyReqLists(res.data)
-            // hname = res.data.name
-            // hemail = res.data.email
-            // console.log(hname + ' ' + hemail)
           })
           .catch(error => {
             console.log(error)
@@ -124,8 +121,9 @@ export default function ViewUserRequest () {
                           service={userReqList.service}
                           description={userReqList.description}
                           status={userReqList.status}
-                          hname={hname}
-                          hemail={hemail}
+                          hname={userHandyLists.name}
+                          hemail={userHandyLists.email}
+                          phoneNumber={userHandyLists.phoneNumber}
                         />
                       ))}
                     </List>

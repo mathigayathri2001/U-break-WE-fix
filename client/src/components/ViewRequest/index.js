@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-function ViewRequest({ service,description,status,hname,hemail}) {
+function ViewRequest({ service,description,status,hname,hemail,phoneNumber}) {
   const classes = useStyles()
   return (
     <ListItem>
@@ -34,10 +34,11 @@ function ViewRequest({ service,description,status,hname,hemail}) {
             
             
             <h5>Name: {hname}</h5>
-            <h5>email: {hemail}</h5>
-            <h5>service: {service}</h5>
-            <h5>description: {description}</h5>
-            <h5>status: {status}</h5>
+            <h5>Email: {hemail}</h5>
+            <h5>PhoneNumber: {phoneNumber}</h5>
+            <h5>Service: {service}</h5>
+            <h5>Description: {description}</h5>
+            <h5>Status: {status}</h5>
            
       
         </Grid>
