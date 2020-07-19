@@ -9,6 +9,7 @@ import Userlogin from './components/Userlogin'
 import HandySearch from './pages/handysearch'
 import Home from './pages/homepage'
 import ServiceRequest from './pages/servicerequest'
+import ViewUserRequest from './pages/viewUserRequest'
 
 function App () {
   const [token, setToken] = useState(false)
@@ -117,6 +118,7 @@ function App () {
           <Route exact path='/userlogin' component={Userlogin} />
           <Route exact path='/handysearch' component={HandySearch} />
           <Route exact path='/servicerequest' component={ServiceRequest} />
+          <Route exact path='/viewrequest' component={ViewUserRequest} />
         </Router>
       </AuthContext.Provider>
     </div>
