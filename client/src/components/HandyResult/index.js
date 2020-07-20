@@ -3,7 +3,7 @@ import { ListItem } from '../List'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
-import { lightBlue } from '@material-ui/core/colors'
+import { lightGreen} from '@material-ui/core/colors'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'left',
     // color: theme.palette.text.secondary,
     color: 'black',
-    backgroundColor: 'rgb(218, 219, 213)'
+    backgroundColor: '#dcedc8'
   },
   button: {
     padding: 50
@@ -30,11 +30,11 @@ function HandyResult ({ email, location, name, phoneNumber, service, Button }) {
           <Grid container spacing={2}>
             <Grid item md={8}>
               {/* <Paper className={classes.paper}> */}
-              <h5>Name: {name}</h5>
-              <h5>Email: {email}</h5>
-              <h5>PhoneNumber: {phoneNumber}</h5>
-              <h5>Location: {location}</h5>
-              <h5>Service: {service}</h5>
+              <Grid><label><strong>Name :</strong> {name}</label></Grid>
+              <Grid><label><strong>Email :</strong> {email}</label></Grid>
+              <Grid><label><strong>PhoneNumber :</strong> {phoneNumber}</label></Grid>
+              <Grid><label><strong>Location :</strong> {location}</label></Grid>
+              <Grid><label><strong>Service :</strong> {service}</label></Grid>
               {/* <Grid>
               <Button className={classes.button} />
             </Grid> */}

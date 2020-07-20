@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'left',
     // color: theme.palette.text.secondary,
     color: 'black',
-    backgroundColor: 'rgb(218, 219, 213)'
+    backgroundColor: '#dcedc8'
   },
   button: {
     padding: 50
@@ -27,24 +27,17 @@ function ViewRequest({ service,description,status,hname,hemail,phoneNumber}) {
     <ListItem>
       <Grid >
       <Paper className={classes.paper}>
-      <Grid container spacing={2}>
-       
+      <Grid container spacing={2}>    
         <Grid item md={8}>
           {/* <Paper className={classes.paper}> */}
-            
-            
-            <h5>Name: {hname}</h5>
-            <h5>Email: {hemail}</h5>
-            <h5>PhoneNumber: {phoneNumber}</h5>
-            <h5>Service: {service}</h5>
-            <h5>Description: {description}</h5>
-            <h5>Status: {status}</h5>
-           
-      
-        </Grid>
-      
-      </Grid>
-        
+          <Grid><label><strong>Name:</strong> {hname}</label></Grid>
+          <Grid><label><strong>Email:</strong> {hemail}</label></Grid>
+          <Grid><label><strong>PhoneNumber:</strong> {phoneNumber}</label></Grid>
+          <Grid><label><strong>Service: </strong>{service}</label></Grid>
+          <Grid><label><strong>Description:</strong> {description}</label></Grid>
+          <Grid><label><strong>Status: </strong>{status}</label></Grid>            
+        </Grid> 
+      </Grid>      
       </Paper> 
       </Grid>  
     </ListItem>

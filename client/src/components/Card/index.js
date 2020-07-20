@@ -31,7 +31,7 @@ import CardContent from '@material-ui/core/CardContent'
 
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-import { lightBlue, yellow } from '@material-ui/core/colors'
+import { lightGreen, yellow } from '@material-ui/core/colors'
 
 const useStyles = makeStyles({
   root: {
@@ -65,7 +65,7 @@ export default function SimpleCard ({ children }) {
 
   return (
     <Card className={classes.root} spacing={6}>
-      <CardHeader className={classes.color} title='Results'></CardHeader>
+      {/* <CardHeader className={classes.color} title='Results'></CardHeader> */}
       <CardContent>
         <Typography variant='h6' component='h5' className={classes.list}>
           {children}

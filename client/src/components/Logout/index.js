@@ -22,22 +22,23 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    color: "#00355F",
+    color: "white",
     fontFamily: 'serif',
   },
   links: {
-    color: "#00355F",
+    color: "white",
     textDecoration: "none",
     fontSize: 20,
     fontFamily: 'serif',
   },
   home: {
-    color: "#00355F",
+    color: "white",
     fontSize: 30,
     fontFamily: 'serif',
   },
   navBar: {
-    background: "#F5c71a"
+    background: "#00796b",
+    padding:10,
   }
 }));
 
@@ -67,7 +68,7 @@ export default function SearchAppBar() {
             U-BREAK-WE-FIX
           </Typography>
             <IconButton>
-              <Tooltip title="Home"><Link to="/home" > <HomeIcon className={classes.home} />  </Link></Tooltip>
+              <Tooltip title="Home"><Link to="/" > <HomeIcon className={classes.home} />  </Link></Tooltip>
             </IconButton>
             <IconButton>
               <Tooltip title="View Request"><Link className={classes.links} to="/viewRequest" > My Requests </Link></Tooltip>

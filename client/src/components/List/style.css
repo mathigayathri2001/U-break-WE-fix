@@ -1,4 +1,12 @@
 .list-group-item p {
   font-size: 14px;
-  /* background-color: rgb(218, 219, 213); */
+  margin: 0 0 3px 0;
+
+  background-color: #b60040;
+}
+
+li{
+  margin: 0 0 30px 0;
+  list-style: none;
+  /* background-color: #b60040; */
 }

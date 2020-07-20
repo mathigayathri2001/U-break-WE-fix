@@ -99,7 +99,8 @@ export default function SignUp () {
         console.log(res.data)
         if (res.data.length !== 0) {
           console.log(res.data.length + ' handyman found');
-          setMessage(res.data.length + ' handyman found');
+          // setMessage(res.data.length + ' handyman found');
+          const message = setMessage("For the opted services and Location " + res.data.length + ' handyman found');
           //auth.login(res.data.handymanId, res.data.token)
           setHandymanLists(res.data);
           auth.setloc(location);
@@ -120,10 +121,7 @@ export default function SignUp () {
     //event.preventDefault()
     console.log(hid)
    auth.setshid(hid)
-     
-
   }
-
 
   //If redirect is true redirect, or else show signup page
   if (redirect) {
@@ -135,9 +133,9 @@ export default function SignUp () {
         <Container component='main' maxWidth='xs'>
           <CssBaseline />
           <div className={classes.paper}>
-            <Avatar className={classes.avatar}>
+            {/* <Avatar className={classes.avatar}>
               <LockOutlinedIcon />
-            </Avatar>
+            </Avatar> */}
             <Typography component='h1' variant='h5'>
               Find a Handyman
             </Typography>
@@ -172,7 +170,7 @@ export default function SignUp () {
             <div>
             <Grid>
               <Grid item xs={12} style={{ width: 1000 }}>
-                <Card>
+                <Card> {message}
                   {handymanlists.length ? (
                     <List>
                       {handymanlists.map(handymanlist => (

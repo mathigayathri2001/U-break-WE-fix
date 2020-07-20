@@ -120,18 +120,6 @@ export default function SignInSide (props) {
         console.log('login response: ')
         console.log(response)
         if (response.status === 200) {
-          // update App.js state
-          // props.updateUser(
-          //   {
-          //   // loggedIn: true,
-          //   // userName: response.data.userName,
-          //   // firstName: response.data.firstName,
-          //   // lastName: response.data.lastName
-
-          // }
-
-          // response.data
-          // )
           auth.hlogin(response.data.handymanId, response.data.token)
           // update the state to redirect to home
           setRedirect('/viewHandyRequest')
@@ -270,7 +258,7 @@ export default function SignInSide (props) {
                 required
                 fullWidth
                 id='username'
-                label='User Name'
+                label='Email'
                 name='username'
                 autoComplete='username'
                 autoFocus
