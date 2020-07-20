@@ -132,25 +132,13 @@ export default function SignUp () {
                   autoFocus
                 />
               </Grid>
-              {/* <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                onChange={handleInputChangeLast}
-                autoComplete="lname"
-              />
-            </Grid> */}
               <Grid item xs={12}>
                 <TextField
                   variant='outlined'
                   required
                   fullWidth
                   id='email'
-                  label='email'
+                  label='Email'
                   name='email'
                   onChange={handleInputChangeE}
                   autoComplete='email'

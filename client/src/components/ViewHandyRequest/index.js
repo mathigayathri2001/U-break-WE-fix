@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'left',
     // color: theme.palette.text.secondary,
     color: 'black',
-    backgroundColor: 'rgb(218, 219, 213)'
+    backgroundColor: '#dcedc8'
   },
   button: {
     padding: 50

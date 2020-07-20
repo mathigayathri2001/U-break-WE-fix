@@ -17,6 +17,7 @@ import GoogleMaps from '../components/Location/index'
 import { AuthContext } from '../utils/auth-context'
 import SearchBar from '../components/Searchbar'
 import Nav from '../components/Navbar'
+import {teal, pink } from '@material-ui/core/colors'
 //Styling
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -34,7 +35,13 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(3)
   },
   submit: {
-    margin: theme.spacing(3, 0, 2)
+    margin: theme.spacing(3, 0, 2),
+    backgroundColor: '#aed581',
+  // }
+  // submit:{
+  //   '&:hover': {
+  //     color: '#004d40'
+  //   }
   },
   links: {
     '&:hover': {
@@ -49,6 +56,7 @@ const useStyles = makeStyles(theme => ({
 export default function SignUp () {
   const classes = useStyles()
   const auth = useContext(AuthContext)
+  const accent = pink['200'];
 
   //Redirect hook
   const [redirect, setRedirect] = useState('')
@@ -178,7 +186,7 @@ export default function SignUp () {
                   required
                   fullWidth
                   id='email'
-                  label='email'
+                  label='Email'
                   name='email'
                   onChange={handleInputChangeE}
                   autoComplete='email'
@@ -203,26 +211,13 @@ export default function SignUp () {
                   required
                   fullWidth
                   name='phoneNumber'
-                  label='phoneNumber'
+                  label='PhoneNumber'
                   type='phoneNumber'
                   id='phoneNumber'
                   onChange={handleInputChangePhone}
                   autoComplete='current-phoneNumber'
                 />
               </Grid>
-              {/* <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  name="location"
-                  label="location"
-                  type="location"
-                  id="location"
-                  onChange={handleInputChangeLocation}
-                  autoComplete="current-location"
-                />
-              </Grid> */}
               <Grid item xs={12}>
                 <GoogleMaps
                   items={location}
@@ -238,7 +233,8 @@ export default function SignUp () {
               type='submit'
               fullWidth
               variant='contained'
-              color='primary'
+              // color='primary'
+              color='accent'
               className={classes.submit}
               onClick={handleSubmit}
             >

@@ -259,7 +259,7 @@ export default function Userlogin (props) {
                 required
                 fullWidth
                 id='username'
-                label='User Name'
+                label='Email'
                 name='username'
                 autoComplete='username'
                 autoFocus

@@ -161,6 +161,7 @@ export default function ServiceRequestForm () {
                         label='Your Phone Number'
                         style={{ width: 498 }}
                         variant='outlined'
+                        required
                         onChange={handleInputChangePhone}
                         autoComplete='current-phoneNumber'
                       />
@@ -174,6 +175,7 @@ export default function ServiceRequestForm () {
                         style={{ width: 498 }}
                         // defaultValue='Default Value'
                         variant='outlined'
+                        required
                         onChange={handleInputChangeSD}
                       />
                     </Grid>
