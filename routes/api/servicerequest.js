@@ -4,5 +4,6 @@ const servicerequestController = require("../../controllers/serviceRequestContro
 router.post('/add', servicerequestController.create);
  router.get('/:id',servicerequestController.findUserreq);
  router.get('/',servicerequestController.findAll);
+ router.post('/update', servicerequestController.update);
 
 module.exports = router;
