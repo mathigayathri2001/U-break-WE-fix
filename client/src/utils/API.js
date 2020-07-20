@@ -79,5 +79,11 @@ export default {
   gethandyview: function (query) {
     console.log(query)
     return axios.get('/api/servicerequest' + urlParameters(query))
+  },
+  setReqStatus: function (statusData) {
+    console.log(statusData)
+    return axios.post('/api/servicerequest/update',statusData)
   }
+
+  
 }

@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useContext } from 'react'
 import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
+import ButtonGroup from '@material-ui/core/ButtonGroup'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import TextField from '@material-ui/core/TextField'
 // import Link from '@material-ui/core/Link'
@@ -59,6 +60,7 @@ export default function ViewHRequest () {
   const [userReqLists, setUserReqLists] = useState([])
   const [userHandyLists, setHandyReqLists] = useState([])
   const [message, setMessage] = useState('No request made')
+  
 
   // let uname,uemail;
   let hid = auth.handymanId
@@ -70,7 +72,7 @@ export default function ViewHRequest () {
   let phoneNumber
 
   useEffect(() => {
-    Api.gethandyview({hid : hid})
+    Api.gethandyview({ hid: hid })
       .then(res => {
         console.log(res.data)
         result = res.data
@@ -78,7 +80,7 @@ export default function ViewHRequest () {
         uid = result[0].uid
         //console.log(result)
         if (res.data.length !== 0) {
-            setHandyReqLists(res.data)
+          setHandyReqLists(res.data)
         } else {
           console.log('no Handyman request found')
         }
@@ -99,6 +101,24 @@ export default function ViewHRequest () {
   }, [])
 
   console.log(userReqLists)
+  const setReqStatus = (uid, reqstatus,) => {
+   // event.preventDefault()
+    console.log(uid)
+    console.log(reqstatus)
+    Api.setReqStatus({
+      uid,
+      reqstatus
+    })
+      .then(res => {
+        console.log(res.data)
+        // setUserReqLists(res.data)
+        //setRedirect('/viewhandyrequest')
+        
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
   //If redirect is true redirect, or else show signup page
   if (redirect) {
     return <Redirect to={{ pathname: redirect }} />
@@ -124,6 +144,32 @@ export default function ViewHRequest () {
                           uname={userReqLists.name}
                           uemail={userReqLists.email}
                           phoneNumber={userHandyList.phoneNumber}
+                          Button={() => (
+                            <ButtonGroup>                              
+                              <Button
+                                onClick={() =>
+                                  setReqStatus(userHandyList._id, 'ACCEPTED')
+                                }
+                              >
+                                Accept
+                              </Button>
+                              <Button
+                                onClick={() =>
+                                  setReqStatus(userHandyList._id, 'REJECT')
+                                }
+                              >
+                                Reject
+                              </Button>
+                              <Button
+                                onClick={() =>
+                                  setReqStatus(userHandyList._id, 'Closed')
+                                }
+                              >
+                                Close
+                              </Button>
+                            
+                            </ButtonGroup>
+                          )}
                         />
                       ))}
                     </List>

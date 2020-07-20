@@ -25,32 +25,29 @@ function HandyResult ({ email, location, name, phoneNumber, service, Button }) {
   const classes = useStyles()
   return (
     <ListItem>
-      <Grid >
-      <Paper className={classes.paper}>
-      <Grid container spacing={2}>
-       
-        <Grid item md={8}>
-          {/* <Paper className={classes.paper}> */}
-            <h5>Name: {name}</h5>
-            <h5>Email: {email}</h5>
-            <h5>PhoneNumber: {phoneNumber}</h5>
-            <h5>Location: {location}</h5>
-            <h5>Service: {service}</h5>
-            {/* <Grid>
+      <Grid>
+        <Paper className={classes.paper}>
+          <Grid container spacing={2}>
+            <Grid item md={8}>
+              {/* <Paper className={classes.paper}> */}
+              <h5>Name: {name}</h5>
+              <h5>Email: {email}</h5>
+              <h5>PhoneNumber: {phoneNumber}</h5>
+              <h5>Location: {location}</h5>
+              <h5>Service: {service}</h5>
+              {/* <Grid>
               <Button className={classes.button} />
             </Grid> */}
-          {/* </Paper> */}
-        </Grid>
-        <Grid item md={4}>
-          {/* <Paper className={classes.paper}> */}
-            <Button className={classes.button} />
-          {/* </Paper> */}
-        </Grid>
-      
+              {/* </Paper> */}
+            </Grid>
+            <Grid item md={4}>
+              {/* <Paper className={classes.paper}> */}
+              <Button className={classes.button} />
+              {/* </Paper> */}
+            </Grid>
+          </Grid>
+        </Paper>
       </Grid>
-        
-      </Paper> 
-      </Grid>  
     </ListItem>
   )
 }

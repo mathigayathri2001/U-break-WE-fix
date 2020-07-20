@@ -24,6 +24,20 @@ const findAll = async (req, res, next) => {
     .catch(err => res.status(422).json(err))
 }
 
+const update = async (req, res, next) => {
+  console.log('service status update')
+  const { uid, reqstatus } = req.body;
+  console.log(uid)
+  console.log(reqstatus)
+  db.ServiceRequest.findById(uid)
+    .then(SericeRequest=>{
+      SericeRequest.status=reqstatus;
+      SericeRequest.save()
+      .then(() => res.json('Service Request Upated'))
+      .catch(err => res.status(400).json('Error: ' + err))
+    })  
+  }
 exports.create = create
 exports.findUserreq = findUserreq
 exports.findAll = findAll
+exports.update = update
