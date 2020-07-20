@@ -27,7 +27,8 @@ function ViewHandyRequest ({
   status,
   uname,
   uemail,
-  phoneNumber
+  phoneNumber,
+  Button
 }) {
   const classes = useStyles()
   return (
@@ -37,13 +38,15 @@ function ViewHandyRequest ({
           <Grid container spacing={2}>
             <Grid item md={8}>
               {/* <Paper className={classes.paper}> */}
-
               <h5>Name: {uname}</h5>
               <h5>Email: {uemail}</h5>
               <h5>PhoneNumber: {phoneNumber}</h5>
               <h5>Service: {service}</h5>
               <h5>Description: {description}</h5>
               <h5>Status: {status}</h5>
+              <Grid>
+              <Button className={classes.button}></Button>               
+              </Grid>              
             </Grid>
           </Grid>
         </Paper>
