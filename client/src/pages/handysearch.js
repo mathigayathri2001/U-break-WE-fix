@@ -84,12 +84,13 @@ export default function SignUp () {
     location = event;
     console.log(location);
   }
-
+  const [showDiv, setshowDiv] = React.useState(false)
   const [handymanlists, setHandymanLists] = useState([])
   const [message, setMessage] = useState('Search For A Handyman!')
   //Saving person in database
   const handleSubmit = event => {
     event.preventDefault()
+    setshowDiv(true)
     console.log('clicked')
     console.log(location)
 
@@ -166,6 +167,9 @@ export default function SignUp () {
                 Search
               </Button>
             </form>
+            {showDiv && 
+
+            <div>
             <Grid>
               <Grid item xs={12} style={{ width: 1000 }}>
                 <Card>
@@ -183,17 +187,13 @@ export default function SignUp () {
                           // Button={() => <button>Submit Request</button>}
                           Button={() => (
                             <Link to='/servicerequest'>
-                            <button
-                              onClick={() => setHandyID(handymanlist._id)
-                                // handycontext.email= handymanlist.email,
-                                //handycontext.name = handymanlist.name
-                             }
-                              
+                            <Button
+                              onClick={() => setHandyID(handymanlist._id)                              
+                             }                             
                             >
                               Service Request
-                            </button>
+                            </Button>
                             </Link>
-
                           )}
                         />
                       ))}
@@ -204,6 +204,7 @@ export default function SignUp () {
                 </Card>
               </Grid>
             </Grid>
+            </div>}
           </div>
           <Box mt={8}>{/* <Copyright /> */}</Box>
         </Container>
