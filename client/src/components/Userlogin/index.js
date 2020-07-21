@@ -16,6 +16,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Redirect } from 'react-router-dom'
 import API from '../../utils/API'
 import { AuthContext } from '../../utils/auth-context'
+import Navbar from '../Navbar'
 
 //Styling
 const useStyles = makeStyles(theme => ({
