@@ -92,7 +92,7 @@ export default function ServiceRequestForm () {
     //hid = auth.handymanId;
     // console.log(uid);
     // console.log(location)
-    // location = auth.location;
+    location = auth.location;
     // console.log(service);
     // console.log(phoneNumber);
     // console.log(description)

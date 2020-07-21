@@ -37,7 +37,9 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(3)
   },
   submit: {
-    margin: theme.spacing(3, 0, 2)
+    margin: theme.spacing(3, 0, 2),
+    background: "#ef9a9a"
+
   },
   links: {
     '&:hover': {
@@ -48,8 +50,8 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-//SignUp component
-export default function SignUp () {
+//Handysearch component
+export default function HandySearch () {
   const classes = useStyles()
   const auth = useContext(AuthContext)
 
@@ -104,7 +106,7 @@ export default function SignUp () {
           //auth.login(res.data.handymanId, res.data.token)
           setHandymanLists(res.data);
           auth.setloc(location);
-          auth.setslist(res.data[0].service);
+          //auth.setslist(res.data[0].service);
           //auth.setshid(res.data[0]._id);
         } else {
           console.log('no handyman found');
@@ -117,10 +119,11 @@ export default function SignUp () {
       })
   }
 
-  const setHandyID = (hid) => {
+  const saveHandyInfo = (hidx) => {
     //event.preventDefault()
-    console.log(hid)
-   auth.setshid(hid)
+   console.log(hidx)
+   auth.setshid(hidx._id);
+   auth.setslist(hidx.service);
   }
 
   //If redirect is true redirect, or else show signup page
@@ -186,10 +189,15 @@ export default function SignUp () {
                           Button={() => (
                             <Link to='/servicerequest'>
                             <Button
-                              onClick={() => setHandyID(handymanlist._id)                              
+                            type='submit'
+                            fullWidth
+                            variant='contained'
+                            color="primary"
+                            className={classes.submit}
+                              onClick={() => saveHandyInfo(handymanlist)                              
                              }                             
                             >
-                              Service Request
+                              Create Request
                             </Button>
                             </Link>
                           )}

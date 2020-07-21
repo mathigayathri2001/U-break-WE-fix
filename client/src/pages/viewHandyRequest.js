@@ -59,48 +59,26 @@ export default function ViewHRequest () {
   const [redirect, setRedirect] = useState('')
   const [userReqLists, setUserReqLists] = useState([])
   const [userHandyLists, setHandyReqLists] = useState([])
-  const [message, setMessage] = useState('No request made')
+  const [message, setMessage] = useState('No requests found')
   
-
-  // let uname,uemail;
   let hid = auth.handymanId
   console.log(hid)
   let uid
-  let uname, uemail
   let result
-  let service
-  let phoneNumber
+  let location = auth.location
 
   useEffect(() => {
-    Api.gethandyview({ hid: hid })
-      .then(res => {
-        console.log(res.data)
-        result = res.data
-        console.log(result[0].uid)
-        uid = result[0].uid
-        //console.log(result)
-        if (res.data.length !== 0) {
-          setHandyReqLists(res.data)
-        } else {
-          console.log('no Handyman request found')
-        }
-        //console.log(hid)
-        Api.getUserById(uid)
-          .then(res => {
-            console.log(res.data)
-            setUserReqLists(res.data)
-          })
-          .catch(error => {
-            console.log(error)
-          })
-      })
+    const fetchData = async () => {
+      try {
+      result = await Api.gethandyview({hid : hid});
+      setHandyReqLists(result.data)
+      } catch(err) {
+         console.log("Error getting service request data");
+      }
+    };
+    fetchData();
+  }, []);
 
-      .catch(error => {
-        console.log(error)
-      })
-  }, [])
-
-  console.log(userReqLists)
   const setReqStatus = (uid, reqstatus,) => {
    // event.preventDefault()
     console.log(uid)
@@ -137,12 +115,13 @@ export default function ViewHRequest () {
                     <List>
                       {userHandyLists.map(userHandyList => (
                         <ViewHandyRequest
-                          // key={handymanlist.id}
+                          key={userHandyList._id}
                           service={userHandyList.service}
                           description={userHandyList.description}
                           status={userHandyList.status}
-                          uname={userReqLists.name}
-                          uemail={userReqLists.email}
+                          location={userHandyList.location}
+                          uname={userHandyList.uid}
+                          uemail={userHandyList.hid}
                           phoneNumber={userHandyList.phoneNumber}
                           Button={() => (
                             <ButtonGroup>                              
