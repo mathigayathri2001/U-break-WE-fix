@@ -25,6 +25,7 @@ function ViewHandyRequest ({
   service,
   description,
   status,
+  location,
   uname,
   uemail,
   phoneNumber,
@@ -38,12 +39,13 @@ function ViewHandyRequest ({
           <Grid container spacing={2}>
             <Grid item md={8}>
               {/* <Paper className={classes.paper}> */}
-              <h5>Name: {uname}</h5>
-              <h5>Email: {uemail}</h5>
-              <h5>PhoneNumber: {phoneNumber}</h5>
-              <h5>Service: {service}</h5>
-              <h5>Description: {description}</h5>
-              <h5>Status: {status}</h5>
+              <Grid><label><strong>Name:</strong> {uname}</label></Grid>
+              <Grid><label><strong>Email:</strong> {uemail}</label></Grid>
+              <Grid><label><strong>PhoneNumber:</strong> {phoneNumber}</label></Grid>
+              <Grid><label><strong>Service: </strong>{service}</label></Grid>
+              <Grid><label><strong>Description:</strong> {description}</label></Grid>
+              <Grid><label><strong>Location: </strong>{location}</label></Grid>
+              <Grid><label><strong>Status: </strong>{status}</label></Grid> 
               <Grid>
               <Button className={classes.button}></Button>               
               </Grid>              

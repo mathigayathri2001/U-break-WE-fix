@@ -57,48 +57,29 @@ export default function ViewUserRequest () {
   //Redirect hook
   const [redirect, setRedirect] = useState('')
   const [userReqLists, setUserReqLists] = useState([])
-  const [userHandyLists, setHandyReqLists] = useState([])
-  const [message, setMessage] = useState('No request made')
+  const [message, setMessage] = useState('No requests found')
 
-  // let uname,uemail;
   let uid = auth.userId
+  let location = auth.location
   console.log(uid)
   let hid
   let hname, hemail
-  let result
+  let result = []
   let service
-  let phoneNumber
+  let phoneNumber;
 
   useEffect(() => {
-    Api.getuserview({uid : uid})
-      .then(res => {
-        //console.log(res.data)
-        result = res.data
-        //console.log(result[0].hid)
-        hid = result[0].hid
-        //console.log(result)
-        if (res.data.length !== 0) {
-          setUserReqLists(res.data)
-        } else {
-          console.log('no user request found')
-        }
-        //console.log(hid)
-        Api.getHandymanById(hid)
-          .then(res => {
-            console.log(res.data)
-            setHandyReqLists(res.data)
-          })
-          .catch(error => {
-            console.log(error)
-          })
-      })
+    const fetchData = async () => {
+      try {
+      result = await Api.getuserview({uid : uid});
+      setUserReqLists(result.data)
+      } catch(err) {
+         console.log("Error getting service request data");
+      }
+    };
+    fetchData();
+  }, []);
 
-      .catch(error => {
-        console.log(error)
-      })
-  }, [])
-
-  console.log(userHandyLists)
   //If redirect is true redirect, or else show signup page
   if (redirect) {
     return <Redirect to={{ pathname: redirect }} />
@@ -117,13 +98,14 @@ export default function ViewUserRequest () {
                     <List>
                       {userReqLists.map(userReqList => (
                         <ViewRequest
-                          // key={handymanlist.id}
+                          key={userReqList._id}
                           service={userReqList.service}
                           description={userReqList.description}
                           status={userReqList.status}
-                          hname={userHandyLists.name}
-                          hemail={userHandyLists.email}
-                          phoneNumber={userHandyLists.phoneNumber}
+                          location={userReqList.location}
+                          hname={userReqList.uid}
+                          hemail={userReqList.hid}
+                          phoneNumber={userReqList.phoneNumber}
                         />
                       ))}
                     </List>

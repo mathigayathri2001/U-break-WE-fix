@@ -91,6 +91,7 @@ const findHandyManById = async (req, res, next) => {
     )
     return next(error)
   }
+  //console.log(found)
   res.json(found)
 }
 
