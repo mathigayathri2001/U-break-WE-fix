@@ -90,9 +90,9 @@ export default function ViewUserRequest () {
         <Container component='main' maxWidth='xs'>
           <CssBaseline />
           <div className={classes.paper}>
-            <form className={classes.form} noValidate></form>
+            {/* <form className={classes.form} noValidate></form> */}
             <Grid>
-              <Grid item xs={12} style={{ width: 1000 }}>
+              <Grid item xs={12} >
                 <Card>
                   {userReqLists.length ? (
                     <List>

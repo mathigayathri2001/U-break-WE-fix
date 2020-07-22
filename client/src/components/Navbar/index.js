@@ -43,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
   navBar: {
      background: "#00796b",
      padding:10,
+     width:"100%"
     // background:"#b60040;",
   }
 }));
