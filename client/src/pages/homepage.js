@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Nav from '../components/Navbar'
-import Carousel from '../components/Carousel/carousel.js'
-import Flex from '../components/Flex/flex.js'
-import Footer from "../components/Footer/footer";
+import Carousel from '../components/Carousel'
+import Flex from '../components/Flex/index.js'
+import Footer from "../components/Footer";
 
 
 // const windowWidth = window.innerWidth;

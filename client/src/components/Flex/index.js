@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#AFEEEE'
   },
   image: {
-    width: 270,
+    width: 290,
     height: 250
   },
   img: {
