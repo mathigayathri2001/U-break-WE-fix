@@ -3,7 +3,6 @@ import { ListItem } from '../List'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
-import { lightBlue } from '@material-ui/core/colors'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -12,9 +11,18 @@ const useStyles = makeStyles(theme => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: 'left',
-    // color: theme.palette.text.secondary,
     color: 'black',
-    backgroundColor: '#dcedc8'
+    backgroundColor: '#dcedc8',
+    width:700,
+    [theme.breakpoints.down('sm')]: {
+      width:300,
+      [theme.breakpoints.up('sm')]: {
+        width:600
+      },
+      [theme.breakpoints.up('md')]: {
+        width:700
+      },     
+    },
   },
   button: {
     padding: 50

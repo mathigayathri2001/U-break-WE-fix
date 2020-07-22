@@ -39,7 +39,8 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(3)
   },
   submit: {
-    margin: theme.spacing(3, 0, 2)
+    margin: theme.spacing(3, 0, 2),
+    background: "#ef9a9a"
   },
   links: {
     '&:hover': {
@@ -128,7 +129,10 @@ export default function ViewHRequest () {
                           phoneNumber={userHandyList.phoneNumber}
                           Button={() => (
                             <ButtonGroup>                              
-                              <Button
+                              <Button  
+                               type='submit'
+                               variant="contained" 
+                               className={classes.submit}
                                 onClick={() =>
                                   setReqStatus(userHandyList._id, 'ACCEPTED')
                                 }
@@ -136,15 +140,21 @@ export default function ViewHRequest () {
                                 Accept
                               </Button>
                               <Button
+                              type='submit'
+                              variant="contained" 
+                              className={classes.submit}
                                 onClick={() =>
-                                  setReqStatus(userHandyList._id, 'REJECT')
+                                  setReqStatus(userHandyList._id, 'REJECTED')
                                 }
                               >
                                 Reject
                               </Button>
                               <Button
+                              type='submit'
+                              variant="contained" 
+                              className={classes.submit}
                                 onClick={() =>
-                                  setReqStatus(userHandyList._id, 'Closed')
+                                  setReqStatus(userHandyList._id, 'CLOSED')
                                 }
                               >
                                 Close
