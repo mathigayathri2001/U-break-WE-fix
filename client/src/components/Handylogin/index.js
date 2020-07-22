@@ -16,6 +16,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Redirect } from 'react-router-dom'
 import API from '../../utils/API'
 import { AuthContext } from '../../utils/auth-context'
+import Navbar from '../Navbar'
 
 //Styling
 const useStyles = makeStyles(theme => ({
@@ -137,6 +138,8 @@ export default function SignInSide (props) {
     return <Redirect to={{ pathname: redirect }} />
   } else if (wrongInfo) {
     return (
+      <div>
+        <Navbar/>
       <Grid container component='main' className={classes.root}>
         <CssBaseline />
         <Grid item xs={false} sm={4} md={7} className={classes.image} />
@@ -199,7 +202,7 @@ export default function SignInSide (props) {
                 className={classes.submit}
                 onClick={handleSignIn}
               >
-                Login
+                 Handyman Login
               </Button>
               <Grid container>
                 <Grid item xs={3}></Grid>
@@ -220,9 +223,12 @@ export default function SignInSide (props) {
           </div>
         </Grid>
       </Grid>
+      </div>
     )
   } else {
     return (
+      <div>
+      <Navbar/>
       <Grid container component='main' className={classes.root}>
         <CssBaseline />
         <Grid item xs={false} sm={4} md={7} className={classes.image} />
@@ -232,7 +238,7 @@ export default function SignInSide (props) {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component='h1' variant='h5'>
-              Handyman login
+              Handyman Login
             </Typography>
 
             <Box
@@ -310,6 +316,7 @@ export default function SignInSide (props) {
           </div>
         </Grid>
       </Grid>
+      </div>
     )
   }
 }

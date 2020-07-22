@@ -67,12 +67,9 @@ export default function SearchAppBar() {
             <Typography variant="h4" className={classes.title}>
             U-BREAK-WE-FIX
           </Typography>
-            {/* <IconButton>
-              <Tooltip title="Home"><Link to="/" > <HomeIcon className={classes.home} />  </Link></Tooltip>
-            </IconButton> */}
-            {/* <IconButton>
+            <IconButton>
               <Tooltip title="View Request"><Link className={classes.links} to="/viewRequest" > My Requests </Link></Tooltip>
-            </IconButton> */}
+            </IconButton>
             <IconButton>
             <Tooltip title="Log Out" onClick={handleSubmit}><Link className={classes.links} to="/">Logout</Link></Tooltip>
             </IconButton>
