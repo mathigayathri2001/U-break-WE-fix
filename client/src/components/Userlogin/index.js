@@ -139,6 +139,8 @@ export default function Userlogin (props) {
     return <Redirect to={{ pathname: redirect }} />
   } else if (wrongInfo) {
     return (
+       <div>
+         <Navbar/> 
       <Grid container component='main' className={classes.root}>
         <CssBaseline />
         <Grid item xs={false} sm={4} md={7} className={classes.image} />
@@ -201,7 +203,7 @@ export default function Userlogin (props) {
                 className={classes.submit}
                 onClick={handleSignIn}
               >
-                Login
+                User Login
               </Button>
               <Grid container>
                 <Grid item xs={3}></Grid>
@@ -222,9 +224,12 @@ export default function Userlogin (props) {
           </div>
         </Grid>
       </Grid>
+       </div>
     )
   } else {
     return (
+      <div>
+      <Navbar/>
       <Grid container component='main' className={classes.root}>
         <CssBaseline />
         <Grid item xs={false} sm={4} md={7} className={classes.image} />
@@ -310,6 +315,7 @@ export default function Userlogin (props) {
           </div>
         </Grid>
       </Grid>
+      </div>
     )
   }
 }

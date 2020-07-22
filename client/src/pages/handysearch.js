@@ -19,7 +19,7 @@ import SearchBar from '../components/Searchbar'
 import HandyResult from '../components/HandyResult'
 import { List } from '../components/List'
 import Card from '../components/Card'
-import Logout from '../components/Logout'
+import ReqNav from '../components/ReqNav'
 //Styling
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -132,7 +132,7 @@ export default function HandySearch () {
   } else {
     return (
       <div>
-        <Logout />
+        <ReqNav/>
         <Container component='main' maxWidth='xs'>
           <CssBaseline />
           <div className={classes.paper}>
