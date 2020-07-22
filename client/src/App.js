@@ -11,6 +11,7 @@ import Home from './pages/homepage'
 import ServiceRequest from './pages/servicerequest'
 import ViewUserRequest from './pages/viewUserRequest'
 import ViewHandyRequest from './pages/viewHandyRequest'
+import "./App.css"
 
 function App () {
   const [token, setToken] = useState(false)

@@ -14,11 +14,25 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'left',
     // color: theme.palette.text.secondary,
     color: 'black',
-    backgroundColor: '#dcedc8'
+    backgroundColor: '#dcedc8',
+    width:700,
+    [theme.breakpoints.down('sm')]: {
+      width:300
+    },
+    // [theme.breakpoints.up('sm')]: {
+    //   width:500
+    // },
+    [theme.breakpoints.up('sm')]: {
+      width:600
+    },
+    [theme.breakpoints.up('md')]: {
+      width:700
+    },
   },
   button: {
     padding: 50
-  }
+  },
+ 
 }))
 
 function ViewRequest({ service,description,status,location,hname,hemail,phoneNumber}) {
@@ -28,7 +42,7 @@ function ViewRequest({ service,description,status,location,hname,hemail,phoneNum
       <Grid >
       <Paper className={classes.paper}>
       <Grid container spacing={2}>    
-        <Grid item md={8}>
+        <Grid item md={12}>
           {/* <Paper className={classes.paper}> */}
           <Grid><label><strong>Name:</strong> {hname}</label></Grid>
           <Grid><label><strong>Email:</strong> {hemail}</label></Grid>

@@ -1,41 +1,19 @@
-// import React from "react";
-
-// const header= {
-//   background:"cadetblue",
-
-// };
-
-// function Card({ icon, title, children }) {
-//   return (
-//     <div className="card mt-4">
-//       <div className="card-header" style={header}>
-//         <h3>
-//           <strong>
-//             <i className={`fa fa-${icon}`} aria-hidden="true" /> {title}
-//           </strong>
-//         </h3>
-//       </div>
-//       <div className="card-body">{children}</div>
-//     </div>
-//   );
-// }
-
-// export default Card;
-
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
 import CardHeader from '@material-ui/core/CardHeader'
 import CardContent from '@material-ui/core/CardContent'
-
+import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import { lightGreen, yellow } from '@material-ui/core/colors'
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275
+    // minWidth: 275,
+    // backgroundColor:'lightgreen', 
+    
   },
   bullet: {
     display: 'inline-block',
@@ -64,6 +42,7 @@ export default function SimpleCard ({ children }) {
   // const bull = <span className={classes.bullet}>•</span>
 
   return (
+    <Grid item xs={12}sm={12} md={12}lg={12} >
     <Card className={classes.root} spacing={6}>
       {/* <CardHeader className={classes.color} title='Results'></CardHeader> */}
       <CardContent>
@@ -72,5 +51,6 @@ export default function SimpleCard ({ children }) {
         </Typography>
       </CardContent>
     </Card>
+    </Grid>
   )
 }

@@ -79,7 +79,7 @@ export default function ViewHRequest () {
     fetchData();
   }, []);
 
-  const setReqStatus = (uid, reqstatus,) => {
+  const setReqStatus = (uid, reqstatus) => {
    // event.preventDefault()
     console.log(uid)
     console.log(reqstatus)
@@ -89,9 +89,12 @@ export default function ViewHRequest () {
     })
       .then(res => {
         console.log(res.data)
+        const request=userHandyLists.find(r=>r._id===uid)
+        request.status=reqstatus
+        const newList=userHandyLists.filter(r=>r._id!==uid)
+        setHandyReqLists([...newList, request])
         // setUserReqLists(res.data)
-        //setRedirect('/viewhandyrequest')
-        
+        //setRedirect('/viewhandyrequest')        
       })
       .catch(error => {
         console.log(error)
@@ -107,9 +110,9 @@ export default function ViewHRequest () {
         <Container component='main' maxWidth='xs'>
           <CssBaseline />
           <div className={classes.paper}>
-            <form className={classes.form} noValidate></form>
+            {/* <form className={classes.form} noValidate></form> */}
             <Grid>
-              <Grid item xs={12} style={{ width: 1000 }}>
+              <Grid item xs={12}>
                 <Card>
                   {userHandyLists.length ? (
                     <List>

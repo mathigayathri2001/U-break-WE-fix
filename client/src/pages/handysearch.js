@@ -47,6 +47,13 @@ const useStyles = makeStyles(theme => ({
     },
     color: 'black',
     textDecoration: 'none'
+  },
+  message:{
+    textAlign:'center',
+    [theme.breakpoints.down('sm')]: {
+      fontSize:50
+    },
+    // backgroundColor:'black'
   }
 }))
 
@@ -172,7 +179,8 @@ export default function HandySearch () {
 
             <div>
             <Grid>
-              <Grid item xs={12} style={{ width: 1000 }}>
+              <Grid item xs={12}>
+              <div className={classes.message}>
                 <Card> {message}
                   {handymanlists.length ? (
                     <List>
@@ -208,6 +216,7 @@ export default function HandySearch () {
                     <h2 className='text-center'>{message}</h2>
                   )}
                 </Card>
+                </div>
               </Grid>
             </Grid>
             </div>}

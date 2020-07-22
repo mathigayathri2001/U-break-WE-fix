@@ -5,9 +5,9 @@ import "./style.css";
 // This component exports both the List and ListItem components
 
 export const List = ({ children }) => (
-  <ul className="list-group">
+  <ol className="list-group">
     {children}
-  </ul>
+  </ol>
 );
 
 export function ListItem({ children }) {
