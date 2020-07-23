@@ -33,7 +33,15 @@ const useStyles = makeStyles(theme => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    background: "#a5d6a7"
+  },
+  submit1: {
+    margin: theme.spacing(3, 0, 2),
     background: "#ef9a9a"
+  },
+  submit2: {
+    margin: theme.spacing(3, 0, 2),
+    background: "#bdbdbd"
   },
   links: {
     '&:hover': {
@@ -147,7 +155,7 @@ export default function ViewHRequest () {
                               <Button
                               type='submit'
                               variant="contained" 
-                              className={classes.submit}
+                              className={classes.submit1}
                                 onClick={() =>
                                   setReqStatus(userHandyList._id, 'REJECTED')
                                 }
@@ -157,7 +165,7 @@ export default function ViewHRequest () {
                               <Button
                               type='submit'
                               variant="contained" 
-                              className={classes.submit}
+                              className={classes.submit2}
                                 onClick={() =>
                                   setReqStatus(userHandyList._id, 'CLOSED')
                                 }

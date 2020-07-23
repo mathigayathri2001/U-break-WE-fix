@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'left',
     // color: theme.palette.text.secondary,
     color: 'black',
-    backgroundColor: '#dcedc8',
+    backgroundColor: '#cfd8dc',
     width: 700,
     [theme.breakpoints.down('sm')]: {
       width: 300

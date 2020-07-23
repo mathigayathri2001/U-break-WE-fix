@@ -23,10 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    // color: "#00355F",
     color: "#fdd835",
-    // color: "#00e676",
-    // fontFamily: 'serif',
     fontFamily: 'Acme, sans-serif'
   },
   links: {
@@ -35,7 +32,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 20,
     fontFamily: 'serif',
     '&:hover': {
-      // backgroundColor: '#263238',
       color:'#fdd835'
     },
 
@@ -51,16 +47,14 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 30,
     fontFamily: 'serif',
     '&:hover': {
-      // backgroundColor: '#263238',
       color:'#fdd835'
     },
   },
   navBar: {
-    //  background: "#00796b",
     background: "#263238",
      padding:10,
-     width:"100%"
-    // background:"#b60040;",
+     borderTop: '2px solid #fdd835 '
+    //  width:"100%"
   },
   sectionDesktop: {
     display: 'none',

@@ -22,14 +22,17 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    color: "white",
-    fontFamily: 'serif',
+    color: "#fdd835",
+    fontFamily: 'Acme, sans-serif'
   },
   links: {
     color: "white",
     textDecoration: "none",
     fontSize: 20,
     fontFamily: 'serif',
+    '&:hover': {
+      color:'#fdd835'
+    },
   },
   menulinks:{
     color: "black",
@@ -41,9 +44,12 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     fontSize: 30,
     fontFamily: 'serif',
+    '&:hover': {
+      color:'#fdd835'
+    },
   },
   navBar: {
-    background: "#00796b",
+    background: "#263238",
     padding:10,
   },
   sectionDesktop: {

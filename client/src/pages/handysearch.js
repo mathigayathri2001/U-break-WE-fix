@@ -16,6 +16,7 @@ import HandyResult from '../components/HandyResult'
 import { List } from '../components/List'
 import Card from '../components/Card'
 import ReqNav from '../components/ReqNav'
+import Image from '../components/Login/background.jpg'
 //Styling
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -34,7 +35,12 @@ const useStyles = makeStyles(theme => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    background: "#ef9a9a"
+    color:'black',
+    backgroundColor: '#fdd835',
+    '&:hover': {
+      backgroundColor: '#263238',
+      color:'white'
+    },
   },
   links: {
     '&:hover': {
@@ -48,6 +54,11 @@ const useStyles = makeStyles(theme => ({
     fontSize:25,
     [theme.breakpoints.down('sm')]: {
       fontSize:15
+    }, 
+    background:{
+      // backgroundColor:'#eeeeee',
+      backgroundColor:'black',
+      minHeight: '100vh'
     },
   }
 }))
@@ -137,14 +148,11 @@ export default function HandySearch () {
     return <Redirect to={{ pathname: redirect }} />
   } else {
     return (
-      <div>
+      <div className={classes.background}>
         <ReqNav/>
         <Container component='main' maxWidth='xs'>
           <CssBaseline />
           <div className={classes.paper}>
-            {/* <Avatar className={classes.avatar}>
-              <LockOutlinedIcon />
-            </Avatar> */}
             <Typography component='h1' variant='h5'>
               Find a Handyman
             </Typography>
@@ -167,7 +175,6 @@ export default function HandySearch () {
                 type='submit'
                 fullWidth
                 variant='contained'
-                color='primary'
                 className={classes.submit}
                 onClick={handleSubmit}
               >
@@ -175,7 +182,6 @@ export default function HandySearch () {
               </Button>
             </form>
             {showDiv && 
-
             <div>
             <Grid>
               <Grid item xs={12} sm={12} md={12}lg={12}>
@@ -191,8 +197,6 @@ export default function HandySearch () {
                           name={handymanlist.name}
                           phoneNumber={handymanlist.phoneNumber}
                           service={handymanlist.service.join(' ,')}
-                          //Button={() =><Link to='/servicerequest'> <button>Submit Request</button></Link>} 
-                          // Button={() => <button>Submit Request</button>}
                           Button={() => (
                             <Link to='/servicerequest'>
                             <Button
@@ -202,7 +206,7 @@ export default function HandySearch () {
                             color="primary"
                             className={classes.submit}
                               onClick={() => saveHandyInfo(handymanlist)                              
-                             }                             
+                            }                             
                             >
                               Create Request
                             </Button>
@@ -220,7 +224,6 @@ export default function HandySearch () {
             </Grid>
             </div>}
           </div>
-          <Box mt={8}>{/* <Copyright /> */}</Box>
         </Container>
       </div>
     )

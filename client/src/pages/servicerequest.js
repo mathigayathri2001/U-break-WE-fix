@@ -28,7 +28,6 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary.main
   },
   form: {
-    // width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(3),
     minWidth: 395,
     maxWidth: 500 ,
@@ -36,10 +35,15 @@ const useStyles = makeStyles(theme => ({
       minWidth:300,
       maxWidth:350
     },
-
   },
   submit: {
-    margin: theme.spacing(3, 0, 2)
+    margin: theme.spacing(3, 0, 2),
+    color:'black',
+    backgroundColor: '#fdd835',
+    '&:hover': {
+      backgroundColor: '#263238',
+      color:'white'
+    },
   },
   links: {
     '&:hover': {
@@ -57,7 +61,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('sm')]: {
       minWidth:300,
       maxWidth:400
-    },
+    },   
   }
 }))
 
@@ -143,7 +147,6 @@ export default function ServiceRequestForm () {
       <Container component='main' maxWidth='xs'>
         <div className={classes.paper}>
           <Grid>
-            {/* <Grid item xs={12} style={{ width: 500 }}> */}
             <Grid item xs={12}sm={12}>
               <Card className={classes.root} variant='outlined'>
                 <CardContent>

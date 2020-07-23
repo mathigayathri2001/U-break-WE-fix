@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     textAlign: 'left',
     color: 'black',
-    backgroundColor: '#dcedc8',
+    backgroundColor: '#cfd8dc',
     width:700,
     [theme.breakpoints.down('sm')]: {
       width:300,
