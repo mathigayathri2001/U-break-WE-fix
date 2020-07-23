@@ -84,19 +84,24 @@ export default function HandySearch () {
 
   //Handle input change for location
   const handleInputChangeLocation = event => {
-    console.log(event);
+    //console.log(event);
     location = event;
     console.log(location);
+    auth.setloc(location);
   }
   const [showDiv, setshowDiv] = React.useState(false)
   const [handymanlists, setHandymanLists] = useState([])
-  const [message, setMessage] = useState('Search For A Handyman!')
+  const [message, setMessage] = useState('')
   //Saving person in database
   const handleSubmit = event => {
     event.preventDefault()
     setshowDiv(true)
     console.log('clicked')
     console.log(location)
+
+    if(location === '') {
+      location = auth.location;
+    }
 
     Api.getHandymans({ location: location }, service)
       .then(res => {
@@ -107,7 +112,6 @@ export default function HandySearch () {
           const message = setMessage("For the opted services and Location " + res.data.length + ' handyman found');
           //auth.login(res.data.handymanId, res.data.token)
           setHandymanLists(res.data);
-          auth.setloc(location);
           //auth.setslist(res.data[0].service);
           //auth.setshid(res.data[0]._id);
         } else {

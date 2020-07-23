@@ -57,7 +57,8 @@ export default function ViewUserRequest () {
   //Redirect hook
   const [redirect, setRedirect] = useState('')
   const [userReqLists, setUserReqLists] = useState([])
-  const [message, setMessage] = useState('No requests found')
+  const [message, setMessage] = useState('')
+  const [flag, setFlag] = useState(false)
 
   let uid = auth.userId
   let location = auth.location
@@ -76,6 +77,10 @@ export default function ViewUserRequest () {
       } catch(err) {
          console.log("Error getting service request data");
       }
+      if(result.data.length === 0) {
+        setMessage('No requests found');
+        setFlag(true)
+      }
     };
     fetchData();
   }, []);
@@ -84,6 +89,10 @@ export default function ViewUserRequest () {
   if (redirect) {
     return <Redirect to={{ pathname: redirect }} />
   } else {
+    let show;
+    if(flag === true) {
+        show = <h2 className='text-center'>{message}</h2>;
+    }
     return (
       <div>
         <Logout />
@@ -110,7 +119,7 @@ export default function ViewUserRequest () {
                       ))}
                     </List>
                   ) : (
-                    <h2 className='text-center'>{message}</h2>
+                    show
                   )}
                 </Card>
               </Grid>
