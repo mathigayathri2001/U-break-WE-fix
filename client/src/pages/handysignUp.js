@@ -17,7 +17,6 @@ import GoogleMaps from '../components/Location/index'
 import { AuthContext } from '../utils/auth-context'
 import SearchBar from '../components/Searchbar'
 import Navbar from '../components/Navbar'
-import './styles.css'
 //Styling
 const useStyles = makeStyles(theme => ({
   paper: {

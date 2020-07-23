@@ -15,6 +15,7 @@ import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import { Link, Redirect } from 'react-router-dom'
 import Nav from '../components/Navbar'
+import BothLogin from '../components/Login'
 // import API from '../utils/API';
 // import { AuthContext } from '../utils/auth-context';
 
@@ -102,7 +103,7 @@ export default function Login (props) {
           </Avatar>
           <Typography component='h1' variant='h5'>
             Login
-          </Typography>
+          </Typography><BothLogin/>
 
           {/* <Box component="span" visibility="visible" p={1} m={1} bgcolor="background.paper">
       Invalid user name and password combination!
@@ -114,7 +115,7 @@ export default function Login (props) {
             variant='h5'
           ></Typography>
 
-          <form className={classes.form} noValidate>
+          {/* <form className={classes.form} noValidate>
             <Grid>
               <Button>
                 <Link className={classes.links} to='/handylogin'>
@@ -132,10 +133,10 @@ export default function Login (props) {
                 </Link>
               </Button>
             </Grid>
-          </form>
+          </form>*/}
         </div>
       </Grid>
-    </Grid>
+    </Grid> 
     </div>
   )
 }
