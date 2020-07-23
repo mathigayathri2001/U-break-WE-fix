@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography'
 import { Redirect } from 'react-router-dom'
 import { AuthContext } from '../utils/auth-context'
 import Api from '../utils/API'
+import Menu from '../components/Menu'
 
 import Logout from '../components/Logout'
 
@@ -70,11 +71,10 @@ export default function ServiceRequestForm () {
   //firstName hook
   const [service, setSname] = useState('');
 
-  //Handle input change for first name
-  const handleInputChangesname = event => {
-    setSname(event.target.value)
-    console.log(service)
-  }
+  const onServiceChange = event => {
+    //console.log(event)
+    setSname(event);
+}
 
   //phoneNumber hook
   const [phoneNumber, setPhone] = useState('')
@@ -158,17 +158,7 @@ export default function ServiceRequestForm () {
                 <form className={classes.form} noValidate>
                   <Grid container spacing={2}>
                     <Grid item xs={12}sm={12}>
-                    <TextField
-                  name='ServiceName'
-                  variant='outlined'
-                  required
-                  fullWidth
-                  id='sname'
-                  label=' Service Name'
-                  className={classes.style}
-                  onChange={handleInputChangesname}
-                  autoFocus
-                />
+                    <Menu options={auth.slist} onChange={onServiceChange}/>
                 </Grid>
                 <Grid item xs={12}sm={12}>
                       <TextField
