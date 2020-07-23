@@ -60,8 +60,9 @@ export default function ViewHRequest () {
   const [redirect, setRedirect] = useState('')
   const [userReqLists, setUserReqLists] = useState([])
   const [userHandyLists, setHandyReqLists] = useState([])
-  const [message, setMessage] = useState('No requests found')
-  
+  const [message, setMessage] = useState('')
+  const [flag, setFlag] = useState(false);
+
   let hid = auth.handymanId
   console.log(hid)
   let uid
@@ -75,6 +76,10 @@ export default function ViewHRequest () {
       setHandyReqLists(result.data)
       } catch(err) {
          console.log("Error getting service request data");
+      }
+      if(result.data.length === 0) {
+        setMessage('No requests found');
+        setFlag(true);
       }
     };
     fetchData();
@@ -105,6 +110,10 @@ export default function ViewHRequest () {
   if (redirect) {
     return <Redirect to={{ pathname: redirect }} />
   } else {
+    let show;
+    if(flag) {
+        show = <h2 className='text-center'>{message}</h2>;
+    }
     return (
       <div>
         <Logout />
@@ -166,7 +175,7 @@ export default function ViewHRequest () {
                       ))}
                     </List>
                   ) : (
-                    <h2 className='text-center'>{message}</h2>
+                    show
                   )}
                 </Card>
               </Grid>

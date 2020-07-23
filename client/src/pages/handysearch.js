@@ -90,13 +90,17 @@ export default function HandySearch () {
   }
   const [showDiv, setshowDiv] = React.useState(false)
   const [handymanlists, setHandymanLists] = useState([])
-  const [message, setMessage] = useState('Search For A Handyman!')
+  const [message, setMessage] = useState('')
   //Saving person in database
   const handleSubmit = event => {
     event.preventDefault()
     setshowDiv(true)
     console.log('clicked')
     console.log(location)
+
+    if(location === '') {
+      location = auth.location;
+    }
 
     Api.getHandymans({ location: location }, service)
       .then(res => {
