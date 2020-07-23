@@ -49,7 +49,12 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(1)
   },
   submit: {
-    margin: theme.spacing(3, 0, 2)
+    margin: theme.spacing(3, 0, 2),
+    backgroundColor: '#fdd835',
+    '&:hover': {
+      backgroundColor: '#263238',
+      color:'white'
+    },
   },
   links: {
     '&:hover': {
@@ -57,6 +62,10 @@ const useStyles = makeStyles(theme => ({
     },
     color: 'black',
     textDecoration: 'none'
+  },
+  background:{
+    backgroundColor:'#eeeeee',
+    minHeight: '100vh'
   }
 }))
 
@@ -138,7 +147,7 @@ export default function SignInSide (props) {
     return <Redirect to={{ pathname: redirect }} />
   } else if (wrongInfo) {
     return (
-      <div>
+      <div className={classes.background}>
         <Navbar/>
       <Grid container component='main' className={classes.root}>
         <CssBaseline />
@@ -151,7 +160,6 @@ export default function SignInSide (props) {
             <Typography component='h1' variant='h5'>
               login
             </Typography>
-
             <Box
               component='span'
               visibility='visible'
@@ -161,13 +169,11 @@ export default function SignInSide (props) {
             >
               Invalid user name and password combination!
             </Box>
-
             <Typography
               visibility='hidden'
               component='h1'
               variant='h5'
             ></Typography>
-
             <form className={classes.form} noValidate>
               <TextField
                 variant='outlined'
@@ -193,12 +199,10 @@ export default function SignInSide (props) {
                 autoComplete='current-password'
                 onChange={handleInputChangePassword}
               />
-
               <Button
                 type='submit'
                 fullWidth
                 variant='contained'
-                color='primary'
                 className={classes.submit}
                 onClick={handleSignIn}
               >
@@ -213,10 +217,7 @@ export default function SignInSide (props) {
                     className={classes.links}
                   >
                     {"Don't have a handyman account? Sign Up here "}
-                  </Link>
-                  {/* <Link href="/handysignUp" variant="body2" className={classes.links} >
-                    {"Are You a Handyman? Click here to join our family"}
-                  </Link> */}
+                  </Link>                
                 </Grid>
               </Grid>
             </form>
@@ -227,7 +228,7 @@ export default function SignInSide (props) {
     )
   } else {
     return (
-      <div>
+      <div className={classes.background}>
       <Navbar/>
       <Grid container component='main' className={classes.root}>
         <CssBaseline />
@@ -240,7 +241,6 @@ export default function SignInSide (props) {
             <Typography component='h1' variant='h5'>
               Handyman Login
             </Typography>
-
             <Box
               component='span'
               visibility='hidden'
@@ -250,13 +250,11 @@ export default function SignInSide (props) {
             >
               Invalid user name and password combination!
             </Box>
-
             <Typography
               visibility='hidden'
               component='h1'
               variant='h5'
             ></Typography>
-
             <form className={classes.form} noValidate>
               <TextField
                 variant='outlined'
@@ -287,7 +285,6 @@ export default function SignInSide (props) {
                 type='submit'
                 fullWidth
                 variant='contained'
-                color='primary'
                 className={classes.submit}
                 onClick={handleSignIn}
               >
@@ -306,11 +303,6 @@ export default function SignInSide (props) {
                     }
                   </Link>
                 </Grid>
-                {/* <Grid item xs={6}>
-                <Link href="/handysignUp" variant="body2" className={classes.links} >
-                    {"Are You a Handyman? Click here to join our family"}
-                  </Link>
-                </Grid> */}
               </Grid>
             </form>
           </div>
