@@ -35,7 +35,12 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(3)
   },
   submit: {
-    margin: theme.spacing(3, 0, 2)
+    margin: theme.spacing(3, 0, 2),
+    backgroundColor: '#fdd835',
+    '&:hover': {
+      backgroundColor: '#263238',
+      color:'white'
+    },
   },
   links: {
     '&:hover': {
@@ -43,6 +48,11 @@ const useStyles = makeStyles(theme => ({
     },
     color: 'black',
     textDecoration: 'none'
+  },
+  background:{
+    backgroundColor:'#eeeeee',
+    minHeight: '100vh'
+  
   }
 }))
 
@@ -106,7 +116,7 @@ export default function SignUp () {
     return <Redirect to={{ pathname: redirect }} />
   } else {
     return (
-      <div>
+      <div className={classes.background}>
         <Nav />
       <Container component='main' maxWidth='xs'>
         <CssBaseline />
@@ -162,7 +172,7 @@ export default function SignUp () {
               type='submit'
               fullWidth
               variant='contained'
-              color='primary'
+              // color='primary'
               className={classes.submit}
               onClick={handleSubmit}
             >
@@ -181,7 +191,6 @@ export default function SignUp () {
             </Grid>
           </form>
         </div>
-        <Box mt={8}>{/* <Copyright /> */}</Box>
       </Container>
       </div>
     )

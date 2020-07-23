@@ -16,8 +16,8 @@ import { Redirect } from 'react-router-dom'
 import GoogleMaps from '../components/Location/index'
 import { AuthContext } from '../utils/auth-context'
 import SearchBar from '../components/Searchbar'
-import Nav from '../components/Navbar'
-import {teal, pink } from '@material-ui/core/colors'
+import Navbar from '../components/Navbar'
+import './styles.css'
 //Styling
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -36,12 +36,11 @@ const useStyles = makeStyles(theme => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    backgroundColor: '#aed581',
-  // }
-  // submit:{
-  //   '&:hover': {
-  //     color: '#004d40'
-  //   }
+    backgroundColor: '#fdd835',
+    '&:hover': {
+      backgroundColor: '#263238',
+      color:'white'
+    },
   },
   links: {
     '&:hover': {
@@ -49,6 +48,10 @@ const useStyles = makeStyles(theme => ({
     },
     color: 'black',
     textDecoration: 'none'
+  },
+  background:{
+    backgroundColor:'#eeeeee',
+    minHeight: '100vh'
   }
 }))
 
@@ -56,7 +59,7 @@ const useStyles = makeStyles(theme => ({
 export default function SignUp () {
   const classes = useStyles()
   const auth = useContext(AuthContext)
-  const accent = pink['200'];
+  // const accent = pink['200'];
 
   //Redirect hook
   const [redirect, setRedirect] = useState('')
@@ -154,8 +157,8 @@ export default function SignUp () {
     return <Redirect to={{ pathname: redirect }} />
   } else {
     return (
-      <div>
-         <Nav />
+      <div className={classes.background}>
+         <Navbar />
       <Container component='main' maxWidth='xs'>
         <CssBaseline />
         <div className={classes.paper}>
@@ -253,7 +256,7 @@ export default function SignUp () {
             </Grid>
           </form>
         </div>
-        <Box mt={8}>{/* <Copyright /> */}</Box>
+        {/* <Box mt={8}><Copyright /></Box> */}
       </Container>
       </div>
     )

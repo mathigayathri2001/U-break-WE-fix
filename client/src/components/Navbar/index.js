@@ -24,14 +24,21 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
     // color: "#00355F",
-    color: "white",
-    fontFamily: 'serif',
+    color: "#fdd835",
+    // color: "#00e676",
+    // fontFamily: 'serif',
+    fontFamily: 'Acme, sans-serif'
   },
   links: {
     color: "white",
     textDecoration: "none",
     fontSize: 20,
     fontFamily: 'serif',
+    '&:hover': {
+      // backgroundColor: '#263238',
+      color:'#fdd835'
+    },
+
   },
   menulinks:{
     color: "black",
@@ -43,9 +50,14 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     fontSize: 30,
     fontFamily: 'serif',
+    '&:hover': {
+      // backgroundColor: '#263238',
+      color:'#fdd835'
+    },
   },
   navBar: {
-     background: "#00796b",
+    //  background: "#00796b",
+    background: "#263238",
      padding:10,
      width:"100%"
     // background:"#b60040;",

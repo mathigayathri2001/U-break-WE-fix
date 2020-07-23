@@ -11,6 +11,7 @@ import Home from './pages/homepage'
 import ServiceRequest from './pages/servicerequest'
 import ViewUserRequest from './pages/viewUserRequest'
 import ViewHandyRequest from './pages/viewHandyRequest'
+// import Footer from './components/Footer'
 import "./App.css"
 
 function App () {
@@ -122,6 +123,7 @@ function App () {
           <Route exact path='/servicerequest' component={ServiceRequest} />
           <Route exact path='/viewrequest' component={ViewUserRequest} />
           <Route exact path='/viewhandyrequest' component={ViewHandyRequest} />
+          {/* <Footer/> */}
         </Router>
       </AuthContext.Provider>
     </div>
