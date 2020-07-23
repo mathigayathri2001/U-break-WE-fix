@@ -1,25 +1,17 @@
 //Imports
 import React, { useEffect, useState, useContext } from 'react'
-import Avatar from '@material-ui/core/Avatar'
-import Button from '@material-ui/core/Button'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import TextField from '@material-ui/core/TextField'
-// import Link from '@material-ui/core/Link'
 import Grid from '@material-ui/core/Grid'
 import Box from '@material-ui/core/Box'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
-import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import Api from '../utils/API'
 import { Link, Redirect } from 'react-router-dom'
-import GoogleMaps from '../components/Location/index'
 import { AuthContext } from '../utils/auth-context'
-import SearchBar from '../components/Searchbar'
 import ViewRequest from '../components/ViewRequest'
 import { List } from '../components/List'
 import Card from '../components/Card'
-import Logout from '../components/Logout'
+import BackNav from '../components/BackNav'
 
 //Styling
 const useStyles = makeStyles(theme => ({
@@ -34,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary.main
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing(3)
   },
   submit: {
@@ -63,6 +55,13 @@ export default function ViewUserRequest () {
   let uid = auth.userId
   let location = auth.location
   console.log(uid)
+
+  // if (!auth.userId){
+  //   // localStorage.getItem('handymanData')
+  //   const user=JSON.parse (localStorage.getItem('userData'))
+  //   uid=user.userId
+  // }
+
   let hid
   let hname, hemail
   let result = []
@@ -95,11 +94,10 @@ export default function ViewUserRequest () {
     }
     return (
       <div>
-        <Logout />
+        <BackNav />
         <Container component='main' maxWidth='xs'>
           <CssBaseline />
           <div className={classes.paper}>
-            {/* <form className={classes.form} noValidate></form> */}
             <Grid>
               <Grid item xs={12} >
                 <Card>

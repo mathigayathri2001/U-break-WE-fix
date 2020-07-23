@@ -16,13 +16,15 @@ const useStyles = makeStyles(theme => ({
     width:700,
     [theme.breakpoints.down('sm')]: {
       width:300,
+       // color:"red",
+      fontSize:"1.2rem"
+    },
       [theme.breakpoints.up('sm')]: {
         width:600
       },
       [theme.breakpoints.up('md')]: {
         width:700
-      },     
-    },
+      },        
   },
   button: {
     padding: 50

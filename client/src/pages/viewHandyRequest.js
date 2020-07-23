@@ -1,22 +1,15 @@
 //Imports
 import React, { useEffect, useState, useContext } from 'react'
-import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import TextField from '@material-ui/core/TextField'
-// import Link from '@material-ui/core/Link'
 import Grid from '@material-ui/core/Grid'
 import Box from '@material-ui/core/Box'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
-import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import Api from '../utils/API'
 import { Link, Redirect } from 'react-router-dom'
-import GoogleMaps from '../components/Location/index'
 import { AuthContext } from '../utils/auth-context'
-import SearchBar from '../components/Searchbar'
 import ViewHandyRequest from '../components/ViewHandyRequest'
 import { List } from '../components/List'
 import Card from '../components/Card'
@@ -35,7 +28,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary.main
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%', 
     marginTop: theme.spacing(3)
   },
   submit: {
@@ -65,6 +58,10 @@ export default function ViewHRequest () {
 
   let hid = auth.handymanId
   console.log(hid)
+  if (!auth.handymanId){
+    const handyman=JSON.parse (localStorage.getItem('handymanData'))
+    hid=handyman.handymanId
+  }
   let uid
   let result
   let location = auth.location
@@ -120,7 +117,6 @@ export default function ViewHRequest () {
         <Container component='main' maxWidth='xs'>
           <CssBaseline />
           <div className={classes.paper}>
-            {/* <form className={classes.form} noValidate></form> */}
             <Grid>
               <Grid item xs={12}>
                 <Card>
