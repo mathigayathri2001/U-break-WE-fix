@@ -27,8 +27,15 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary.main
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(3)
+    // width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(3),
+    minWidth: 395,
+    maxWidth: 500 ,
+    [theme.breakpoints.down('sm')]: {
+      minWidth:300,
+      maxWidth:350
+    },
+
   },
   submit: {
     margin: theme.spacing(3, 0, 2)
@@ -42,6 +49,14 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     fontSize: 14
+  },
+  style:{
+    minWidth: 395,
+    maxWidth: 500 ,
+    [theme.breakpoints.down('sm')]: {
+      minWidth:300,
+      maxWidth:400
+    },
   }
 }))
 
@@ -128,7 +143,8 @@ export default function ServiceRequestForm () {
       <Container component='main' maxWidth='xs'>
         <div className={classes.paper}>
           <Grid>
-            <Grid item xs={12} style={{ width: 500 }}>
+            {/* <Grid item xs={12} style={{ width: 500 }}> */}
+            <Grid item xs={12}sm={12}>
               <Card className={classes.root} variant='outlined'>
                 <CardContent>
                   <Typography
@@ -141,7 +157,7 @@ export default function ServiceRequestForm () {
                 </CardContent>
                 <form className={classes.form} noValidate>
                   <Grid container spacing={2}>
-                    <Grid item xs={12}>
+                    <Grid item xs={12}sm={12}>
                     <TextField
                   name='ServiceName'
                   variant='outlined'
@@ -149,33 +165,36 @@ export default function ServiceRequestForm () {
                   fullWidth
                   id='sname'
                   label=' Service Name'
+                  className={classes.style}
                   onChange={handleInputChangesname}
                   autoFocus
                 />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12}sm={12}>
                       <TextField
                         id='phoneNumber'
                         name='phoneNumber'
                         type='phoneNumber'
                         label='Your Phone Number'
-                        style={{ width: 498 }}
+                        className={classes.style}
                         variant='outlined'
                         required
+                        fullWidth
                         onChange={handleInputChangePhone}
                         autoComplete='current-phoneNumber'
                       />
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs={12}sm={12}>
                       <TextField
                         id='outlined-multiline-static'
                         label='Service Description'
                         multiline
                         rows={4}
-                        style={{ width: 498 }}
+                        className={classes.style}
                         // defaultValue='Default Value'
                         variant='outlined'
                         required
+                        fullWidth
                         onChange={handleInputChangeSD}
                       />
                     </Grid>

@@ -1,18 +1,17 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
-import CardActions from '@material-ui/core/CardActions'
-import CardHeader from '@material-ui/core/CardHeader'
 import CardContent from '@material-ui/core/CardContent'
 import Grid from '@material-ui/core/Grid'
-import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-import { lightGreen, yellow } from '@material-ui/core/colors'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    // minWidth: 275,
-    // backgroundColor:'lightgreen', 
+    //  minWidth: 275,
+    // backgroundColor:'lightgreen',
+    // [theme.breakpoints.down('sm')]: {
+    //   width:200
+    // }, 
     
   },
   bullet: {
@@ -35,7 +34,7 @@ const useStyles = makeStyles({
   list: {
     color: 'black'
   }
-})
+}))
 
 export default function SimpleCard ({ children }) {
   const classes = useStyles()

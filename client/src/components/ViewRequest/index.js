@@ -3,7 +3,6 @@ import { ListItem } from '../List'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
-import { lightBlue } from '@material-ui/core/colors'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -16,12 +15,11 @@ const useStyles = makeStyles(theme => ({
     color: 'black',
     backgroundColor: '#dcedc8',
     width:700,
+    // fontSize:"5rem",
     [theme.breakpoints.down('sm')]: {
-      width:300
+      width:300,
+      // fontSize:"3rem"
     },
-    // [theme.breakpoints.up('sm')]: {
-    //   width:500
-    // },
     [theme.breakpoints.up('sm')]: {
       width:600
     },
@@ -32,7 +30,6 @@ const useStyles = makeStyles(theme => ({
   button: {
     padding: 50
   },
- 
 }))
 
 function ViewRequest({ service,description,status,location,hname,hemail,phoneNumber}) {
