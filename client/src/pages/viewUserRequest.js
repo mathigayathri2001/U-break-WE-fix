@@ -12,8 +12,6 @@ import ViewRequest from '../components/ViewRequest'
 import { List } from '../components/List'
 import Card from '../components/Card'
 import BackNav from '../components/BackNav'
-// import Footer from '../components/Footer'
-// import Footer from '../components/Footer1'
 
 //Styling
 const useStyles = makeStyles(theme => ({
@@ -126,7 +124,6 @@ export default function ViewUserRequest () {
             </Grid>
           </div>
         </Container>
-        {/* <Footer/> */}
       </div>
     )
   }

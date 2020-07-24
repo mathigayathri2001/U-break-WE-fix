@@ -1,11 +1,8 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useState , useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
-import { List } from '../components/List'
-import Card from '@material-ui/core/Card'
-import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
@@ -13,8 +10,6 @@ import { Redirect } from 'react-router-dom'
 import { AuthContext } from '../utils/auth-context'
 import Api from '../utils/API'
 import Menu from '../components/Menu'
-//import Footer from '../components/Footer1'
-
 import Logout from '../components/Logout'
 
 const useStyles = makeStyles(theme => ({
@@ -134,7 +129,6 @@ export default function ServiceRequestForm () {
         console.log(error)
       })
   }
-
   //If redirect is true redirect, or else show signup page
   if (redirect) {
     return <Redirect to={{ pathname: redirect }} />
@@ -149,7 +143,6 @@ export default function ServiceRequestForm () {
         <div className={classes.paper}>
           <Grid>
             <Grid item xs={12}sm={12}>
-              {/* <Card className={classes.root} variant='outlined'> */}
                 <CardContent>
                   <Typography
                     className={classes.title}
@@ -204,12 +197,10 @@ export default function ServiceRequestForm () {
                     </Button>
                   </Grid>
                 </form>
-              {/* </Card> */}
             </Grid>
           </Grid>
         </div>
       </Container>
-      {/* <Footer /> */}
     </div>
   )
   }

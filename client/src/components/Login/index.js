@@ -45,11 +45,9 @@ export default function ComplexGrid () {
                 src='images/clients.jpg'
               />
               </Grid>
-
               <Grid>
               <Button variant="contained" color="secondary" >Login</Button>
-              </Grid>
-              
+              </Grid>              
             </ButtonBase>
           </Grid>
         </Grid>

@@ -3,12 +3,7 @@ import React, { useState, useContext } from 'react'
 import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
 import CssBaseline from '@material-ui/core/CssBaseline'
-// import TextField from '@material-ui/core/TextField';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import Checkbox from '@material-ui/core/Checkbox';
-// import link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper'
-// import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Typography from '@material-ui/core/Typography'
@@ -17,9 +12,6 @@ import { Link, Redirect } from 'react-router-dom'
 import Nav from '../components/Navbar'
 import BothLogin from '../components/Login'
 import Image from '../components/Login/background.jpg'
-//import Footer from '../components/Footer'
-
-// import API from '../utils/API';
 // import { AuthContext } from '../utils/auth-context';
 
 //Styling
@@ -49,7 +41,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary.main
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%', 
     marginTop: theme.spacing(1)
   },
   submit: {
@@ -71,9 +63,7 @@ const useStyles = makeStyles(theme => ({
 //Signin component
 export default function Login (props) {
   const classes = useStyles()
-
-  
-
+ 
   //If redirect is true , redirect to the path name or else show the sign in component
   // if (redirect) {
   //   return <Redirect to={{ pathname: redirect }} />
@@ -100,7 +90,6 @@ export default function Login (props) {
         </div>
       </Grid>
     </Grid> 
-    {/* <Footer /> */}
     </div>
   )
 }
