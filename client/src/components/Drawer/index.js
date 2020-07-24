@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -19,6 +19,9 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Icon, InlineIcon } from '@iconify/react';
 import mdConstruct from '@iconify/icons-ion/md-construct';
+import Tooltip from '@material-ui/core/Tooltip';
+import { AuthContext } from '../../utils/auth-context'
+import { Link, Redirect } from "react-router-dom"
 
 const drawerWidth = 240;
 
@@ -36,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
+      backgroundColor: "#263238"
     },
   },
   menuButton: {
@@ -48,19 +52,44 @@ const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
+    backgroundColor: "#263238"
    
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
   },
+  links: {
+    color: "white",
+    textDecoration: "none",
+    fontSize: 20,
+    textAlign: "center",
+    fontFamily: 'Acme, sans-serif',
+    '&:hover': {
+      color:'#fdd835'
+    },
+  }
 }));
+
+
 
 function ResponsiveDrawer(props) {
   const { window } = props;
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const auth = useContext(AuthContext);
+
+  const [redirect, setRedirect] = useState("")
+  
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log("Logout functionality");
+    auth.ulogout();
+    setRedirect('/login')
+  }
+
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -71,31 +100,47 @@ function ResponsiveDrawer(props) {
       <div className={classes.toolbar} />
       <Divider/>
       <List>
-      <Icon icon={mdConstruct} width="200" height="200" />
+      <InlineIcon icon={mdConstruct} width="200" height="200" color="#fdd835" textAlign="center"/>
+      </List>
+      <div className={classes.links}>
+       U-BREAK-WE-FIX
+
+      </div>
+
+      
+      <Divider />
+      <List>
+        {/* {['My Requests'].map((text, index) => (
+          <ListItem button key={text}> */}
+            {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
+            {/* <ListItemText primary={text} />
+          </ListItem>
+        ))} */}
+          <IconButton>
+              <Tooltip title="View Request"><Link className={classes.links} to="/viewhandyrequest" > My Requests </Link></Tooltip>
+            </IconButton>
       </List>
       <Divider />
       <List>
-        {['My Requests'].map((text, index) => (
+        {/* {['Logout'].map((text, index) => (
           <ListItem button key={text}>
             {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['Logout'].map((text, index) => (
-          <ListItem button key={text}>
-            {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+            {/* <ListItemText primary={text} />
+          </ListItem> */}
+        {/* ))} */}
+
+        <IconButton>
+            <Tooltip title="Log Out" onClick={handleSubmit}><Link className={classes.links} to="/">Logout</Link></Tooltip>
+            </IconButton>
+
       </List>
     </div>
   );
 
   const container = window !== undefined ? () => window().document.body : undefined;
-
+  if (redirect) {
+    return <Redirect to={{ pathname: redirect }} />
+  } else {
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -111,7 +156,7 @@ function ResponsiveDrawer(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            U-BREAK-WE-FIX
+            <h2>U-BREAK-WE-FIX</h2>
           </Typography>
         </Toolbar>
       </AppBar>
@@ -151,6 +196,7 @@ function ResponsiveDrawer(props) {
       </main>
     </div>
   );
+}
 }
 
 ResponsiveDrawer.propTypes = {

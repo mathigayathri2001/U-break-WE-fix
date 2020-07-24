@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import Nav from '../components/Navbar'
 import Carousel from '../components/Carousel'
 import Flex from '../components/Flex/index.js'
+import Welcome from '../components/Welcome'
 
-// const windowWidth = window.innerWidth;
+
+
+
 function Home() {
     const [isMobile, setIsMobile] = useState();
     useEffect(()=>{
@@ -19,6 +22,7 @@ function Home() {
     return (
         <div>
             <Nav/>
+            <Welcome/>
             {isMobile ? 
             (<Flex/>) : (<Carousel/>)}
             <div style={{backgroundColor:"yellow"}}>

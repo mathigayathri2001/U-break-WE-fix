@@ -13,7 +13,8 @@ import { AuthContext } from '../utils/auth-context'
 import ViewHandyRequest from '../components/ViewHandyRequest'
 import { List } from '../components/List'
 import Card from '../components/Card'
-import Logout from '../components/Logout'
+// import Logout from '../components/Logout'
+import Drawer from '../components/Drawer'
 // import Footer from '../components/Footer1'
 
 //Styling
@@ -126,7 +127,8 @@ export default function ViewHRequest () {
     }
     return (
       <div>
-        <Logout />
+        {/* <Logout /> */}
+        <Drawer/>
         <div className={classes.heading}><h2>Client Requests</h2>
         <Container component='main' maxWidth='xs'>
           <CssBaseline />

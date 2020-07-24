@@ -124,7 +124,7 @@ export default function SignUp () {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component='h1' variant='h5'>
-            Sign up
+            Client Signup
           </Typography>
           <form className={classes.form} noValidate>
             <Grid container spacing={2}>
@@ -175,7 +175,7 @@ export default function SignUp () {
               className={classes.submit}
               onClick={handleSubmit}
             >
-              Sign Up
+              Signup
             </Button>
             <Grid container justify='space-around'>
               <Grid item>
