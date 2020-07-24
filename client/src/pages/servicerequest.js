@@ -13,6 +13,7 @@ import { Redirect } from 'react-router-dom'
 import { AuthContext } from '../utils/auth-context'
 import Api from '../utils/API'
 import Menu from '../components/Menu'
+import Footer from '../components/Footer1'
 
 import Logout from '../components/Logout'
 
@@ -148,7 +149,7 @@ export default function ServiceRequestForm () {
         <div className={classes.paper}>
           <Grid>
             <Grid item xs={12}sm={12}>
-              <Card className={classes.root} variant='outlined'>
+              {/* <Card className={classes.root} variant='outlined'> */}
                 <CardContent>
                   <Typography
                     className={classes.title}
@@ -203,11 +204,12 @@ export default function ServiceRequestForm () {
                     </Button>
                   </Grid>
                 </form>
-              </Card>
+              {/* </Card> */}
             </Grid>
           </Grid>
         </div>
       </Container>
+      <Footer />
     </div>
   )
   }

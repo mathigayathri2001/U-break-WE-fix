@@ -17,6 +17,9 @@ import Api from '../utils/API'
 import { Redirect } from 'react-router-dom'
 import { AuthContext } from '../utils/auth-context'
 import Nav from '../components/Navbar'
+import Image from '../components/Login/background.jpg'
+import Footer from '../components/Footer1'
+
 
 //Styling
 const useStyles = makeStyles(theme => ({
@@ -50,7 +53,7 @@ const useStyles = makeStyles(theme => ({
     textDecoration: 'none'
   },
   background:{
-    backgroundColor:'#eeeeee',
+    backgroundImage: `url(${Image})`,
     minHeight: '100vh'
   
   }
@@ -192,6 +195,7 @@ export default function SignUp () {
           </form>
         </div>
       </Container>
+      <Footer />
       </div>
     )
   }

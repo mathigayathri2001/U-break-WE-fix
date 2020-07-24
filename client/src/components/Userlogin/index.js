@@ -17,6 +17,8 @@ import { Redirect } from 'react-router-dom'
 import API from '../../utils/API'
 import { AuthContext } from '../../utils/auth-context'
 import Navbar from '../Navbar'
+import Image from '../Login/background.jpg'
+import Footer from '../Footer'
 
 //Styling
 const useStyles = makeStyles(theme => ({
@@ -64,7 +66,7 @@ const useStyles = makeStyles(theme => ({
     textDecoration: 'none'
   },
   background:{
-    backgroundColor:'#eeeeee',
+    backgroundImage: `url(${Image})`,
     minHeight: '100vh'
   }
 }))
@@ -148,12 +150,12 @@ export default function Userlogin (props) {
     return <Redirect to={{ pathname: redirect }} />
   } else if (wrongInfo) {
     return (
-       <div className={classes.background}>
+       <div >
          <Navbar/> 
       <Grid container component='main' className={classes.root}>
         <CssBaseline />
         <Grid item xs={false} sm={4} md={7} className={classes.image} />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square className={classes.background}>
           <div className={classes.paper}>
             <Avatar className={classes.avatar}>
               <LockOutlinedIcon />
@@ -229,12 +231,12 @@ export default function Userlogin (props) {
     )
   } else {
     return (
-      <div className={classes.background}>
+      <div >
       <Navbar/>
       <Grid container component='main' className={classes.root}>
         <CssBaseline />
         <Grid item xs={false} sm={4} md={7} className={classes.image} />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square className={classes.background}>
           <div className={classes.paper}>
             <Avatar className={classes.avatar}>
               <LockOutlinedIcon />
@@ -308,6 +310,7 @@ export default function Userlogin (props) {
           </div>
         </Grid>
       </Grid>
+      <Footer/>
       </div>
     )
   }

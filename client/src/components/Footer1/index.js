@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 'auto',
     backgroundColor: "#263238",
     color:'white',
-    // bottom:0,
+    bottom:0,
     position:"absolute",
     width: "100%"
     

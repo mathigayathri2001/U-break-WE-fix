@@ -16,13 +16,16 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Link, Redirect } from 'react-router-dom'
 import Nav from '../components/Navbar'
 import BothLogin from '../components/Login'
+import Image from '../components/Login/background.jpg'
+import Footer from '../components/Footer'
+
 // import API from '../utils/API';
 // import { AuthContext } from '../utils/auth-context';
 
 //Styling
 const useStyles = makeStyles(theme => ({
   root: {
-    height: '100vh'
+    // height: '100vh'
   },
   image: {
     backgroundImage:
@@ -58,33 +61,18 @@ const useStyles = makeStyles(theme => ({
     },
     color: 'black',
     textDecoration: 'none'
-  }
+  },
+  background:{
+    backgroundImage: `url(${Image})`,
+    minHeight: '100vh'
+  },
 }))
 
 //Signin component
 export default function Login (props) {
   const classes = useStyles()
 
-  //Copyright
-  function Copyright () {
-    return (
-      
-      <Typography
-        className={classes.links}
-        variant='body2'
-        color='textSecondary'
-        align='center'
-      >
-        {'Copyright © '}
-        <link color='inherit' href='https://material-ui.com/'>
-          U-BREAK-WE-FIX
-        </link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
-     
-    )
-  }
+  
 
   //If redirect is true , redirect to the path name or else show the sign in component
   // if (redirect) {
@@ -96,7 +84,8 @@ export default function Login (props) {
     <Grid container component='main' className={classes.root}>
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+
+      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square className={classes.background} >
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
@@ -137,6 +126,7 @@ export default function Login (props) {
         </div>
       </Grid>
     </Grid> 
+    <Footer />
     </div>
   )
 }
