@@ -29,14 +29,13 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
   footer: {
-    // padding: theme.spacing(2, 1),
+    padding: theme.spacing(1, 1),
     marginTop: 'auto',
     backgroundColor: "#263238",
     color:'white',
-    // bottom:0,
-    position:"absolute",
-    width: "100%"
-    
+    bottom:0,
+    position:"fixed",
+    width: "100%", 
   },
 }));
 

@@ -13,7 +13,7 @@ import { Redirect } from 'react-router-dom'
 import { AuthContext } from '../utils/auth-context'
 import Api from '../utils/API'
 import Menu from '../components/Menu'
-// import Footer from '../components/Footer1'
+//import Footer from '../components/Footer1'
 
 import Logout from '../components/Logout'
 

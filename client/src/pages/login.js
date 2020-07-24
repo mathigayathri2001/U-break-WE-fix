@@ -17,7 +17,7 @@ import { Link, Redirect } from 'react-router-dom'
 import Nav from '../components/Navbar'
 import BothLogin from '../components/Login'
 import Image from '../components/Login/background.jpg'
-// import Footer from '../components/Footer'
+//import Footer from '../components/Footer'
 
 // import API from '../utils/API';
 // import { AuthContext } from '../utils/auth-context';
