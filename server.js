@@ -23,7 +23,7 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/heroku_jq6k86b6",
+  process.env.MONGODB_URI || "mongodb://localhost/handyman",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
