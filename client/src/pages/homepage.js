@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Nav from '../components/Navbar'
 import Carousel from '../components/Carousel'
 import Flex from '../components/Flex/index.js'
-import Footer from "../components/Footer";
+import Footer from "../components/Footer1";
 
 
 // const windowWidth = window.innerWidth;
@@ -23,7 +23,10 @@ function Home() {
             <Nav/>
             {isMobile ? 
             (<Flex/>) : (<Carousel/>)}
-            <Footer/>
+            <div style={{backgroundColor:"yellow"}}>
+            <Footer />
+            </div>
+            
         </div>
     )
 }

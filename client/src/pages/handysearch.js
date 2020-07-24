@@ -5,7 +5,6 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import Grid from '@material-ui/core/Grid'
 import Box from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
-import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 import Api from '../utils/API'
 import { Link,Redirect } from 'react-router-dom'
@@ -17,6 +16,8 @@ import { List } from '../components/List'
 import Card from '../components/Card'
 import ReqNav from '../components/ReqNav'
 import Image from '../components/Login/background.jpg'
+import Footer from '../components/Footer1'
+import {makeStyles } from '@material-ui/core/styles'
 //Styling
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -25,13 +26,13 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     alignItems: 'center'
   },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
-  },
+  // avatar: {
+  //   margin: "theme.spacing(1)",
+  //   backgroundColor: theme.palette.secondary.main
+  // },
   form: {
     width: '100%', 
-    marginTop: theme.spacing(3)
+    marginTop: theme.spacing(3),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -58,16 +59,21 @@ const useStyles = makeStyles(theme => ({
     background:{
       // backgroundColor:'#eeeeee',
       backgroundColor:'black',
-      minHeight: '100vh'
+      // minHeight: '100vh'
     },
+    
+  
+  footer:{
+    bottom: 0,
+    color: "red",
   }
+}
 }))
-
 //Handysearch component
 export default function HandySearch () {
   const classes = useStyles()
   const auth = useContext(AuthContext)
-
+  
   //Redirect hook
   const [redirect, setRedirect] = useState('')
 
@@ -225,6 +231,10 @@ export default function HandySearch () {
             </div>}
           </div>
         </Container>
+        <div>
+        <Footer/>
+        </div>
+        
       </div>
     )
   }

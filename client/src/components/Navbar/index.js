@@ -129,8 +129,8 @@ export default function SearchAppBar() {
       <div className={classes.root}>
         <AppBar position="static" className={classes.navBar}>
           <Toolbar>
-            <Typography variant="h4" className={classes.title}>
-              U-BREAK-WE-FIX
+            <Typography variant="h4" className={classes.title} ><i class="fa fa-wrench" aria-hidden="true"></i>
+              U-BREAK-WE-FIX<i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span>
           </Typography>
             <IconButton>
               <Tooltip title="Home"><Link to="/" > <HomeIcon className={classes.home} /> </Link></Tooltip>

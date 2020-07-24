@@ -17,6 +17,9 @@ import GoogleMaps from '../components/Location/index'
 import { AuthContext } from '../utils/auth-context'
 import SearchBar from '../components/Searchbar'
 import Navbar from '../components/Navbar'
+import Image from '../components/Login/background.jpg'
+import Footer from  '../components/Footer1'
+
 //Styling
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -49,7 +52,7 @@ const useStyles = makeStyles(theme => ({
     textDecoration: 'none'
   },
   background:{
-    backgroundColor:'#eeeeee',
+    backgroundImage: `url(${Image})`,
     minHeight: '100vh'
   }
 }))
@@ -257,6 +260,7 @@ export default function SignUp () {
         </div>
         {/* <Box mt={8}><Copyright /></Box> */}
       </Container>
+      <Footer/>
       </div>
     )
   }

@@ -14,6 +14,7 @@ import ViewHandyRequest from '../components/ViewHandyRequest'
 import { List } from '../components/List'
 import Card from '../components/Card'
 import Logout from '../components/Logout'
+import Footer from '../components/Footer1'
 
 //Styling
 const useStyles = makeStyles(theme => ({
@@ -49,6 +50,10 @@ const useStyles = makeStyles(theme => ({
     },
     color: 'black',
     textDecoration: 'none'
+  },
+  heading:{
+    textAlign:"center",
+    marginTop:"40px",
   }
 }))
 
@@ -122,6 +127,7 @@ export default function ViewHRequest () {
     return (
       <div>
         <Logout />
+        <div className={classes.heading}><h2>Client Requests</h2>
         <Container component='main' maxWidth='xs'>
           <CssBaseline />
           <div className={classes.paper}>
@@ -187,6 +193,8 @@ export default function ViewHRequest () {
           </div>
           <Box mt={8}>{/* <Copyright /> */}</Box>
         </Container>
+        </div> 
+        <Footer />
       </div>
     )
   }
