@@ -12,13 +12,9 @@ import { Link, Redirect } from 'react-router-dom'
 import Nav from '../components/Navbar'
 import BothLogin from '../components/Login'
 import Image from '../components/Login/background.jpg'
-// import { AuthContext } from '../utils/auth-context';
 
 //Styling
 const useStyles = makeStyles(theme => ({
-  root: {
-    // height: '100vh'
-  },
   image: {
     backgroundImage:
       'url(https://www.onlinemarketplaces.com/ext/resources/-1GOMS/Jobs/Misc/handyman.png?1551388685?1551388685)',

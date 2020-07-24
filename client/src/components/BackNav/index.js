@@ -11,7 +11,9 @@ import Tooltip from '@material-ui/core/Tooltip';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import { AuthContext } from '../../utils/auth-context'
+import { AuthContext } from '../../utils/auth-context';
+import { Icon, InlineIcon } from '@iconify/react';
+import mdConstruct from '@iconify/icons-ion/md-construct';
 
 //styling 
 const useStyles = makeStyles((theme) => ({
@@ -30,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     textDecoration: "none",
     fontSize: 20,
-    fontFamily: 'serif',
+    fontFamily: 'Acme, sans-serif',
     '&:hover': {
       color:'#fdd835'
     },
@@ -39,12 +41,12 @@ const useStyles = makeStyles((theme) => ({
     color: "black",
     textDecoration: "none",
     fontSize: 20,
-    fontFamily: 'serif',
+    fontFamily: 'Acme, sans-serif',
   },
   back: {
     color: "white",
     fontSize: 30,
-    fontFamily: 'serif',
+    fontFamily: 'Acme, sans-serif',
     '&:hover': {
       color:'#fdd835'
     },
@@ -137,7 +139,7 @@ export default function SearchAppBar() {
       <div className={classes.root}>
         <AppBar position="static" className={classes.navBar}>
           <Toolbar>
-            <Typography variant="h4" className={classes.title}>
+            <Typography variant="h4" className={classes.title}><InlineIcon icon={mdConstruct} color="#fdd835" textAlign="center"/><i className="fa fa-cog fa-spin fa-1x fa-fw"></i><span className="sr-only">Loading...</span>
             U-BREAK-WE-FIX
           </Typography>
           <div className={classes.sectionDesktop}>

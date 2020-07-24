@@ -10,6 +10,8 @@ import { Redirect } from 'react-router-dom'
 import { AuthContext } from '../utils/auth-context'
 import Api from '../utils/API'
 import Menu from '../components/Menu'
+//import Footer from '../components/Footer1'
+
 import Logout from '../components/Logout'
 
 const useStyles = makeStyles(theme => ({
@@ -27,6 +29,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(3),
     minWidth: 395,
     maxWidth: 500 ,
+  
     [theme.breakpoints.down('sm')]: {
       minWidth:300,
       maxWidth:350

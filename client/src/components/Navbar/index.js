@@ -11,6 +11,8 @@ import Tooltip from '@material-ui/core/Tooltip';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import { Icon, InlineIcon } from '@iconify/react';
+import mdConstruct from '@iconify/icons-ion/md-construct';
 import "./style.css";
 
 //styling 
@@ -27,25 +29,25 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Acme, sans-serif'
   },
   links: {
-    color: "white",
+    color: "#F7F8FB",
     textDecoration: "none",
     fontSize: 20,
-    fontFamily: 'serif',
+    fontFamily: 'Acme, sans-serif',
     '&:hover': {
       color:'#fdd835'
     },
 
   },
   menulinks:{
-    color: "black",
+    color: "#F7F8FB",
     textDecoration: "none",
     fontSize: 20,
-    fontFamily: 'serif',
+    fontFamily: 'Acme, sans-serif',
   },
   home: {
-    color: "white",
+    color: "#F7F8FB",
     fontSize: 30,
-    fontFamily: 'serif',
+    fontFamily: 'Acme, sans-serif',
     '&:hover': {
       color:'#fdd835'
     },
@@ -129,8 +131,8 @@ export default function SearchAppBar() {
       <div className={classes.root}>
         <AppBar position="static" className={classes.navBar}>
           <Toolbar>
-            <Typography variant="h4" className={classes.title} ><i class="fa fa-wrench" aria-hidden="true"></i>
-              U-BREAK-WE-FIX<i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span>
+            <Typography variant="h4" className={classes.title} ><InlineIcon icon={mdConstruct} color="#fdd835" textAlign="center"/><i className="fa fa-cog fa-spin fa-1x fa-fw"></i><span className="sr-only">Loading...</span>
+              U-BREAK-WE-FIX
           </Typography>
             <IconButton>
               <Tooltip title="Home"><Link to="/" > <HomeIcon className={classes.home} /> </Link></Tooltip>
@@ -140,10 +142,10 @@ export default function SearchAppBar() {
               <Tooltip title="Are-U-A-HandyMan"><Link className={classes.links} to="/handysignup"  >Are-U-A-HandyMan?</Link></Tooltip>
             </IconButton>
             <IconButton>
-              <Tooltip title="Sign-Up"><Link className={classes.links} to="/signup"  > Sign-Up </Link></Tooltip>
+              <Tooltip title="Sign-Up"><Link className={classes.links} to="/signup"  > Client Signup </Link></Tooltip>
             </IconButton>
             <IconButton>
-              <Tooltip title="Log-In"><Link className={classes.links} to="/login"  > Log-In</Link></Tooltip>
+              <Tooltip title="Log-In"><Link className={classes.links} to="/login"  > Login</Link></Tooltip>
             </IconButton>
             </div>
             <div className={classes.sectionMobile}>
