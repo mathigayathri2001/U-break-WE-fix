@@ -17,7 +17,7 @@ import { Link, Redirect } from 'react-router-dom'
 import Nav from '../components/Navbar'
 import BothLogin from '../components/Login'
 import Image from '../components/Login/background.jpg'
-import Footer from '../components/Footer'
+// import Footer from '../components/Footer'
 
 // import API from '../utils/API';
 // import { AuthContext } from '../utils/auth-context';
@@ -84,7 +84,6 @@ export default function Login (props) {
     <Grid container component='main' className={classes.root}>
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
-
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square className={classes.background} >
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
@@ -93,40 +92,15 @@ export default function Login (props) {
           <Typography component='h1' variant='h5'>
             Login
           </Typography><BothLogin/>
-
-          {/* <Box component="span" visibility="visible" p={1} m={1} bgcolor="background.paper">
-      Invalid user name and password combination!
-    </Box> */}
-
           <Typography
             visibility='hidden'
             component='h1'
             variant='h5'
           ></Typography>
-
-          {/* <form className={classes.form} noValidate>
-            <Grid>
-              <Button>
-                <Link className={classes.links} to='/handylogin'>
-                  {' '}
-                  Handyman login
-                </Link>
-              </Button>
-            </Grid>
-
-            <Grid>
-              <Button>
-                <Link className={classes.links} to='/userlogin'>
-                  {' '}
-                  User login
-                </Link>
-              </Button>
-            </Grid>
-          </form>*/}
         </div>
       </Grid>
     </Grid> 
-    <Footer />
+    {/* <Footer /> */}
     </div>
   )
 }

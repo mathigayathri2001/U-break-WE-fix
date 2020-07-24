@@ -1,7 +1,7 @@
 {
-    "name": "fix",
+    "name": "handyman",
     "version": "1.0.0",
-    "description": "",
+    "description": "A Global Handyman Service Provider Website",
     "main": "server.js",
     "scripts": {
         "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -13,8 +13,12 @@
         "build": "cd client && npm run build",
         "heroku-postbuild": "npm run build"
     },
-    "author": "",
-    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mathigayathri2001/U-break-WE-fix"
+      },
+    "author": "Sujatha Mallela, Gayathiri Ramamoorthy, Josh George",
+    "license": "MIT",
     "devDependencies": {
         "concurrently": "^4.1.0",
         "nodemon": "^1.18.7"
@@ -33,6 +37,7 @@
         "jsonwebtoken": "^8.5.1",
         "material-ui-search-bar": "^1.0.0-beta.14",
         "mongoose": "^5.3.16",
+        "morgan": "^1.10.0",
         "react-responsive-carousel": "^3.2.9",
         "react-router-dom": "^5.2.0"
     }

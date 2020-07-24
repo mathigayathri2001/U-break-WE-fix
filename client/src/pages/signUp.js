@@ -18,7 +18,7 @@ import { Redirect } from 'react-router-dom'
 import { AuthContext } from '../utils/auth-context'
 import Nav from '../components/Navbar'
 import Image from '../components/Login/background.jpg'
-import Footer from '../components/Footer1'
+// import Footer from '../components/Footer1'
 
 
 //Styling
@@ -195,7 +195,7 @@ export default function SignUp () {
           </form>
         </div>
       </Container>
-      <Footer />
+      {/* <Footer /> */}
       </div>
     )
   }
