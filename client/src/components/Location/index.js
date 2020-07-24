@@ -45,6 +45,9 @@ export default function GoogleMaps ({ onChange }) {
   const [options, setOptions] = React.useState([])
   const loaded = React.useRef(false)
 
+  require('dotenv').config();
+  console.log(process.env.REACT_APP_APIKEY);
+
   if (typeof window !== 'undefined' && !loaded.current) {
     if (!document.querySelector('#google-maps')) {
       loadScript(
