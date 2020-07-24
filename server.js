@@ -2,13 +2,17 @@
 const express = require("express");
 
 const mongoose = require("mongoose");
+const logger = require('morgan')
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+
 // Configure body parsing for AJAX requests
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// Log requests to the console.
+app.use(logger('dev'));
 // Serve up static assets
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
@@ -21,10 +25,13 @@ app.use(routes);
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/handyman",
   {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
     useCreateIndex: true,
-    useNewUrlParser: true
   }
 );
+
 
 
 // Start the API server

@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route,  Switch } from 'react-router-dom'
 import SignUp from './pages/signUp'
 import Login from './pages/login'
 import HandySignup from './pages/handysignUp'
@@ -113,6 +113,7 @@ function App () {
         }}
       >
         <Router>
+        <Switch>
           <Route exact path='/' component={Home}/>
           <Route exact path='/signup' component={SignUp} />
           <Route exact path='/login' component={Login} />
@@ -124,6 +125,7 @@ function App () {
           <Route exact path='/viewrequest' component={ViewUserRequest} />
           <Route exact path='/viewhandyrequest' component={ViewHandyRequest} />
           {/* <Footer/> */}
+          </Switch>
         </Router>
       </AuthContext.Provider>
     </div>

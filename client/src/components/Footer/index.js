@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
   footer: {
-    padding: theme.spacing(2, 1),
+    // padding: theme.spacing(2, 1),
     marginTop: 'auto',
     backgroundColor: "#263238",
     color:'white',

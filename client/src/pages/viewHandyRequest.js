@@ -14,7 +14,7 @@ import ViewHandyRequest from '../components/ViewHandyRequest'
 import { List } from '../components/List'
 import Card from '../components/Card'
 import Logout from '../components/Logout'
-import Footer from '../components/Footer1'
+// import Footer from '../components/Footer1'
 
 //Styling
 const useStyles = makeStyles(theme => ({
@@ -194,7 +194,7 @@ export default function ViewHRequest () {
           <Box mt={8}>{/* <Copyright /> */}</Box>
         </Container>
         </div> 
-        <Footer />
+        {/* <Footer /> */}
       </div>
     )
   }

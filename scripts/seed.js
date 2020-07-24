@@ -5,46 +5,78 @@ const db = require('../models')
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/handyman')
 const handymanSeed = [
-    {
-      name: "Corbett Yoxen",
-      email: "cyoxen0@phpbb.com",
-      password: "$2a$12$iYHguvgC9DHbC.h21Z1fqubKRjFlgxRgEhl2FKffjqn7nviknc7LW",
-      phoneNumber: "5698563256",
-      location: "Kanata, Ottawa, ON, Canada",
-      service: ["Gas Installation","Lawn care"],
-    },
-    {
-      name: "Ely Celloni",
-      email: "ecelloni1@wunderground.com",
-      password: "$2a$12$iYHguvgC9DHbC.h21Z1fqubKRjFlgxRgEhl2FKffjqn7nviknc7LW",
-      phoneNumber: "5698563212",
-      location: "Toronto, ON, Canada",
-      service: ["Duct cleaning","Lawn care","Deck & Fences"],     
-    },
-    {
-      name: "Enriqueta Lodewick",
-      email: "elodewick2@bloomberg.com",
-      password: "$2a$12$iYHguvgC9DHbC.h21Z1fqubKRjFlgxRgEhl2FKffjqn7nviknc7LW",
-      phoneNumber: "5698256256",
-      location: "Kanata, Ottawa, ON, Canada",
-      service: ["Moving & Delivery","Lawn care"],     
-    },
-    {
-      name: "Esta Ebbles",
-      email: "eebbles3@shop-pro.jp",
-      password: "$2a$12$iYHguvgC9DHbC.h21Z1fqubKRjFlgxRgEhl2FKffjqn7nviknc7LW",
-      phoneNumber: "5698563289",
-      location: "Montreal, QC, Canada",
-      service: ["Gas Installation","Lawn care"],   
-    },
-    {
-      name: "Haydon Malden",
-      email: "hmalden4@mozilla.org",
-      password: "$2a$12$iYHguvgC9DHbC.h21Z1fqubKRjFlgxRgEhl2FKffjqn7nviknc7LW",
-      phoneNumber: "5698563896",
-      location: "Gatineau, QC, Canada",
-      service: ["Patio","Lawn care"],
-    }
+  {
+    name: "Thomas",
+    email: "thomas@gmail.com",
+    password: "$2a$12$iYHguvgC9DHbC.h21Z1fqubKRjFlgxRgEhl2FKffjqn7nviknc7LW",
+    phoneNumber: "5698563256",
+    location: "Kanata, Ottawa, ON, Canada",
+    service: ["Gas Installation","Lawn care"],
+  },
+  {
+    name: "William",
+    email: "william@gmail.com",
+    password: "$2a$12$iYHguvgC9DHbC.h21Z1fqubKRjFlgxRgEhl2FKffjqn7nviknc7LW",
+    phoneNumber: "5698563212",
+    location: "Toronto, ON, Canada",
+    service: ["Duct cleaning","Lawn care","Deck & Fences"],     
+  },
+  {
+    name: "Logan",
+    email: "logan@gamil.com",
+    password: "$2a$12$iYHguvgC9DHbC.h21Z1fqubKRjFlgxRgEhl2FKffjqn7nviknc7LW",
+    phoneNumber: "5698256256",
+    location: "Kanata, Ottawa, ON, Canada",
+    service: ["Moving & Delivery","Lawn care"],     
+  },
+  {
+    name: "Jakob",
+    email: "jakob@gmail.com",
+    password: "$2a$12$iYHguvgC9DHbC.h21Z1fqubKRjFlgxRgEhl2FKffjqn7nviknc7LW",
+    phoneNumber: "5698563289",
+    location: "Montreal, QC, Canada",
+    service: ["Gas Installation","Lawn care"],   
+  },
+  {
+    name: "Haydon",
+    email: "haydon@gmail.com",
+    password: "$2a$12$iYHguvgC9DHbC.h21Z1fqubKRjFlgxRgEhl2FKffjqn7nviknc7LW",
+    phoneNumber: "5698514596",
+    location: "Gatineau, QC, Canada",
+    service: ["Patio","Lawn care"],
+  },
+  {
+    name: "Alexander",
+    email: "alexander@gmail.com",
+    password: "$2a$12$iYHguvgC9DHbC.h21Z1fqubKRjFlgxRgEhl2FKffjqn7nviknc7LW",
+    phoneNumber: "5368563896",
+    location: "Gatineau, QC, Canada",
+    service: ["Door & Wall Painting","Lawn care"],
+  },
+  {
+    name: "Junior",
+    email: "junior@gmail.com",
+    password: "$2a$12$iYHguvgC9DHbC.h21Z1fqubKRjFlgxRgEhl2FKffjqn7nviknc7LW",
+    phoneNumber: "6988563289",
+    location: "Montreal, QC, Canada",
+    service: ["Gas Installation","Heating & Cooling","Carpet cleaning","Lawn care"],   
+  },
+  {
+    name: "Tamar",
+    email: "tamar@gmail.com",
+    password: "$2a$12$iYHguvgC9DHbC.h21Z1fqubKRjFlgxRgEhl2FKffjqn7nviknc7LW",
+    phoneNumber: "5698569652",
+    location: "Toronto, ON, Canada",
+    service: ["Carpet cleaning","Lawn care","Deck & Fences"],     
+  },
+  {
+    name: "Noah",
+    email: "noah@gmail.com",
+    password: "$2a$12$iYHguvgC9DHbC.h21Z1fqubKRjFlgxRgEhl2FKffjqn7nviknc7LW",
+    phoneNumber: "6698569522",
+    location: "Carleton Place, ON, Canada",
+    service: ["Carpet cleaning","Lawn care","Deck & Fences"],     
+  },
 ]
 
 const serviceSeed = [
@@ -52,7 +84,7 @@ const serviceSeed = [
     name: 'Landscaping' 
   },
   { 
-    name: 'Painting' 
+    name: 'Door & Wall Painting' 
   },
   { 
     name: 'Appliance install/Repair' 
@@ -64,7 +96,7 @@ const serviceSeed = [
     name: 'Junk removal'
   },
   {
-    name: 'Electrical'
+    name: 'Electrical works'
   },
   {
     name: 'Carpet cleaning'

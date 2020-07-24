@@ -18,7 +18,8 @@ import { AuthContext } from '../utils/auth-context'
 import SearchBar from '../components/Searchbar'
 import Navbar from '../components/Navbar'
 import Image from '../components/Login/background.jpg'
-import Footer from  '../components/Footer1'
+// import Footer from  '../components/Footer1'
+// import Footer from  '../components/Footer'
 
 //Styling
 const useStyles = makeStyles(theme => ({
@@ -260,7 +261,7 @@ export default function SignUp () {
         </div>
         {/* <Box mt={8}><Copyright /></Box> */}
       </Container>
-      <Footer/>
+      {/* <Footer/> */}
       </div>
     )
   }
