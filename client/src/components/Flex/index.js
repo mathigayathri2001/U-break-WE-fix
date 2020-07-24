@@ -4,6 +4,8 @@ import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import ButtonBase from '@material-ui/core/ButtonBase'
+import Image from './background.jpg'
+import Button from '@material-ui/core/Button'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     margin: 'auto',
     maxWidth: 500,
-    backgroundColor: '#AFEEEE'
+    backgroundImage: `url(${Image})`,
   },
   image: {
     width: 290,
@@ -57,7 +59,7 @@ export default function ComplexGrid () {
               </Grid>
               <Grid item>
                 <Typography variant='body2' style={{ cursor: 'pointer' }} onClick={() => (window.location.href = '/signup')}>
-                  More Details
+                  <Button variant="contained" color="secondary" >More Details</Button>
                 </Typography>
               </Grid>
             </Grid>
@@ -89,7 +91,7 @@ export default function ComplexGrid () {
               </Grid>
               <Grid item>
                 <Typography variant='body2' style={{ cursor: 'pointer' }} onClick={() => (window.location.href = '/signup')}>
-                  More Details
+                  <Button variant="contained" color="secondary" >More Details</Button>
                 </Typography>
               </Grid>
             </Grid>
@@ -121,7 +123,7 @@ export default function ComplexGrid () {
               </Grid>
               <Grid item>
                 <Typography variant='body2' style={{ cursor: 'pointer' }} onClick={() => (window.location.href = '/signup')}>
-                  More Details
+                  <Button variant="contained" color="secondary" >More Details</Button>
                 </Typography>
               </Grid>
             </Grid>
@@ -153,7 +155,7 @@ export default function ComplexGrid () {
               </Grid>
               <Grid item>
                 <Typography variant='body2' style={{ cursor: 'pointer' }} onClick={() => (window.location.href = '/signup')}>
-                  More Details
+                  <Button variant="contained" color="secondary" >More Details</Button>
                 </Typography>
               </Grid>
             </Grid>
@@ -186,7 +188,7 @@ export default function ComplexGrid () {
               </Grid>
               <Grid item>
                 <Typography variant='body2' style={{ cursor: 'pointer' }} onClick={() => (window.location.href = '/signup')}>
-                  More Details
+                  <Button variant="contained" color="secondary" >More Details</Button>
                 </Typography>
               </Grid>
             </Grid>
@@ -218,7 +220,7 @@ export default function ComplexGrid () {
               </Grid>
               <Grid item>
                 <Typography variant='body2' style={{ cursor: 'pointer' }} onClick={() => (window.location.href = '/signup')}>
-                  More Details
+                  <Button variant="contained" color="secondary" >More Details</Button>
                 </Typography>
               </Grid>
             </Grid>
@@ -249,7 +251,7 @@ export default function ComplexGrid () {
               </Grid>
               <Grid item>
                 <Typography variant='body2' style={{ cursor: 'pointer' }} onClick={() => (window.location.href = '/signup')}>
-                  More Details
+                  <Button variant="contained" color="secondary" >More Details</Button>
                 </Typography>
               </Grid>
             </Grid>
@@ -281,7 +283,7 @@ export default function ComplexGrid () {
               </Grid>
               <Grid item>
                 <Typography variant='body2' style={{ cursor: 'pointer' }} onClick={() => (window.location.href = '/signup')}>
-                  More Details
+                  <Button variant="contained" color="secondary" >More Details</Button>
                 </Typography>
               </Grid>
             </Grid>
@@ -313,7 +315,7 @@ export default function ComplexGrid () {
               </Grid>
               <Grid item>
                 <Typography variant='body2' style={{ cursor: 'pointer' }} onClick={() => (window.location.href = '/signup')}>
-                  More Details
+                  <Button variant="contained" color="secondary" >More Details</Button>
                 </Typography>
               </Grid>
             </Grid>
@@ -345,7 +347,7 @@ export default function ComplexGrid () {
               </Grid>
               <Grid item>
                 <Typography variant='body2' style={{ cursor: 'pointer' }} onClick={() => (window.location.href = '/signup')}>
-                  More Details
+                  <Button variant="contained" color="secondary" >More Details</Button>
                 </Typography>
               </Grid>
             </Grid>
@@ -377,7 +379,7 @@ export default function ComplexGrid () {
               </Grid>
               <Grid item>
                 <Typography variant='body2' style={{ cursor: 'pointer' }} onClick={() => (window.location.href = '/signup')}>
-                  More Details
+                  <Button variant="contained" color="secondary" >More Details</Button>
                 </Typography>
               </Grid>
             </Grid>
@@ -409,7 +411,7 @@ export default function ComplexGrid () {
               </Grid>
               <Grid item>
                 <Typography variant='body2' style={{ cursor: 'pointer' }} onClick={() => (window.location.href = '/signup')}>
-                  More Details
+                  <Button variant="contained" color="secondary" >More Details</Button>
                 </Typography>
               </Grid>
             </Grid>
@@ -441,7 +443,7 @@ export default function ComplexGrid () {
               </Grid>
               <Grid item>
                 <Typography variant='body2' style={{ cursor: 'pointer' }} onClick={() => (window.location.href = '/signup')}>
-                  More Details
+                  <Button variant="contained" color="secondary" >More Details</Button>
                 </Typography>
               </Grid>
             </Grid>
@@ -473,7 +475,7 @@ export default function ComplexGrid () {
               </Grid>
               <Grid item>
                 <Typography variant='body2' style={{ cursor: 'pointer' }} onClick={() => (window.location.href = '/signup')}>
-                  More Details
+                  <Button variant="contained" color="secondary" >More Details</Button>
                 </Typography>
               </Grid>
             </Grid>
@@ -505,7 +507,7 @@ export default function ComplexGrid () {
               </Grid>
               <Grid item>
                 <Typography variant='body2' style={{ cursor: 'pointer' }} onClick={() => (window.location.href = '/signup')}>
-                  More Details
+                  <Button variant="contained" color="secondary" >More Details</Button>
                 </Typography>
               </Grid>
             </Grid>

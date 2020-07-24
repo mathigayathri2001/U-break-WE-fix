@@ -5,6 +5,7 @@ import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import ButtonBase from '@material-ui/core/ButtonBase'
 import Image from './background2.jpg'
+import Button from '@material-ui/core/Button'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -37,11 +38,18 @@ export default function ComplexGrid () {
         <Grid container spacing={2}>
           <Grid item>
             <ButtonBase className={classes.image} onClick={() => (window.location.href = '/userlogin')}>
+              <Grid>
               <img
                 className={classes.img}
                 alt='Client'
                 src='images/clients.jpg'
               />
+              </Grid>
+
+              <Grid>
+              <Button variant="contained" color="secondary" >Login</Button>
+              </Grid>
+              
             </ButtonBase>
           </Grid>
         </Grid>
@@ -55,6 +63,7 @@ export default function ComplexGrid () {
                 alt='Handyman'
                 src='images/handyman.jpg'
               />
+              <Button variant="contained" color="secondary" >Login</Button>
             </ButtonBase>
           </Grid>
         </Grid>
