@@ -16,7 +16,6 @@ import { List } from '../components/List'
 import Card from '../components/Card'
 import ReqNav from '../components/ReqNav'
 import Image from '../components/Login/background.jpg'
-// import Footer from '../components/Footer1'
 import {makeStyles } from '@material-ui/core/styles'
 //Styling
 const useStyles = makeStyles(theme => ({
