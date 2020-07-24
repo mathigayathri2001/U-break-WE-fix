@@ -49,7 +49,8 @@ export default function GoogleMaps ({ onChange }) {
     if (!document.querySelector('#google-maps')) {
       loadScript(
         // 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAqYqXhGCOhBR81giDtW815Xj4fRF5Ps40&libraries=places',
-        'https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ3Po_WqtwTu9Q0ITpztj8stUZZBgQd7Y&libraries=places',
+        // 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ3Po_WqtwTu9Q0ITpztj8stUZZBgQd7Y&libraries=places',
+         `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_APIKEY}&libraries=places`,
         document.querySelector('head'),
         'google-maps'
       )

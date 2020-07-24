@@ -227,6 +227,7 @@ export default function Userlogin (props) {
           </div>
         </Grid>
       </Grid>
+      <Footer/>
        </div>
     )
   } else {

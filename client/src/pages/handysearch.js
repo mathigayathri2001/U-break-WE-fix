@@ -3,7 +3,6 @@ import React, { useEffect, useState, useContext } from 'react'
 import Button from '@material-ui/core/Button'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Grid from '@material-ui/core/Grid'
-import Box from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import Api from '../utils/API'
@@ -15,7 +14,6 @@ import HandyResult from '../components/HandyResult'
 import { List } from '../components/List'
 import Card from '../components/Card'
 import ReqNav from '../components/ReqNav'
-import Image from '../components/Login/background.jpg'
 import {makeStyles } from '@material-ui/core/styles'
 //Styling
 const useStyles = makeStyles(theme => ({
@@ -25,10 +23,6 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     alignItems: 'center'
   },
-  // avatar: {
-  //   margin: "theme.spacing(1)",
-  //   backgroundColor: theme.palette.secondary.main
-  // },
   form: {
     width: '100%', 
     marginTop: theme.spacing(3),
@@ -59,9 +53,7 @@ const useStyles = makeStyles(theme => ({
       // backgroundColor:'#eeeeee',
       backgroundColor:'black',
       // minHeight: '100vh'
-    },
-    
-  
+    }, 
     footer:{
       bottom: 0,
       color: "red",
@@ -231,9 +223,7 @@ export default function HandySearch () {
           </div>
         </Container>
         <div>
-        {/* <Footer/> */}
-        </div>
-        
+        </div>        
       </div>
     )
   }

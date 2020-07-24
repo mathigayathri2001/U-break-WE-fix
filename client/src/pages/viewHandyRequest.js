@@ -177,8 +177,7 @@ export default function ViewHRequest () {
                                 }
                               >
                                 Close
-                              </Button>
-                            
+                              </Button>                            
                             </ButtonGroup>
                           )}
                         />
@@ -191,10 +190,8 @@ export default function ViewHRequest () {
               </Grid>
             </Grid>
           </div>
-          <Box mt={8}>{/* <Copyright /> */}</Box>
         </Container>
         </div> 
-        {/* <Footer /> */}
       </div>
     )
   }
