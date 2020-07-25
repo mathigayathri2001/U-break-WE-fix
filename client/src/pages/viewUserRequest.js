@@ -39,6 +39,9 @@ const useStyles = makeStyles(theme => ({
     },
     color: 'black',
     textDecoration: 'none'
+  },
+  text:{
+    textAlign:"center"
   }
 }))
 
@@ -97,6 +100,9 @@ export default function ViewUserRequest () {
       <div>
         {/* <BackNav /> */}
         <Drawer/>
+        <div className={classes.text}>
+          <h2> Requests submitted </h2>
+        </div>
         <Container component='main' maxWidth='xs'>
           <CssBaseline />
           <div className={classes.paper}>

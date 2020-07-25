@@ -62,6 +62,9 @@ const useStyles = makeStyles(theme => ({
       minWidth:300,
       maxWidth:400
     },   
+  },
+  text:{
+    textAlign:"center"
   }
 }))
 
@@ -144,7 +147,11 @@ export default function ServiceRequestForm () {
     <div>
       {/* <Logout /> */}
       <Drawer/>
-      <Container component='main' maxWidth='xs'>
+      <div className={classes.text}>
+      <h2> Please complete the service request form below</h2>
+        <p>Our handyman will get in touch with you shortly</p>
+        </div>
+      {/* <Container component='main' maxWidth='xs'> */}
         <div className={classes.paper}>
           <Grid>
             <Grid item xs={12}sm={12}>
@@ -154,7 +161,6 @@ export default function ServiceRequestForm () {
                     color='textSecondary'
                     gutterBottom
                   >
-                    Service Request
                   </Typography>
                 </CardContent>
                 <form className={classes.form} noValidate>
@@ -205,7 +211,7 @@ export default function ServiceRequestForm () {
             </Grid>
           </Grid>
         </div>
-      </Container>
+      {/* </Container> */}
     </div>
   )
   }
