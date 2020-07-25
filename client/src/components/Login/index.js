@@ -52,7 +52,7 @@ export default function ComplexGrid () {
             </ButtonBase>
           </Grid>
         </Grid>
-        <Button className={classes.button} onClick={() => (window.location.href = '/handylogin')} variant='contained' color='secondary'>
+        <Button className={classes.button} onClick={() => (window.location.href = '/userlogin')} variant='contained' color='secondary'>
           Client Login
         </Button>
       </Paper>

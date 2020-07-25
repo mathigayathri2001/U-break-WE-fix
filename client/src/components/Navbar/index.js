@@ -131,8 +131,8 @@ export default function SearchAppBar() {
       <div className={classes.root}>
         <AppBar position="static" className={classes.navBar}>
           <Toolbar>
-            <Typography variant="h4" className={classes.title} ><InlineIcon icon={mdConstruct} color="#fdd835" textAlign="center"/><i className="fa fa-cog fa-spin fa-1x fa-fw"></i><span className="sr-only">Loading...</span>
-              U-BREAK-WE-FIX
+          <Typography variant="h4" className={classes.title}><InlineIcon icon={mdConstruct} color="#fdd835" textAlign="center"/>
+            U-BREAK-WE-FIX<i className="fa fa-cog fa-spin fa-1x fa-fw"></i><span className="sr-only">Loading...</span>
           </Typography>
             <IconButton>
               <Tooltip title="Home"><Link to="/" > <HomeIcon className={classes.home} /> </Link></Tooltip>

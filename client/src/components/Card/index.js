@@ -11,6 +11,7 @@ const useStyles = makeStyles(theme => ({
     // backgroundColor:'lightgreen',
     // [theme.breakpoints.down('sm')]: {
     //   width:200
+    backgroundColor: "#F7F8FB"
     // }, 
     
   },
