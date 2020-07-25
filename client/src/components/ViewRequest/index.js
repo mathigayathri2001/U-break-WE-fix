@@ -3,6 +3,7 @@ import { ListItem } from '../List'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
+import Image from "../Login/background2.jpg"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -12,7 +13,8 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     textAlign: 'left',
     color: 'black',
-    backgroundColor: '#cfd8dc',
+    // backgroundColor: '#cfd8dc',
+    backgroundImage: `url(${Image})`,
     width:700,
     [theme.breakpoints.down('sm')]: {
       width:300,

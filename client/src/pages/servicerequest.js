@@ -10,9 +10,10 @@ import { Redirect } from 'react-router-dom'
 import { AuthContext } from '../utils/auth-context'
 import Api from '../utils/API'
 import Menu from '../components/Menu'
+import Drawer from '../components/Drawerback'
 //import Footer from '../components/Footer1'
 
-import Logout from '../components/Logout'
+// import Logout from '../components/Logout'
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -141,7 +142,8 @@ export default function ServiceRequestForm () {
     }
   return (
     <div>
-      <Logout />
+      {/* <Logout /> */}
+      <Drawer/>
       <Container component='main' maxWidth='xs'>
         <div className={classes.paper}>
           <Grid>
