@@ -1,10 +1,22 @@
 # U break- We fix
+U break-we Fix is a Home improvements service application.
 
-### Deployed URL
+### Deployed Heroku URL:
 Click here to see live app: https://still-depths-30514.herokuapp.com/
 
-### Google Slides
+### Deployed WEb URL:
+https://github.com/mathigayathri2001/U-break-WE-fix
+
+### Google Slides:
 https://docs.google.com/presentation/d/1X_o3kzUvR2C3nY6xse1xT60SAjea9I8QpyDJGpE_uvQ/edit?usp=sharing
+
+## Team Members:
+
+Member 1: Gayathiri Ramamoorthy, mathigayathri2001, https://github.com/mathigayathri2001
+
+Member 2: Sujatha Mallela, sujatha-m, https://github.com/sujatha-m/
+
+Member 3: Josh George, joshb4u, https://github.com/joshb4u
 
 ## Description
 U break-we Fix is a Home improvements service application.
@@ -14,7 +26,8 @@ handymen available in that location.The client can then choose a handyman of int
 The application has been designed and implemented as a fullstack JavaScript development project 
 which utilizes MongoDB, Express, React, and Node.js (MERN).
 
-The salient features of the application are:-
+## Features
+The salient features of this application are:-
 
 1) registration of first time client with the application 
 2) registration of first time handymen with the application
@@ -29,11 +42,11 @@ The salient features of the application are:-
 ## Wireframe
 ![Wireframe](demo/images/Wireframe.jpg)
 
-
 ## Table of Contents
    * [User Story](#user-story)
    * [Acceptance Criteria](#acceptance-criteria)
    * [Description](#description)
+   * [Features](#features)
    * [Usage](#usage)
    * [Built with](#built-with)
    * [Installation](#installation)
@@ -57,10 +70,6 @@ As a Public user,
 I WANT to login to the Handyman Application,
 SO THAT, I can review my work order request status.
 
-As a Public user,
-I WANT to login into the Handyman Application,
-SO THAT, I can update feedback to the work order completed.
-
 As a Service Provider (Handyman),
 I WANT to sign-up into the HandyMan Application,
 SO THAT, I am able to get work orders for my skill.
@@ -70,10 +79,6 @@ I WANT to login into the HandyMan Application,
 SO THAT, I can review work orders and accept or reject it.
 ```
 
-### features
-The WebApp complies to following features. These are as follows -
-
-
 ## Badges
 [![gf](https://img.shields.io/github/followers/sujatha-m?style=social)](https://img.shields.io/github/followers/sujatha-m?style=social)
 [![stat](https://img.shields.io/website?url=https%3A%2F%2Fsujatha-m.github.io%2FWeather-Dashboard%2FDevelop%2F)](https://img.shields.io/website?url=https%3A%2F%2Fsujatha-m.github.io%2FWeather-Dashboard%2FDevelop%2F)
@@ -81,11 +86,11 @@ The WebApp complies to following features. These are as follows -
 
 ## Visuals
 
-![](Demo/employee-directory.gif)
+![](demo/images/uBreakWeFix.gif)
 
-![](Demo/1.Screenshot.png)
+![](demo/images/Screenshot1.png)
 
-![](Demo/2.Screenshot.png)
+![](demo/images/Screenshot5.png)
 
 ## Built with
 * React.js
@@ -100,9 +105,11 @@ The WebApp complies to following features. These are as follows -
 * Express, Express Validator
 * Morgan
 * bcrypt Js
-* JSON Web Token (JWT)
+* JSON Web Token (JWT) for authentication
 * JSX
 * Auto Suggest Highlight
+* @iconify/react
+* react-responsive-carousel
 
 ## Installation 
 Run npm install to install all dependencies.
@@ -111,7 +118,7 @@ Runs the app in the development mode.
 Open http://localhost:3000 to view it in the browser.
 The page will reload if you make edits. You will also see any lint errors in the console.
 
-The U-Break-We-Fix app is live on Heroku for you to use as well.
+The U-Break-We-Fix app has been deployed live on Heroku.
 
 ## Usage
 ```sh
