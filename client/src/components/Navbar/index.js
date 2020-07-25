@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
   },
   menulinks:{
-    color: "#F7F8FB",
+    color: "black",
     textDecoration: "none",
     fontSize: 20,
     fontFamily: 'Acme, sans-serif',
@@ -131,7 +131,7 @@ export default function SearchAppBar() {
       <div className={classes.root}>
         <AppBar position="static" className={classes.navBar}>
           <Toolbar>
-          <Typography variant="h4" className={classes.title}><InlineIcon icon={mdConstruct} color="#fdd835" textAlign="center"/>
+          <Typography variant="h4" className={classes.title}><InlineIcon icon={mdConstruct} color="#fdd835" textalign="center"/>
             U-BREAK-WE-FIX<i className="fa fa-cog fa-spin fa-1x fa-fw"></i><span className="sr-only">Loading...</span>
           </Typography>
             <IconButton>
