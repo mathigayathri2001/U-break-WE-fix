@@ -52,9 +52,8 @@ const useStyles = makeStyles(theme => ({
     color: 'black',
     textDecoration: 'none'
   },
-  heading:{
-    textAlign:"center",
-    marginTop:"40px",
+  text:{
+    textAlign:"center"
   }
 }))
 
@@ -129,7 +128,9 @@ export default function ViewHRequest () {
       <div>
         {/* <Logout /> */}
         <Drawer/>
-        <div className={classes.heading}><h2>Client Requests</h2>
+        <div className={classes.text}>
+          <h2> Client Requests</h2>
+        </div>
         <Container component='main' maxWidth='xs'>
           <CssBaseline />
           <div className={classes.paper}>
@@ -194,7 +195,6 @@ export default function ViewHRequest () {
           </div>
         </Container>
         </div> 
-      </div>
     )
   }
 }
