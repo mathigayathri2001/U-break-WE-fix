@@ -40,7 +40,7 @@ export default {
   getHandyman: function () {
     return axios.get('/api/handyman/')
   },
-  // Gets the user with the given id
+  // Gets handyman data with the given id
   getHandymans: function (query, userData) {
     console.log(query)
     //console.log(userData)
@@ -53,6 +53,7 @@ export default {
     return axios.post('/api/handyman/signup', handymanData)
   },
 
+  //get handyman data
   getHandymanById: function (query) {
     console.log(query)
     return axios.get('/api/handyman/' + query)
@@ -62,28 +63,31 @@ export default {
     return axios.post('/api/handyman/login', handymanData)
   },
 
+  //fetches all services provided by this application
   getService: function () {
     return axios.get('/api/service/')
   },
-  // // Saves an requested handmany into the database
+  // // Saves an requested handyman into the database
   saveserviceRequest: function (servicerequestData) {
     console.log(servicerequestData)
     return axios.post('/api/servicerequest/add', servicerequestData)
   },
 
+  // fetches all service requests for a user
   getuserview: function (query) {
     console.log(query)
     return axios.get('/api/servicerequest' + urlParameters(query))
   },
 
+  // fetches all service requests for a handyman
   gethandyview: function (query) {
     console.log(query)
     return axios.get('/api/servicerequest' + urlParameters(query))
   },
+
+  //updates the status of service request from handyman
   setReqStatus: function (statusData) {
     console.log(statusData)
     return axios.post('/api/servicerequest/update',statusData)
   }
-
-  
 }

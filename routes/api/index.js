@@ -5,9 +5,7 @@ const handymanRoutes = require("./handyman");
 const serviceRoutes = require("./service");
 const servicerequestRoutes = require("./servicerequest");
 
-
-
-// Book routes
+// all routes of user,handyman,service and servicerequest are imported here
 router.use("/user", userRoutes);
 router.use("/handyman", handymanRoutes);
 router.use("/service", serviceRoutes);

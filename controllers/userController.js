@@ -1,30 +1,11 @@
 const db = require("../models");
 const { validationResult } = require('express-validator');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const HttpError = require('../models/http-error');
+const bcrypt = require('bcryptjs'); // required for hashing password
+const jwt = require('jsonwebtoken'); //required for authentication & authorization
+const HttpError = require('../models/http-error'); //helper error module
 const User = require('../models/user');
 
-// // Defining methods for the bookController
-// module.exports = {
-//   // findById: function(req, res) {
-//   //   db.Book.findById(req.params.id)
-//   //     .then(dbBook => res.json(dbBook))
-//   //     .catch(err => res.status(422).json(err));
-//   // },
-//   // update: function(req, res) {
-//   //   db.Book.findOneAndUpdate({ id: req.params.id }, req.body)
-//   //     .then(dbBook => res.json(dbBook))
-//   //     .catch(err => res.status(422).json(err));
-//   // },
-//   // remove: function(req, res) {
-//   //   db.Book.findById(req.params.id)
-//   //     .then(dbBook => dbBook.remove())
-//   //     .then(dbBook => res.json(dbBook))
-//   //     .catch(err => res.status(422).json(err));
-//   // }
-// };
-
+//gets user info from the database by id
 const findUserById = async (req, res, next) => {
   let found;
   try {
@@ -39,12 +20,18 @@ const findUserById = async (req, res, next) => {
   res.json(found)
 }
 
+//get all users from the database
 const findAll = async (req, res, next) => {
   db.User.find(req.query)
     .then(dbUser => res.json(dbUser))
     .catch(err => res.status(422).json(err));
 }
 
+/*
+    signup function that handles :-
+    1) user input validation
+    2) generates jwt authentication token
+*/
 const signup = async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -53,8 +40,10 @@ const signup = async (req, res, next) => {
     );
   }
 
+  //extract the user provided name,email and password from the request body
   const { name, email, password } = req.body;
 
+  //check if user already exists in the database
   let existingUser;
   try {
     existingUser = await User.findOne({ email: email });
@@ -74,6 +63,8 @@ const signup = async (req, res, next) => {
     return next(error);
   }
 
+  //initialize the bcrypt module with user provided password string and salt value.
+  //the result is hashed password
   let hashedPassword;
   try {
     hashedPassword = await bcrypt.hash(password, 12);
@@ -85,6 +76,7 @@ const signup = async (req, res, next) => {
     return next(error);
   }
 
+  //store the user info along with hashed password into the database for this user
   const createdUser = new User({
     name,
     email,
@@ -101,6 +93,7 @@ const signup = async (req, res, next) => {
     return next(error);
   }
 
+  //sign the token generated with a private key and validity setting
   let token;
   try {
     token = jwt.sign(
@@ -116,16 +109,23 @@ const signup = async (req, res, next) => {
     return next(error);
   }
 
+  //return the generated token along with userid created and user email back to caller
   res
     .status(201)
     .json({ userId: createdUser.id, email: createdUser.email, token: token });
 };
 
+/*
+    login function that handles :-
+    1) presence of user in the database 
+    2) verifies hashed password and jwt authentication token generated during signup
+*/
 const login = async (req, res, next) => {
   const { email, password } = req.body;
 
   let existingUser;
 
+  //check if user exists in the database,else return error
   try {
     existingUser = await User.findOne({ email: email });
   } catch (err) {
@@ -144,6 +144,8 @@ const login = async (req, res, next) => {
     return next(error);
   }
 
+  //compare user provided password against stored hash password in the database for this user
+  //if mismatch return error
   let isValidPassword = false;
   try {
     isValidPassword = await bcrypt.compare(password, existingUser.password);
@@ -163,6 +165,7 @@ const login = async (req, res, next) => {
     return next(error);
   }
 
+  //sign the token generated with a private key and validity setting for this session
   let token;
   try {
     token = jwt.sign(
@@ -178,6 +181,7 @@ const login = async (req, res, next) => {
     return next(error);
   }
 
+  //return the verified token along with matched userid and user email back to caller
   res.json({
     userId: existingUser.id,
     email: existingUser.email,
@@ -185,6 +189,7 @@ const login = async (req, res, next) => {
   });
 };
 
+//export functtions from this controller to be used by other modules
 exports.signup = signup;
 exports.login = login;
 exports.findAll = findAll;

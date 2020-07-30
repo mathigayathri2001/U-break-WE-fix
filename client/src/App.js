@@ -14,7 +14,9 @@ import ViewHandyRequest from './pages/viewHandyRequest'
 import Footer from './components/Footer'
 import "./App.css"
 
+//Main function which renders all the components making up the application
 function App () {
+  //Hook definitions to handle setting of auth context data
   const [token, setToken] = useState(false)
   const [userId, setUserId] = useState()
   const [handymanId, setHandymanId] = useState(false)
@@ -22,6 +24,8 @@ function App () {
   const [location, setLocation] = useState();
   const [slist, setSlist] = useState([])
 
+  // callback used to store userid and generated token(returned by jwt backend)
+  // in auth context after user signup 
   const ulogin = useCallback((uid, token) => {
     setToken(token);
     setUserId(uid);
@@ -31,6 +35,8 @@ function App () {
     );
   }, [])
 
+  //any updates to the login info would trigger context update and local storage update through
+  //useEffect
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem('userData'));
     if (storedData && storedData.token) {
@@ -38,6 +44,8 @@ function App () {
     }
   }, [ulogin]);
 
+  // callback used to store handymanid and generated token(returned by jwt backend)
+  // in auth context after handyman signup
   const hlogin = useCallback((uid, token) => {
     setToken(token);
     setHandymanId(uid);
@@ -47,6 +55,8 @@ function App () {
     );
   }, [])
 
+  //any updates to the login info would trigger context update and local storage update through
+  //useEffect
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem('handymanData'));
     if (storedData && storedData.token) {
@@ -54,6 +64,7 @@ function App () {
     }
   }, [hlogin]);
 
+  //callback used to clear auth context data of user after he logs out
   const ulogout = useCallback(() => {
     setToken(null);
     setUserId(null);
@@ -63,12 +74,14 @@ function App () {
     localStorage.removeItem('userlocation');
   }, [])
 
+  //callback used to clear auth context data of handyman after he logs out
   const hlogout = useCallback(() => {
     setToken(null);
     setHandymanId(null);
     localStorage.removeItem('handymanData');   
   }, [])
 
+  //callback used to set location field in auth context
   const setloc = useCallback((location) => {
     setLocation(location);
     localStorage.setItem(
@@ -77,6 +90,7 @@ function App () {
     );
   }, [])
 
+  //capture location state updates immediately through useEffect by triggering setloc
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem('userlocation'));
     if (storedData && storedData.location) {
@@ -84,10 +98,12 @@ function App () {
     }
   }, [setloc]);
 
+  //callback used to set service lists selected by user in auth context
   const setslist = useCallback((slist) => {
     setSlist(slist);
   }, [])
 
+  //callback used to set handymanid field from service request in auth context
   const setshid = useCallback((servicehid) => {
     setShId(servicehid);
   }, [])

@@ -1,7 +1,10 @@
-const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken'); //required for token validation
 
-const HttpError = require('../models/http-error');
+const HttpError = require('../models/http-error'); //helper error module
 
+//Module that handles authorization of jwt token against service request creation by the user
+//It basically verifies that the user provided token matches with the one in server and allows or declines
+//access to create service request
 module.exports = (req, res, next) => {
   if (req.method === 'OPTIONS') {
     return next();
