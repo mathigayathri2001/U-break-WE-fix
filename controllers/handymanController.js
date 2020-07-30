@@ -1,26 +1,12 @@
 const db = require("../models");
 const { validationResult } = require('express-validator');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-
-const HttpError = require('../models/http-error');
+const bcrypt = require('bcryptjs');  // required for hashing password
+const jwt = require('jsonwebtoken'); //required for authentication & authorization
+const HttpError = require('../models/http-error'); //helper error module
 const Handyman = require('../models/handyman');
 
-
-// const findAll = async (req, res, next) => {
-//   console.log("In find All..."+ req.query)
-//   db.Handyman.find(req.query)
-//     // .populate("service")
-//     .then(dbHandyman => res.json(dbHandyman))
-//     .catch(err => res.status(422).json(err))
-// }
-// const findHandyManById = async (req, res, next) => {
-//   db.Handyman.findById(req.params.id)
-//     // .populate("service")
-//     .then(dbHandyman => res.json(dbHandyman))
-//     .catch(err => res.status(422).json(err))
-// }
-
+//get all handymen from the database by matching the user provided services with 
+//location
 const findAll = async (req, res, next) => {
   var params = Object.assign({}, req.query);
   delete req.query.service;
@@ -28,6 +14,7 @@ const findAll = async (req, res, next) => {
   let foundloc;
   try {
     //console.log(req.query.service);
+    //check if handyman exists for this location,esle return error
   foundloc = await Handyman.find(req.query)
   } catch(err) {
     const error = new HttpError(
@@ -37,6 +24,7 @@ const findAll = async (req, res, next) => {
     return next(error)
   }
 
+  //for this location,check if the user desired service is provided by this handyman
   console.log(foundloc.length);
   let i;
   var loc_id = [];
@@ -79,6 +67,7 @@ const findAll = async (req, res, next) => {
   res.json(retobj);
 }
 
+//gets handyman info from the database by id
 const findHandyManById = async (req, res, next) => {
   let found;
   //console.log(req.params.id);
@@ -95,6 +84,11 @@ const findHandyManById = async (req, res, next) => {
   res.json(found)
 }
 
+/*
+    signup function that handles :-
+    1) handyman input validation
+    2) generates jwt authentication token
+*/
 const signup = async (req, res, next)  => {
   const errors = validationResult(req);
   if(!errors.isEmpty()){
@@ -103,8 +97,10 @@ const signup = async (req, res, next)  => {
     )
   }
 
+  //extract the user provided name,email,password,phoneNumber,location and service from the request body
 const {name, email, password, phoneNumber, location,service} = req.body;
 
+//check if handyman already exists in the database
 let existingHandyman;
 try {
   existingHandyman = await Handyman.findOne({email:email})
@@ -116,6 +112,8 @@ try {
   return next(error)
 }
 
+//initialize the bcrypt module with user provided password string and salt value.
+  //the result is hashed password
 let hashedPassword;
 try{
   hashedPassword = await bcrypt.hash(password, 12)
@@ -127,6 +125,7 @@ try{
   return next(error)
 }
 
+//store the handyman info along with hashed password into the database for this user
 const createdHandyman = new Handyman({
   name, 
   email, 
@@ -146,6 +145,7 @@ try{
   return next(error)
 }
 
+//sign the token generated with a private key and validity setting
 let token;
 try {
   token = jwt.sign(
@@ -160,16 +160,23 @@ try {
   )
   return next(error)
 }
+//return the generated token along with handymanid created and handyman email back to caller
   res
      .status(201)
      .json({ handymanId: createdHandyman.id, email: createdHandyman.email, token:token})
 }
 
+/*
+    login function that handles :-
+    1) presence of handyman in the database 
+    2) verifies hashed password and jwt authentication token generated during signup
+*/
 const login = async (req, res, next) => {
   const { email, password } = req.body
   
   let existingHandyman;
 
+  //check if handyman exists in the database,else return error
   try {
     existingHandyman = await Handyman.findOne ({ email: email})
   } catch (err) {
@@ -188,6 +195,8 @@ const login = async (req, res, next) => {
     return next(error)
   }
 
+  //compare user provided password against stored hash password in the database for this handyman
+  //if mismatch return error
   let isValidPassword = false;
   try {
     isValidPassword = await bcrypt.compare(password, existingHandyman.password)
@@ -206,6 +215,7 @@ const login = async (req, res, next) => {
     return next(error)
   }
 
+  //sign the token generated with a private key and validity setting for this session
   let token;
   try{
     token = jwt.sign(
@@ -220,6 +230,7 @@ const login = async (req, res, next) => {
     )
     return next(error);
   }
+  //return the verified token along with matched handymanid and handyman email back to caller
   res.json({
     handymanId: existingHandyman.id,
     email: existingHandyman.email,
@@ -227,6 +238,7 @@ const login = async (req, res, next) => {
   })
 }
 
+//export functtions from this controller to be used by other modules
 exports.signup = signup;
 exports.login = login;
 exports.findAll = findAll;
