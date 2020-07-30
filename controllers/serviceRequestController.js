@@ -5,17 +5,24 @@ const User = require('../models/user');
 
 const HttpError = require('../models/http-error');
 
+// adds a new service request to the service request collection in database
 const create = async (req, res) => {
   console.log(req.body)
   db.ServiceRequest.create(req.body)
     .then(dbServiceRequest => res.json(dbServiceRequest))
     .catch(err => res.status(422).json(err))
 }
+
+//searches for a userid in the service request collection
 const findUserreq = async (req, res) => {
   db.ServiceRequest.findById(req.params.id)
     .then(dbServiceRequest => res.json(dbServiceRequest))
     .catch(err => res.status(422).json(err))
 }
+
+//common function which handles extracting fields info for a 
+//particular userid and handymanid.The extracted data is returned as a response
+//to the caller
 const findAll = async (req, res, next) => {
   var query;
   var flag = false; // uid = false,hid = true
@@ -74,6 +81,7 @@ const findAll = async (req, res, next) => {
     res.json(found)
 }
 
+//handles updating status field within a service request
 const update = async (req, res, next) => {
   console.log('service status update')
   const { uid, reqstatus } = req.body;
