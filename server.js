@@ -1,12 +1,11 @@
 
+/* get all required modules */
 const express = require("express");
-
 const mongoose = require("mongoose");
 const logger = require('morgan')
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
-
 
 // Configure body parsing for AJAX requests
 app.use(express.urlencoded({ extended: true }));
@@ -31,8 +30,6 @@ mongoose.connect(
     useCreateIndex: true,
   }
 );
-
-
 
 // Start the API server
 app.listen(PORT, () =>
